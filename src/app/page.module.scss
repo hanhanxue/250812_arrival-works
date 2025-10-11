@@ -2,7 +2,6 @@
 @use "@/styles/base/typography" as *;
 
 .container {
-
   .fullContainer {
     grid-column: 1 / 13;
 
@@ -11,22 +10,17 @@
     flex-direction: column;
   }
 
+  .imageContainer {
+    position: relative;
 
-    .imageContainer {
-
-        position: relative;
-
-        border-radius: $radius-md;
-        overflow: hidden;
- 
-    }
+    border-radius: $radius-md;
+    overflow: hidden;
+  }
 }
-
 
 .description {
   grid-column: 1 / 13;
   @include display;
-
 }
 
 // .page {

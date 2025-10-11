@@ -1,14 +1,10 @@
-
-// SCSS Variables for build-time 
+// SCSS Variables for build-time
 // CSS Custom Properties for runtime-adjustable (e.g., for theming, dark mode, or user preferences).
-
-
 
 $spacing-1: 4px;
 $spacing-2: 8px;
 $spacing-4: 16px;
 $spacing-6: 24px;
-
 
 // SCSS Variables - Design tokens and configuration
 // Colors
@@ -33,19 +29,19 @@ $gray-800: #262626;
 $gray-900: #171717;
 
 // Spacing scale
-$spacing-xs: 0.25rem;   // 4px
-$spacing-sm: 0.5rem;    // 8px
-$spacing-md: 1rem;      // 16px
-$spacing-lg: 1.5rem;    // 24px
-$spacing-xl: 2rem;      // 32px
-$spacing-2xl: 3rem;     // 48px
-$spacing-3xl: 4rem;     // 64px
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 3rem; // 48px
+$spacing-3xl: 4rem; // 64px
 
 // Border radius
-$radius-sm: 0.25rem;    // 4px
-$radius-md: 0.5rem;     // 8px
-$radius-lg: 0.75rem;    // 12px
-$radius-xl: 1rem;       // 16px
+$radius-sm: 0.25rem; // 4px
+$radius-md: 0.5rem; // 8px
+$radius-lg: 0.75rem; // 12px
+$radius-xl: 1rem; // 16px
 $radius-full: 9999px;
 
 // Breakpoints
