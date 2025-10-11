@@ -22,11 +22,41 @@ const weatherMap: Record<number, string> = {
 
 export default function MontrealInfo() {
   const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
   const [weather, setWeather] = useState('Loading...');
 
   useEffect(() => {
-    // Update time every second
-    const updateTime = () => {
+    // Function to get GMT offset for Montreal
+    const getMontrealGMTOffset = () => {
+      const now = new Date();
+      const montrealTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Montreal"}));
+      const utcTime = new Date(now.toLocaleString("en-US", {timeZone: "UTC"}));
+      
+      // Calculate offset in minutes
+      const offsetMinutes = (montrealTime.getTime() - utcTime.getTime()) / (1000 * 60);
+      
+      // Format offset as GMT±HH:MM
+      const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+      const offsetMins = Math.abs(offsetMinutes) % 60;
+      const sign = offsetMinutes >= 0 ? '+' : '-';
+      
+      return `GMT${sign}${offsetHours.toString().padStart(2, '0')}:${offsetMins.toString().padStart(2, '0')}`;
+    };
+
+    // Function to format date in YYYY MM DD format
+    const getMontrealDate = () => {
+      const now = new Date();
+      const montrealTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Montreal"}));
+      
+      const year = montrealTime.getFullYear();
+      const month = (montrealTime.getMonth() + 1).toString().padStart(2, '0');
+      const day = montrealTime.getDate().toString().padStart(2, '0');
+      
+      return `${year} ${month} ${day}`;
+    };
+
+    // Update time and date every second
+    const updateTimeAndDate = () => {
       const now = new Date();
       const montrealTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Montreal"}));
       const timeString = montrealTime.toLocaleTimeString('en-US', {
@@ -35,14 +65,15 @@ export default function MontrealInfo() {
         second: '2-digit',
         hour12: true
       });
-      setTime(`${timeString} ET`);
+      setTime(`${timeString} ${getMontrealGMTOffset()}`);
+      setDate(getMontrealDate());
     };
 
-    // Initial time update
-    updateTime();
+    // Initial time and date update
+    updateTimeAndDate();
     
     // Update every second
-    const interval = setInterval(updateTime, 1000);
+    const interval = setInterval(updateTimeAndDate, 1000);
 
     // Fetch weather (you'll need to add your API key)
     const fetchWeather = async () => {
@@ -78,6 +109,7 @@ export default function MontrealInfo() {
 
       <span>Montreal</span>
       <span>{weather}</span>
+      <span>{date}</span>
       <span>{time}</span>
     </div>
     

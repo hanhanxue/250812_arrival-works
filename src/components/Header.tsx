@@ -3,6 +3,7 @@ import { SITE_NAME, NAVIGATION } from "@/lib/constants";
 import styles from "./Header.module.scss";
 
 import ICO_Arrival from "./iconography/ICO_Arrival";
+import XLink from "./XLink";
 
 export default function Header() {
   return (
@@ -16,8 +17,12 @@ export default function Header() {
           {/* <div className={`${styles.groupB}`}><ICO_Arrival /></div> */}
           <div className={`${styles.groupC}`}>Creative office for advanced industry</div>
           <div className={`${styles.groupD}`}>
-            <span className={`${styles.link}`}>Research<sup>↗</sup></span>
-            <span className={`${styles.link}`}>Contact</span>
+            <XLink href="https://research.arrival.works/"
+            target="_blank"
+            rel="noopener">Research<sup>↗</sup></XLink>
+
+
+            <XLink href="mailto:mail@arrival.works">Contact</XLink>
           </div>
    
        
