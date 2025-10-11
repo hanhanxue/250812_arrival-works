@@ -1,6 +1,8 @@
 @use "@/styles/base/variables" as *;
 @use "@/styles/base/typography" as *;
 
+@use "@/styles/abstracts/animation" as *;
+
 
 .container {
 
@@ -29,11 +31,20 @@
             align-items: center;
         }
         &.groupD {
-            grid-column: 4 / 13;
+            grid-column: 9 / 13;
             display: flex;
-            gap: $spacing-4;
+            gap: $spacing-6;
             justify-content: right;
         }
     }
 
+}
+
+.link {
+    color: var(--c-on-surface-subtle);
+
+    &:hover {
+        color: var(--c-on-surface);
+    }
+    transition: color $duration-standard;
 }

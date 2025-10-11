@@ -51,6 +51,20 @@ $line-height-loose: 2;
 
 
 
+// Typography Mixins
+@mixin display {
+  font-family: $font-primary;
+  font-weight: 450;
+
+  font-size: rem(48);
+  line-height: rem(50);
+  letter-spacing: -.01em;
+}
+.display {
+  @include display;
+}
+
+
 
 // Typography Mixins
 @mixin body-1 {
@@ -71,8 +85,8 @@ $line-height-loose: 2;
   font-family: $font-primary;
   font-weight: 420;
 
-  font-size: rem(20);
-  line-height: rem(26);
+  font-size: rem(21);
+  line-height: rem(28);
   letter-spacing: -.01em;
 }
 .subtitle-1 {

@@ -7,37 +7,10 @@
     grid-column: 1 / 13;
 
     display: flex;
-    gap: $spacing-2;
+    // gap: $spacing-2;
     flex-direction: column;
   }
 
-  .infoContainer {
-    text-transform: uppercase;
-    @include caption-1;
-
-    display:grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: $spacing-4;
-
-      // Target first span
-  span:nth-child(1) {
-    // styles for first span
-    grid-column: 1 / 3;
-  }
-  
-  // Target second span
-  span:nth-child(2) {
-    // styles for second span
-    grid-column: 3 / 6;
-  }
-  
-  // Target third span
-  span:nth-child(3) {
-    // styles for third span
-    grid-column: 6 / 13;
-    justify-self: right;
-  }
-  }
 
     .imageContainer {
 
@@ -50,7 +23,11 @@
 }
 
 
+.description {
+  grid-column: 1 / 13;
+  @include display;
 
+}
 
 // .page {
 //   --gray-rgb: 0, 0, 0;

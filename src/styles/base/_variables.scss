@@ -3,12 +3,12 @@
 // CSS Custom Properties for runtime-adjustable (e.g., for theming, dark mode, or user preferences).
 
 
-:root {
-    --c-on-surface: #000000;
-}
 
+$spacing-1: 4px;
 $spacing-2: 8px;
 $spacing-4: 16px;
+$spacing-6: 24px;
+
 
 // SCSS Variables - Design tokens and configuration
 // Colors

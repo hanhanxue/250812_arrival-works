@@ -1,0 +1,20 @@
+
+
+// :root {
+//     --c-on-surface: #EDECEC;
+//     --c-surface-0: #14120B;
+// }
+
+
+[data-theme="dark"] {
+    --c-on-surface: #EDECEC;
+    --c-surface-0: #14120B;
+    --c-on-surface-subtle: #8F8F8F;
+}
+
+[data-theme="light"] {
+    --c-on-surface: #14120B;
+    --c-surface-0: #EDECEC;
+    --c-on-surface-subtle: #8F8F8F;
+}
+

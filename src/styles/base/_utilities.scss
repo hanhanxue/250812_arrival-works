@@ -3,6 +3,11 @@
 
 
 
+.usection {
+  color: var(--c-on-surface);
+  background-color: var(--c-surface-0);
+}
+
 .ucontainer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
