@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+
         {/* This script sets the plausible_ignore flag for Vercel deployments */}
         <Script id="disable-plausible" strategy="beforeInteractive">
           {`
@@ -26,7 +27,7 @@ export default function RootLayout({
               localStorage.plausible_ignore = true;
             }
           `}
-        </Script>{" "}
+        </Script>
         {/* End of disable-plausible */}
         <PlausibleProvider
           domain="arrival.works"
@@ -35,7 +36,7 @@ export default function RootLayout({
           // trackLocalhost enabled
         />
       </head>
-      <body data-theme="dark">
+      <body data-theme="light">
         <Header />
         {children}
       </body>
