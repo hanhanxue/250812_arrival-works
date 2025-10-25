@@ -10,7 +10,7 @@ export default function Home() {
           className={`${styles.container} ucontainer umx usection-spacing-lg`}
         >
           <div className={`${styles.fullContainer}`}>
-            <MontrealInfo />
+            {/* <MontrealInfo /> */}
 
 
 
