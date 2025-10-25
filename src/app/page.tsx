@@ -12,7 +12,9 @@ export default function Home() {
           <div className={`${styles.fullContainer}`}>
             <MontrealInfo />
 
-            <div
+
+
+            {/* <div
               className={`${styles.imageContainer}`}
               style={{ aspectRatio: 1.5 }}
             >
@@ -22,7 +24,10 @@ export default function Home() {
                 alt=""
                 priority={true}
               />
-            </div>
+            </div> */}
+
+
+
           </div>
         </div>
       </section>
