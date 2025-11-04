@@ -18,7 +18,7 @@ export default function Header() {
         </div>
         {/* <div className={`${styles.groupB}`}><ICO_Arrival /></div> */}
         <div className={`${styles.groupC}`}>
-          Arriving in Q1 2026
+          Arriving Q1 2026
         </div>
         <div className={`${styles.groupD}`}>
           <XLink
