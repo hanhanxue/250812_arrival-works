@@ -10,6 +10,7 @@ export default function Header() {
     <header
       className={`
     ${styles.section} usection`}
+    data-theme="dark"
     >
       <div className={`${styles.container} ucontainer umx`}>
         <div className={`${styles.groupA}`}>
@@ -17,9 +18,9 @@ export default function Header() {
           Arrival
         </div>
         {/* <div className={`${styles.groupB}`}><ICO_Arrival /></div> */}
-        <div className={`${styles.groupC}`}>
+        {/* <div className={`${styles.groupC}`}>
           Arriving Q1 2026
-        </div>
+        </div> */}
         <div className={`${styles.groupD}`}>
           <XLink
             href="https://research.arrival.works/"

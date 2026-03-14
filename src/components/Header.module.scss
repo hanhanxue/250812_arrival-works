@@ -3,6 +3,15 @@
 
 @use "@/styles/abstracts/animation" as *;
 
+
+.section {
+  background-color: transparent;
+  // color: var(--c-on-surface);
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
 .container {
   div {
     grid-row: 1;

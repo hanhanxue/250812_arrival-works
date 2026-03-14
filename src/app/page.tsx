@@ -6,9 +6,7 @@ export default function Home() {
   return (
     <main>
       <section className={`${styles.section} usection`}>
-        <div
-          className={`${styles.container} ucontainer umx usection-spacing-lg`}
-        >
+        {/* <div className={`${styles.container} ucontainer umx usection-spacing-lg`}> */}
           <div className={`${styles.fullContainer}`}>
             {/* <MontrealInfo /> */}
 
@@ -27,9 +25,27 @@ export default function Home() {
             </div> */}
 
 
+            <div className={`${styles.imageFrame}`}>
+            <video autoPlay muted loop playsInline className={`${styles.video}  
+                    `}
+                style={{width:"100%"}}>         
+                    {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
+                        <source src="https://assets.arrival.works/_LogoGlow_4x3_30FPS_ME.mp4" type="video/mp4"/>  
+                        </video>
+            </div>
+
+
+                        <div className={`${styles.imageFrame}`}>
+            <video autoPlay muted loop playsInline className={`${styles.video}  
+                    `}
+                style={{width:"100%"}}>         
+                    {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
+                        <source src="https://assets.arrival.works/_LogoDotGrid_2x1_60FPS_2x.mp4" type="video/mp4"/>  
+                        </video>
+            </div>
 
           </div>
-        </div>
+        {/* </div> */}
       </section>
 
       {/* <section className={`${styles.section} usection` }> 
