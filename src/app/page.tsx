@@ -30,7 +30,7 @@ export default function Home() {
                     `}
                 style={{width:"100%"}}>         
                     {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
-                        <source src="https://assets.arrival.works/_LogoGlow_4x3_30FPS_ME.mp4" type="video/mp4"/>  
+                        <source src="https://assets.arrival.works/260314_LogoGlow_4x3_30FPS_ME.mp4" type="video/mp4"/>  
                         </video>
             </div>
 
@@ -40,7 +40,7 @@ export default function Home() {
                     `}
                 style={{width:"100%"}}>         
                     {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
-                        <source src="https://assets.arrival.works/_LogoDotGrid_2x1_60FPS_2x.mp4" type="video/mp4"/>  
+                        <source src="https://assets.arrival.works/260314_LogoDotGrid_2x1_60FPS_2x.mp4" type="video/mp4"/>  
                         </video>
             </div>
 

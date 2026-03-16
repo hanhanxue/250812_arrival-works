@@ -1,7 +1,7 @@
 // Global constants for the application
 
 // Site Information
-export const SITE_NAME = "Arrival — Creative office for advanced industry"
+export const SITE_NAME = "Arrival"
 export const SITE_DESCRIPTION = "Creative office for advanced industry"
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
