@@ -49,7 +49,7 @@ export default function Home() {
                     `}
                 style={{width:"100%"}}>         
                     {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
-                        <source src="https://assets.arrival.works/260316_LogoPerspectiveGrid_16x9_60FPS.mp4" type="video/mp4"/>  
+                        <source src="https://assets.arrival.works/260317_1_LogoPerspectiveGrid_16x9_60FPS.mp4" type="video/mp4"/>  
                         </video>
             </div>
 
