@@ -1,18 +1,17 @@
 import Image from "next/image"
 import styles from "./page.module.scss"
 import MontrealInfo from "@/components/MontrealInfo"
+import MuxPlayer from "@mux/mux-player-react/lazy"
 
 export default function Home() {
   return (
     <main>
       <section className={`${styles.section} usection`}>
         {/* <div className={`${styles.container} ucontainer umx usection-spacing-lg`}> */}
-          <div className={`${styles.fullContainer}`}>
-            {/* <MontrealInfo /> */}
+        <div className={`${styles.fullContainer}`}>
+          {/* <MontrealInfo /> */}
 
-
-
-            {/* <div
+          {/* <div
               className={`${styles.imageContainer}`}
               style={{ aspectRatio: 1.5 }}
             >
@@ -24,36 +23,39 @@ export default function Home() {
               />
             </div> */}
 
-
-            <div className={`${styles.imageFrame}`}>
-            <video autoPlay muted loop playsInline className={`${styles.video}  
-                    `}
-                style={{width:"100%"}}>         
-                    {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
-                        <source src="https://assets.arrival.works/260314_LogoGlow_4x3_30FPS_ME.mp4" type="video/mp4"/>  
-                        </video>
-            </div>
-
-
-                        <div className={`${styles.imageFrame}`}>
-            <video autoPlay muted loop playsInline className={`${styles.video}  
-                    `}
-                style={{width:"100%"}}>         
-                    {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
-                        <source src="https://assets.arrival.works/260314_LogoDotGrid_2x1_60FPS_2x.mp4" type="video/mp4"/>  
-                        </video>
-            </div>
-
-                                    <div className={`${styles.imageFrame}`}>
-            <video autoPlay muted loop playsInline className={`${styles.video}  
-                    `}
-                style={{width:"100%"}}>         
-                    {/* <source src="/assets/videos/supermanifold_breadboard_v2.mp4" type="video/mp4"/>          */}
-                        <source src="https://assets.arrival.works/260317_3_LogoPerspectiveGrid_16x9_60FPS.mp4" type="video/mp4"/>  
-                        </video>
-            </div>
-
+          <div className={`${styles.assetFrame}`}>
+            <MuxPlayer
+              minResolution="1080p"
+              maxResolution="2160p"
+              playbackId="VT9w4VCOxq02jNl1QT8Fd7eZUcAUjtKE48twHMoYfnS00"
+              autoPlay
+              muted
+              loop
+            />
           </div>
+
+          <div className={`${styles.assetFrame}`}>
+            <MuxPlayer
+              minResolution="1080p"
+              maxResolution="2160p"
+              playbackId="w9F00qGcm00m3mMTQ4VfXxitBUPnlmZrhyldW2EU47Ipo"
+              autoPlay
+              muted
+              loop
+            />
+          </div>
+
+          <div className={`${styles.assetFrame}`}>
+            <MuxPlayer
+              minResolution="1080p"
+              maxResolution="2160p"
+              playbackId="016dHL9Rg007eilEYWL0027bPwhPlXXKk01880200014Uk56dU"
+              autoPlay
+              muted
+              loop
+            />
+          </div>
+        </div>
         {/* </div> */}
       </section>
 
