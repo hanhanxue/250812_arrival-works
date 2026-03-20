@@ -11,7 +11,7 @@ export default function Home() {
 
           
           <div className={`${styles.assetFrame}`} >
-          <div style={{ position: "relative", aspectRatio: 3/2 }}>
+          <div style={{ position: "relative", aspectRatio: 4/3 }}>
             <MuxVideo playbackId="VT9w4VCOxq02jNl1QT8Fd7eZUcAUjtKE48twHMoYfnS00" />
             </div>
           </div>
