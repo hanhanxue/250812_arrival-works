@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styles from "./page.module.scss"
 import MontrealInfo from "@/components/MontrealInfo"
-import MuxPlayer from "@mux/mux-player-react/lazy"
+import MuxVideo from "@/components/MuxVideo"
 
 export default function Home() {
   return (
@@ -23,38 +23,14 @@ export default function Home() {
               />
             </div> */}
 
-          <div className={`${styles.assetFrame}`}>
-            <MuxPlayer
-              minResolution="1080p"
-              maxResolution="2160p"
-              playbackId="VT9w4VCOxq02jNl1QT8Fd7eZUcAUjtKE48twHMoYfnS00"
-              autoPlay
-              muted
-              loop
-            />
-          </div>
+          {/* <div className={`${styles.assetFrame}`}>
+          </div> */}
+          
+          <MuxVideo playbackId="VT9w4VCOxq02jNl1QT8Fd7eZUcAUjtKE48twHMoYfnS00" aspectRatio={3/2} />
 
-          <div className={`${styles.assetFrame}`}>
-            <MuxPlayer
-              minResolution="1080p"
-              maxResolution="2160p"
-              playbackId="w9F00qGcm00m3mMTQ4VfXxitBUPnlmZrhyldW2EU47Ipo"
-              autoPlay
-              muted
-              loop
-            />
-          </div>
+          <MuxVideo playbackId="w9F00qGcm00m3mMTQ4VfXxitBUPnlmZrhyldW2EU47Ipo" aspectRatio={2} />
 
-          <div className={`${styles.assetFrame}`}>
-            <MuxPlayer
-              minResolution="1080p"
-              maxResolution="2160p"
-              playbackId="016dHL9Rg007eilEYWL0027bPwhPlXXKk01880200014Uk56dU"
-              autoPlay
-              muted
-              loop
-            />
-          </div>
+          <MuxVideo playbackId="016dHL9Rg007eilEYWL0027bPwhPlXXKk01880200014Uk56dU" aspectRatio={2} />
         </div>
         {/* </div> */}
       </section>
