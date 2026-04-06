@@ -5,17 +5,27 @@ import styles from "./Header.module.scss"
 import ICO_Arrival from "./iconography/ICO_Arrival"
 import XLink from "./XLink"
 
-export default function Header() {
+interface HeaderProps {
+  invert?: boolean
+}
+
+export default function Header({ invert }: HeaderProps) {
   return (
     <header
-      className={`
-    ${styles.section} usection`}
-    data-theme="dark"
+      className={`${styles.section} usection ${invert ? ` ${styles.invert}` : ""}`}
+      // data-theme="dark"
     >
       <div className={`${styles.container} ucontainer umx`}>
         <div className={`${styles.groupA}`}>
           {/* <ICO_Arrival /> */}
-          Arrival
+                    <XLink
+            href="/"
+            target="_blank"
+            rel="noopener"
+            style="secondary"
+          >
+            Arrival
+          </XLink>
         </div>
         {/* <div className={`${styles.groupB}`}><ICO_Arrival /></div> */}
         {/* <div className={`${styles.groupC}`}>
@@ -30,7 +40,7 @@ export default function Header() {
             Research<sup>↗</sup>
           </XLink>
 
-          <XLink href="mailto:mail@arrival.works">Contact</XLink>
+          <XLink href="mailto:mail@arrival.works">Office</XLink>
         </div>
       </div>
     </header>

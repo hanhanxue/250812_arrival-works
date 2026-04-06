@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 
 import "../styles/main.scss"
-import Header from "@/components/Header"
 import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants"
 import Script from "next/script"
 import PlausibleProvider from "next-plausible"
@@ -37,7 +36,6 @@ export default function RootLayout({
         />
       </head>
       <body data-theme="light">
-        <Header />
         {children}
       </body>
     </html>

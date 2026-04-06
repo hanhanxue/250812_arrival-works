@@ -17,11 +17,15 @@
   margin: 0 $spacing-4;
 }
 
-.usection-spacing-md {
-  padding-top: 24px;
+.usection-spacer-sm {
+  padding-top: $spacing-4;
 }
 
-.usection-spacing-lg {
+.usection-spacer-md {
+  padding-top: 64px;
+}
+
+.usection-spacer-lg {
   padding-top: 128px;
 }
 

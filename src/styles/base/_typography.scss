@@ -67,6 +67,36 @@ $line-height-loose: 2;
   @include display;
 }
 
+
+
+@mixin title1 {
+  font-family: $font-primary;
+  font-weight: 450;
+
+  font-size: rem(28);
+  line-height: rem(36);
+  letter-spacing: -0.01em;
+}
+.title1 {
+  @include title1;
+}
+
+
+
+
+// Typography Mixins
+@mixin subtitle-1 {
+  font-family: $font-primary;
+  font-weight: 420;
+
+  font-size: rem(20);
+  line-height: rem(28);
+  letter-spacing: -0.01em;
+}
+.subtitle-1 {
+  @include subtitle-1;
+}
+
 // Typography Mixins
 @mixin body-1 {
   font-family: $font-primary;
@@ -78,19 +108,6 @@ $line-height-loose: 2;
 }
 .body-1 {
   @include body-1;
-}
-
-// Typography Mixins
-@mixin subtitle-1 {
-  font-family: $font-primary;
-  font-weight: 420;
-
-  font-size: rem(21);
-  line-height: rem(28);
-  letter-spacing: -0.01em;
-}
-.subtitle-1 {
-  @include subtitle-1;
 }
 
 // Typography Mixins

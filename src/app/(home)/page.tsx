@@ -10,13 +10,11 @@ export default function Home() {
         <div className={`${styles.fullContainer}`}>
 
           
-          <div className={`${styles.assetFrame}`} >
-          <div style={{ position: "relative", aspectRatio: 4/3 }}>
+          <div className={`${styles.assetFrame}`}>
             <MuxVideo playbackId="VT9w4VCOxq02jNl1QT8Fd7eZUcAUjtKE48twHMoYfnS00" />
-            </div>
           </div>
 
-          <div className={`${styles.assetFrame}`} >
+          {/* <div className={`${styles.assetFrame}`} >
             <div style={{ position: "relative", aspectRatio: 2 }}>
             <MuxVideo playbackId="w9F00qGcm00m3mMTQ4VfXxitBUPnlmZrhyldW2EU47Ipo" />
             </div>
@@ -26,7 +24,7 @@ export default function Home() {
             <div style={{ position: "relative", aspectRatio: 2 }}>
             <MuxVideo playbackId="016dHL9Rg007eilEYWL0027bPwhPlXXKk01880200014Uk56dU" />
             </div>
-          </div>
+          </div> */}
 
 
         </div>

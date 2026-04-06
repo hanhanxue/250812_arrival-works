@@ -5,18 +5,24 @@
 
 
 .section {
-  background-color: transparent;
+  // background-color: transparent;
   // color: var(--c-on-surface);
-  position: absolute;
+
+
+  position: fixed;
+
+    top: 0;
   width: 100%;
-  z-index: 1;
+
+  z-index: 99;
 }
 
 .container {
   div {
     grid-row: 1;
     @include subtitle-1;
-    padding: $spacing-4 0;
+    padding: $spacing-2 0;
+
 
     &.groupA {
       grid-column: 1 / 4;
@@ -42,6 +48,11 @@
       justify-content: right;
     }
   }
+}
+
+.invert {
+  filter: invert(1);
+  background-color: transparent !important;
 }
 
 .link {
