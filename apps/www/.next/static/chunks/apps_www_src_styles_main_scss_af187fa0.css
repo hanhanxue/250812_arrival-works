@@ -1,0 +1,741 @@
+/* [project]/apps/www/src/styles/main.scss.css [app-client] (css) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: Monument Grotesk;
+  src: url("/fonts/ABC-Monument-Grotesk-Variable-2.001.woff2") format("woff2-variations");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.display {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 3rem;
+  font-weight: 450;
+  line-height: 3.125rem;
+}
+
+.title1 {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 450;
+  line-height: 2.25rem;
+}
+
+.subtitle-1 {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 420;
+  line-height: 1.75rem;
+}
+
+.body-1 {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: .875rem;
+  font-weight: 420;
+  line-height: 1.25rem;
+}
+
+.caption-1 {
+  letter-spacing: .01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: .75rem;
+  font-weight: 420;
+  line-height: 1rem;
+}
+
+[data-theme="dark"] {
+  --c-on-surface: #edecec;
+  --c-surface-0: #14120b;
+  --c-on-surface-subtle: #8f8f8f;
+  --c-debug: red;
+}
+
+[data-theme="light"] {
+  --c-on-surface: #14120b;
+  --c-surface-0: #fff;
+  --c-on-surface-subtle: #8f8f8f;
+  --c-surface-container: #f6f6f6;
+}
+
+:root {
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+  --spacing-40: 160px;
+  --spacing-48: 192px;
+  --rounded: 4px;
+  --rounded-lg: 8px;
+  --rounded-xl: 12px;
+  --rounded-2xl: 16px;
+  --rounded-3xl: 20px;
+  --rounded-full: 999px;
+  --rounded-ui: 4px;
+  --rounded-ui-lg: 8px;
+  --frame-radius: var(--rounded-xl);
+}
+
+.usection {
+  color: var(--c-on-surface);
+  background-color: var(--c-surface-0);
+}
+
+.ucontainer {
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  display: grid;
+}
+
+.umx {
+  margin: 0 16px;
+}
+
+.usection-spacer-sm {
+  padding-top: 16px;
+}
+
+.usection-spacer-md {
+  padding-top: 64px;
+}
+
+.usection-spacer-lg {
+  padding-top: 128px;
+}
+
+.p-xs {
+  padding: .25rem;
+}
+
+.pt-xs {
+  padding-top: .25rem;
+}
+
+.pr-xs {
+  padding-right: .25rem;
+}
+
+.pb-xs {
+  padding-bottom: .25rem;
+}
+
+.pl-xs {
+  padding-left: .25rem;
+}
+
+.px-xs {
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+.py-xs {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+.m-xs {
+  margin: .25rem;
+}
+
+.mt-xs {
+  margin-top: .25rem;
+}
+
+.mr-xs {
+  margin-right: .25rem;
+}
+
+.mb-xs {
+  margin-bottom: .25rem;
+}
+
+.ml-xs {
+  margin-left: .25rem;
+}
+
+.mx-xs {
+  margin-left: .25rem;
+  margin-right: .25rem;
+}
+
+.my-xs {
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+}
+
+.p-sm {
+  padding: .5rem;
+}
+
+.pt-sm {
+  padding-top: .5rem;
+}
+
+.pr-sm {
+  padding-right: .5rem;
+}
+
+.pb-sm {
+  padding-bottom: .5rem;
+}
+
+.pl-sm {
+  padding-left: .5rem;
+}
+
+.px-sm {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.py-sm {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.m-sm {
+  margin: .5rem;
+}
+
+.mt-sm {
+  margin-top: .5rem;
+}
+
+.mr-sm {
+  margin-right: .5rem;
+}
+
+.mb-sm {
+  margin-bottom: .5rem;
+}
+
+.ml-sm {
+  margin-left: .5rem;
+}
+
+.mx-sm {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.my-sm {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.p-md {
+  padding: 1rem;
+}
+
+.pt-md {
+  padding-top: 1rem;
+}
+
+.pr-md {
+  padding-right: 1rem;
+}
+
+.pb-md {
+  padding-bottom: 1rem;
+}
+
+.pl-md {
+  padding-left: 1rem;
+}
+
+.px-md {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-md {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.m-md {
+  margin: 1rem;
+}
+
+.mt-md {
+  margin-top: 1rem;
+}
+
+.mr-md {
+  margin-right: 1rem;
+}
+
+.mb-md {
+  margin-bottom: 1rem;
+}
+
+.ml-md {
+  margin-left: 1rem;
+}
+
+.mx-md {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.my-md {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.p-lg {
+  padding: 1.5rem;
+}
+
+.pt-lg {
+  padding-top: 1.5rem;
+}
+
+.pr-lg {
+  padding-right: 1.5rem;
+}
+
+.pb-lg {
+  padding-bottom: 1.5rem;
+}
+
+.pl-lg {
+  padding-left: 1.5rem;
+}
+
+.px-lg {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-lg {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.m-lg {
+  margin: 1.5rem;
+}
+
+.mt-lg {
+  margin-top: 1.5rem;
+}
+
+.mr-lg {
+  margin-right: 1.5rem;
+}
+
+.mb-lg {
+  margin-bottom: 1.5rem;
+}
+
+.ml-lg {
+  margin-left: 1.5rem;
+}
+
+.mx-lg {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.my-lg {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.p-xl {
+  padding: 2rem;
+}
+
+.pt-xl {
+  padding-top: 2rem;
+}
+
+.pr-xl {
+  padding-right: 2rem;
+}
+
+.pb-xl {
+  padding-bottom: 2rem;
+}
+
+.pl-xl {
+  padding-left: 2rem;
+}
+
+.px-xl {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-xl {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.m-xl {
+  margin: 2rem;
+}
+
+.mt-xl {
+  margin-top: 2rem;
+}
+
+.mr-xl {
+  margin-right: 2rem;
+}
+
+.mb-xl {
+  margin-bottom: 2rem;
+}
+
+.ml-xl {
+  margin-left: 2rem;
+}
+
+.mx-xl {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.my-xl {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.p-2xl {
+  padding: 3rem;
+}
+
+.pt-2xl {
+  padding-top: 3rem;
+}
+
+.pr-2xl {
+  padding-right: 3rem;
+}
+
+.pb-2xl {
+  padding-bottom: 3rem;
+}
+
+.pl-2xl {
+  padding-left: 3rem;
+}
+
+.px-2xl {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.py-2xl {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.m-2xl {
+  margin: 3rem;
+}
+
+.mt-2xl {
+  margin-top: 3rem;
+}
+
+.mr-2xl {
+  margin-right: 3rem;
+}
+
+.mb-2xl {
+  margin-bottom: 3rem;
+}
+
+.ml-2xl {
+  margin-left: 3rem;
+}
+
+.mx-2xl {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.my-2xl {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.p-3xl {
+  padding: 4rem;
+}
+
+.pt-3xl {
+  padding-top: 4rem;
+}
+
+.pr-3xl {
+  padding-right: 4rem;
+}
+
+.pb-3xl {
+  padding-bottom: 4rem;
+}
+
+.pl-3xl {
+  padding-left: 4rem;
+}
+
+.px-3xl {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.py-3xl {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.m-3xl {
+  margin: 4rem;
+}
+
+.mt-3xl {
+  margin-top: 4rem;
+}
+
+.mr-3xl {
+  margin-right: 4rem;
+}
+
+.mb-3xl {
+  margin-bottom: 4rem;
+}
+
+.ml-3xl {
+  margin-left: 4rem;
+}
+
+.mx-3xl {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.my-3xl {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.rounded-sm {
+  border-radius: .25rem;
+}
+
+.rounded-md {
+  border-radius: .5rem;
+}
+
+.rounded-lg {
+  border-radius: .75rem;
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+@media (max-width: 768px) {
+  .md\:d-none {
+    display: none;
+  }
+
+  .md\:d-block {
+    display: block;
+  }
+
+  .md\:text-center {
+    text-align: center;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--c-surface-0);
+}
+
+body ::selection {
+  color: var(--c-surface-0);
+  background: var(--c-on-surface);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input[type="submit"], input[type="reset"] {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+}
+
+img, svg, video, canvas {
+  display: block;
+}
+
+textarea:focus, input:focus, textarea, input {
+  outline: none;
+}
+
+sup {
+  margin-left: .1em;
+  position: relative;
+  top: 0;
+}
+
+mux-player {
+  --controls: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/*# sourceMappingURL=apps_www_src_styles_main_scss_af187fa0.css.map*/

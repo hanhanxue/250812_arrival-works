@@ -1,0 +1,22 @@
+/* [project]/apps/www/src/components/XLink.module.scss.module.css [app-client] (css) */
+.XLink-module-scss-module__zaMqsa__primary {
+  color: var(--c-on-surface-subtle);
+}
+
+.XLink-module-scss-module__zaMqsa__primary:hover {
+  color: var(--c-on-surface);
+}
+
+.XLink-module-scss-module__zaMqsa__primary {
+  transition: color .33s;
+}
+
+.XLink-module-scss-module__zaMqsa__secondary, .XLink-module-scss-module__zaMqsa__isActive {
+  color: var(--c-on-surface);
+}
+
+.XLink-module-scss-module__zaMqsa__debug {
+  color: var(--c-debug);
+}
+
+/*# sourceMappingURL=apps_www_src_components_XLink_module_scss_module_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,90 @@
+/* [project]/apps/www/src/app/(home)/page.module.scss.module.css [app-client] (css) */
+@font-face {
+  font-family: Monument Grotesk;
+  src: url("/fonts/ABC-Monument-Grotesk-Variable-2.001.woff2") format("woff2-variations");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.page-module-scss-module___GKipq__display {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 3rem;
+  font-weight: 450;
+  line-height: 3.125rem;
+}
+
+.page-module-scss-module___GKipq__title1 {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 450;
+  line-height: 2.25rem;
+}
+
+.page-module-scss-module___GKipq__subtitle-1 {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 420;
+  line-height: 1.75rem;
+}
+
+.page-module-scss-module___GKipq__body-1 {
+  letter-spacing: -.01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: .875rem;
+  font-weight: 420;
+  line-height: 1.25rem;
+}
+
+.page-module-scss-module___GKipq__caption-1 {
+  letter-spacing: .01em;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: .75rem;
+  font-weight: 420;
+  line-height: 1rem;
+}
+
+.page-module-scss-module___GKipq__container .page-module-scss-module___GKipq__fullContainer {
+  flex-direction: column;
+  grid-column: 1 / 13;
+  display: flex;
+}
+
+.page-module-scss-module___GKipq__container .page-module-scss-module___GKipq__imageContainer {
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-module-scss-module___GKipq__description {
+  letter-spacing: -.01em;
+  grid-column: 1 / 13;
+  font-family: Monument Grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 3rem;
+  font-weight: 450;
+  line-height: 3.125rem;
+}
+
+.page-module-scss-module___GKipq__assetFrame {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.page-module-scss-module___GKipq__assetFrame mux-player, .page-module-scss-module___GKipq__assetFrame div {
+  width: 100%;
+  height: 100%;
+}
+
+.page-module-scss-module___GKipq__assetFrame mux-player {
+  --media-object-fit: cover;
+  --media-object-position: center;
+}
+
+/*# sourceMappingURL=apps_www_src_app_%28home%29_page_module_scss_module_420df132.css.map*/

@@ -1,0 +1,32 @@
+{
+  "pages": {
+    "/(home)/page": [
+      "static/chunks/node_modules_next_dist_8db7fb1f._.js",
+      "static/chunks/apps_www_src_app_favicon_ico_mjs_99e9e74b._.js",
+      "static/chunks/apps_www_src_styles_main_scss_af187fa0.css",
+      "static/chunks/node_modules_next_dist_client_5b53406e._.js",
+      "static/chunks/apps_www_src_app_layout_tsx_0a548d63._.js",
+      "static/chunks/node_modules_next_dist_client_components_builtin_global-error_f11772b4.js",
+      "static/chunks/apps_www_src_components_7ea5e173._.css",
+      "static/chunks/node_modules_next_dist_02409dcd._.js",
+      "static/chunks/apps_www_src_app_(home)_layout_tsx_f11772b4._.js",
+      "static/chunks/apps_www_src_app_(home)_page_module_scss_module_420df132.css",
+      "static/chunks/node_modules_mux-embed_dist_mux_mjs_52405250._.js",
+      "static/chunks/node_modules_hls_js_dist_hls_mjs_3305f6ee._.js",
+      "static/chunks/node_modules_media-chrome_dist_f42152ea._.js",
+      "static/chunks/node_modules_@mux_mux-player_dist_ea156277._.js",
+      "static/chunks/node_modules_660e4c7d._.js",
+      "static/chunks/apps_www_src_components_MuxVideo_tsx_8b28ec2d._.js",
+      "static/chunks/apps_www_src_app_(home)_page_tsx_380625b9._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_57d40746._.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js",
+      "static/chunks/node_modules_next_dist_compiled_next-devtools_index_a9cb0712.js",
+      "static/chunks/node_modules_next_dist_compiled_5150ccfd._.js",
+      "static/chunks/node_modules_next_dist_client_cf1d9188._.js",
+      "static/chunks/node_modules_next_dist_b0daae9a._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_b3dc30d6._.js",
+      "static/chunks/apps_www_a0ff3932._.js",
+      "static/chunks/turbopack-apps_www_cdba956c._.js"
+    ]
+  }
+}

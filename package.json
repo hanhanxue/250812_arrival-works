@@ -1,31 +1,14 @@
 {
   "name": "arrival-works",
-  "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@11.6.2",
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  },
-  "dependencies": {
-    "@mux/mux-player-react": "^3.11.5",
-    "next": "^15.5.4",
-    "next-plausible": "^3.12.4",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "sass": "^1.93.2"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.6",
-    "prettier": "^3.6.2",
-    "typescript": "^5"
+    "turbo": "^2"
   }
 }

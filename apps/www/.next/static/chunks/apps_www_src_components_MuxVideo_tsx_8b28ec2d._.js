@@ -1,0 +1,61 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/apps/www/src/components/MuxVideo.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>MuxVideo
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mux$2f$mux$2d$player$2d$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@mux/mux-player-react/dist/index.mjs [app-client] (ecmascript) <locals>");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+function MuxVideo(param) {
+    let { playbackId } = param;
+    _s();
+    const [playing, setPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-nosnippet": true,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mux$2f$mux$2d$player$2d$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"], {
+            "aria-hidden": "true",
+            "data-nosnippet": true,
+            // poster={`https://image.mux.com/${playbackId}/thumbnail.jpg?time=0`}
+            poster: "",
+            minResolution: "1080p",
+            // maxResolution="2160p"
+            playbackId: playbackId,
+            autoPlay: true,
+            muted: true,
+            loop: true,
+            // onPlaying={() => setPlaying(true)}
+            onCanPlay: ()=>setPlaying(true),
+            style: {
+                opacity: playing ? 1 : 0,
+                transition: "opacity 0.3s"
+            }
+        }, void 0, false, {
+            fileName: "[project]/apps/www/src/components/MuxVideo.tsx",
+            lineNumber: 15,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/apps/www/src/components/MuxVideo.tsx",
+        lineNumber: 14,
+        columnNumber: 5
+    }, this);
+}
+_s(MuxVideo, "TknKTnbLvtkeUADVhXhEVXKXunU=");
+_c = MuxVideo;
+var _c;
+__turbopack_context__.k.register(_c, "MuxVideo");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+]);
+
+//# sourceMappingURL=apps_www_src_components_MuxVideo_tsx_8b28ec2d._.js.map
