@@ -1,0 +1,97 @@
+/* [project]/apps/research/src/components/Footer.module.scss.module.css [app-client] (css) */
+@font-face {
+  font-family: ABC Monument Grotesk;
+  src: url("/assets/fonts/ABC-Monument-Grotesk-Variable-2.001.woff2") format("woff2-variations");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ABC Repro;
+  src: url("/assets/fonts/ABC-ReproVariable-Regular.woff2") format("woff2-variations");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ABC Repro Mono;
+  src: url("/assets/fonts/ABCReproMonoVariable-Regular.woff2") format("woff2-variations");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.Footer-module-scss-module__-0fRVq__display {
+  letter-spacing: -.01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+}
+
+.Footer-module-scss-module__-0fRVq__subtitle-1 {
+  letter-spacing: -.01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+.Footer-module-scss-module__-0fRVq__body-1 {
+  letter-spacing: -.01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.Footer-module-scss-module__-0fRVq__label-1 {
+  font-family: ABC Repro, sans-serif;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.Footer-module-scss-module__-0fRVq__label-1-strong {
+  font-family: ABC Repro, sans-serif;
+  font-size: .8125rem;
+  font-weight: 500;
+  line-height: 1rem;
+}
+
+.Footer-module-scss-module__-0fRVq__caption-1 {
+  letter-spacing: .01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: .78125rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+.Footer-module-scss-module__-0fRVq__groupA {
+  letter-spacing: -.01em;
+  grid-area: 1 / 1 / auto / 13;
+  padding: 16px 0;
+  font-family: ABC Repro, sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+.Footer-module-scss-module__-0fRVq__groupA p {
+  gap: 32px;
+  display: flex;
+}
+
+.Footer-module-scss-module__-0fRVq__groupB {
+  letter-spacing: -.01em;
+  grid-area: 1 / 1 / auto / 13;
+  justify-items: end;
+  font-family: ABC Repro, sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+/*# sourceMappingURL=apps_research_src_components_Footer_module_scss_module_css_bad6b30c._.single.css.map*/

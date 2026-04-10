@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> @/components/SMainGridA":{"id":7923,"files":["static/css/18a9420a396a0039.css","static/chunks/720.7a1ac16a7d4d9075.js","static/chunks/923.1e9293fb13e26912.js"]}}';

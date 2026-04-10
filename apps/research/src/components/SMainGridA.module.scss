@@ -1,0 +1,18 @@
+@use "@/styles/base/variables" as *;
+@use "@/styles/base/typography" as *;
+
+.section {
+  // Override any inherited styles
+}
+
+.container {
+  //   display: block !important; // Override the grid system for masonry
+  //   width: 100%;
+//   background-color: gray;
+}
+
+.grid {
+  position: relative;
+  overflow: hidden;
+}
+

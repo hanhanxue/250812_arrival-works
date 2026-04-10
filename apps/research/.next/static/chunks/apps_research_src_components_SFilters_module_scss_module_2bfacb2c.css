@@ -1,0 +1,126 @@
+/* [project]/apps/research/src/components/SFilters.module.scss.module.css [app-client] (css) */
+@font-face {
+  font-family: ABC Monument Grotesk;
+  src: url("/assets/fonts/ABC-Monument-Grotesk-Variable-2.001.woff2") format("woff2-variations");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ABC Repro;
+  src: url("/assets/fonts/ABC-ReproVariable-Regular.woff2") format("woff2-variations");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ABC Repro Mono;
+  src: url("/assets/fonts/ABCReproMonoVariable-Regular.woff2") format("woff2-variations");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.SFilters-module-scss-module__WDR-ka__display {
+  letter-spacing: -.01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__subtitle-1 {
+  letter-spacing: -.01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__body-1 {
+  letter-spacing: -.01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__label-1 {
+  font-family: ABC Repro, sans-serif;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__label-1-strong {
+  font-family: ABC Repro, sans-serif;
+  font-size: .8125rem;
+  font-weight: 500;
+  line-height: 1rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__caption-1 {
+  letter-spacing: .01em;
+  font-family: ABC Repro, sans-serif;
+  font-size: .78125rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterTitle {
+  color: var(--c-on-surface-secondary);
+  padding-bottom: 8px;
+  font-family: ABC Repro, sans-serif;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__domains, .SFilters-module-scss-module__WDR-ka__categories, .SFilters-module-scss-module__WDR-ka__tags, .SFilters-module-scss-module__WDR-ka__software {
+  grid-column: span 2;
+}
+
+.SFilters-module-scss-module__WDR-ka__settings {
+  grid-column: 9 / 13;
+  justify-self: right;
+  justify-items: right;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterList {
+  grid-template-columns: max-content max-content;
+  display: inline-grid;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterList li {
+  display: contents;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterList li .SFilters-module-scss-module__WDR-ka__name {
+  padding-right: 16px;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterItem {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  color: var(--c-on-surface-subtle);
+  cursor: pointer;
+  font-family: ABC Repro, sans-serif;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterItem .SFilters-module-scss-module__WDR-ka__indicator span {
+  justify-content: center;
+  width: 16px;
+  display: inline-flex;
+}
+
+.SFilters-module-scss-module__WDR-ka__filterItem.SFilters-module-scss-module__WDR-ka__active .SFilters-module-scss-module__WDR-ka__indicator span {
+  color: var(--c-on-surface-secondary);
+}
+
+/*# sourceMappingURL=apps_research_src_components_SFilters_module_scss_module_2bfacb2c.css.map*/

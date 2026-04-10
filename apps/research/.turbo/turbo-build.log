@@ -1,0 +1,58 @@
+
+> @arrival/research@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.0s
+   Linting and checking validity of types ...
+
+./src/app/page.tsx
+3:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+4:8  Warning: 'styles' is defined but never used.  @typescript-eslint/no-unused-vars
+5:8  Warning: 'MontrealInfo' is defined but never used.  @typescript-eslint/no-unused-vars
+7:10  Warning: 'SITE_DESCRIPTION' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Header.tsx
+1:8  Warning: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+2:10  Warning: 'SITE_NAME' is defined but never used.  @typescript-eslint/no-unused-vars
+2:21  Warning: 'NAVIGATION' is defined but never used.  @typescript-eslint/no-unused-vars
+5:8  Warning: 'ICO_Arrival' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/MontrealInfo.tsx
+86:15  Warning: 'API_KEY' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/SFilters.tsx
+1:10  Warning: 'SITE_DESCRIPTION' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/SMainGrid.tsx
+3:31  Warning: 'useRef' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/SMainGridA.tsx
+9:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+11:8  Warning: 'ICO_Download' is defined but never used.  @typescript-eslint/no-unused-vars
+34:9  Warning: 'firstLayoutDoneRef' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+118:6  Warning: React Hook useEffect has a missing dependency: 'columnWidth'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/5) ...
+   Generating static pages (1/5) 
+   Generating static pages (2/5) 
+   Generating static pages (3/5) 
+ ✓ Generating static pages (5/5)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    2.02 kB         105 kB
+└ ○ /_not-found                            988 B         104 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/18-b339bcfc88586b9e.js          46 kB
+  ├ chunks/87c73c54-24122e7b92478d00.js  54.2 kB
+  └ other shared chunks (total)          2.47 kB
+
+
+○  (Static)  prerendered as static content
+
