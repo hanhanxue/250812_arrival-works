@@ -1,3 +1,5 @@
 {
-  "/(home)/page": "app/(home)/page.js"
+  "/(home)/page": "app/(home)/page.js",
+  "/(projects)/physicsx/page": "app/(projects)/physicsx/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

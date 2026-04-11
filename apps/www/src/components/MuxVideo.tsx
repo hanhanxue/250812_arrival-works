@@ -25,7 +25,11 @@ export default function MuxVideo({ playbackId }: Props) {
       loop
       // onPlaying={() => setPlaying(true)}
       onCanPlay={() => setPlaying(true)}
-      style={{ opacity: playing ? 1 : 0, transition: "opacity 0.3s" }}
+      style={{ 
+        opacity: playing ? 1 : 0, 
+        transition: "opacity 0.3s",
+        "--media-background-color": "transparent", // WOW this is a good trick!!
+      }}
     />
     </div>
   )

@@ -35,7 +35,8 @@ function MuxVideo(param) {
             onCanPlay: ()=>setPlaying(true),
             style: {
                 opacity: playing ? 1 : 0,
-                transition: "opacity 0.3s"
+                transition: "opacity 0.3s",
+                "--media-background-color": "transparent"
             }
         }, void 0, false, {
             fileName: "[project]/apps/www/src/components/MuxVideo.tsx",

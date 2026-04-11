@@ -22,7 +22,7 @@ const Project = () => {
                 <div className={`${styles.assetFrame}`}>
           <div style={{ position: "relative", aspectRatio: 1.5 }}>
             <Image
-              src="https://assets.hanhanxue.com/260409_Wheelv2.jpg"
+              src="https://assets.hanhanxue.com/260410_Wheelv4.jpg"
               fill={true}
               alt=""
               priority={true}
