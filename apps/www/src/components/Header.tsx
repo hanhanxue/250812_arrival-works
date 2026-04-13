@@ -55,7 +55,7 @@ export default function Header({ invert }: HeaderProps) {
         <div className={`${styles.gridItem} ${styles.groupB}`}>
 
           <XLink
-            href="https://research.arrival.works/"
+            href="/"
             target="_blank"
             rel="noopener"
           >
