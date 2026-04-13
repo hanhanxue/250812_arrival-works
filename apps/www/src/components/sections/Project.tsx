@@ -4,7 +4,7 @@ import Image from "next/image"
 
 const Project = () => {
   return (
-    <section className={`${styles.section} usection usection-spacer-lg`}>
+    <section className={`${styles.section} usection `}>
       <div className={`${styles.container} ucontainer umx `}>
 
     {/* <div className={`${styles.projectHeader} title1`}>

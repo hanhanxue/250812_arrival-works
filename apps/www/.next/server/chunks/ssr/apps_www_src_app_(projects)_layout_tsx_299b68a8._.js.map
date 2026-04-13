@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/hhx/src/250812_arrival-works/apps/www/src/app/%28projects%29/layout.tsx"],"sourcesContent":["import Header from \"@/components/Header\"\n\nexport default function ProjectLayout({ children }: { children: React.ReactNode }) {\n  return (\n    <>\n      {/* <Header /> */}\n      {children}\n    </>\n  )\n}\n"],"names":[],"mappings":";;;;;;AAEe,SAAS,cAAc,EAAE,QAAQ,EAAiC;IAC/E,qBACE;kBAEG;;AAGP","debugId":null}}]
-}

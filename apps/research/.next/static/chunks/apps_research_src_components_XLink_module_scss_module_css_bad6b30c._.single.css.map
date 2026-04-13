@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///turbopack:///[project]/apps/research/src/components/home/hhx/src/250812_arrival-works/apps/research/src/components/XLink.module.scss"],"sourcesContent":["@use \"@/styles/abstracts/animation\" as *;\n\n.primary {\n  color: var(--c-on-surface-secondary);\n\n  &:hover {\n    color: var(--c-on-surface);\n  }\n\n  transition: color $duration-standard;\n\n  // span {\n  //     display: flex;\n\n  // }\n}\n\n.secondary {\n  color: var(--c-on-surface);\n}\n\n.isActive {\n  color: var(--c-on-surface);\n}\n\n.debug {\n  color: var(--c-debug);\n}\n"],"names":[],"mappings":"AAEA;;;;AAGE;;;;AAHF;;;;AAeA;;;;AAQA"}}]
-}

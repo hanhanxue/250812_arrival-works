@@ -39,7 +39,7 @@ export default function RootLayout({
       </head>
       <body data-theme="light">
         {children}
-      <Footer />
+      {/* <Footer /> */}
       </body>
 
     </html>
