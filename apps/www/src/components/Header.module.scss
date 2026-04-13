@@ -2,6 +2,7 @@
 @use "@/styles/base/typography" as *;
 
 @use "@/styles/abstracts/animation" as *;
+@use "@/styles/abstracts/respond" as *;
 
 
 .section {
@@ -18,36 +19,44 @@
 }
 
 .container {
-  div {
-    grid-row: 1;
+  .gridItem {
     @include subtitle-1;
     padding: $spacing-2 0;
 
-
-    &.groupA {
-      grid-column: 1 / 4;
-      display: flex;
-      align-items: center;
-      gap: $spacing-2;
-    }
-    &.groupB {
-      grid-column: 3 / 4;
-      display: flex;
-      align-items: center;
-      // justify-content: center;
-    }
-    &.groupC {
-      grid-column: 4 / 13;
-      display: flex;
-      align-items: center;
-    }
-    &.groupD {
-      grid-column: 9 / 13;
-      display: flex;
-      gap: $spacing-6;
-      justify-content: right;
-    }
+    grid-row: 1;
+    display: flex;
   }
+  
+      .groupA {
+      grid-column: 1 / 13;
+  
+      align-items: center;
+      justify-content: space-between;
+
+      .menuButtonWrapper {
+        display: none;
+
+        @include respond(lg)  {
+          display: block;
+        }
+      }
+
+    }
+
+    .groupB {
+      grid-column: 9 / 13;
+
+      align-items: center;
+      
+      gap: $spacing-4;
+
+      justify-content: right;
+
+      @include respond(lg) {
+display: none;
+      }
+
+    }
 }
 
 .invert {

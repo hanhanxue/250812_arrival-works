@@ -1,0 +1,46 @@
+.menuButton {
+    //   background-color: red;
+    
+  width: 28px;
+  height: 28px;
+
+  cursor: pointer;
+  user-select: none;
+  
+
+
+  &.open {
+    .bar {
+      &:nth-child(1) {
+        transform: translateY(0) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+  }
+
+  .bar {
+    display: block;
+
+    position: absolute;
+    translate: 50% -50%;
+
+    width: 14px;
+    height: 2px;
+    background-color: var(--c-on-surface);
+
+    transition-property: transform;
+    transition-duration: 120ms;
+    transition-timing-function: ease-out;
+
+    &:nth-child(1) {
+      transform: translateY(-4px);
+    }
+
+    &:nth-child(2) {
+      transform: translateY(4px);
+    }
+  }
+}

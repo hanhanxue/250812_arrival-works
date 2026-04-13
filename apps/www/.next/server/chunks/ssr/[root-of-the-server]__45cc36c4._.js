@@ -19,7 +19,6 @@ __turbopack_context__.n(__turbopack_context__.i("[project]/apps/www/src/app/(pro
 __turbopack_context__.v({
   "assetFrame": "Project-module-scss-module__3TZRdW__assetFrame",
   "client": "Project-module-scss-module__3TZRdW__client",
-  "projectHeader": "Project-module-scss-module__3TZRdW__projectHeader",
   "projectName": "Project-module-scss-module__3TZRdW__projectName",
   "projectYear": "Project-module-scss-module__3TZRdW__projectYear",
 });
@@ -89,7 +88,7 @@ const Project = ()=>{
                             aspectRatio: 1.5
                         },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$www$2f$src$2f$components$2f$MuxVideo$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                            playbackId: "tEWNBXKBwsQHyyYl7xxsd02LOQSnBGgXl7a6OkXRL013U"
+                            playbackId: "t7FuvjuWRscxl01elA1wsPKppaLqBF5AJTvOI6nNwAF4"
                         }, void 0, false, {
                             fileName: "[project]/apps/www/src/components/sections/Project.tsx",
                             lineNumber: 18,
@@ -131,6 +130,30 @@ const Project = ()=>{
                 }, void 0, false, {
                     fileName: "[project]/apps/www/src/components/sections/Project.tsx",
                     lineNumber: 22,
+                    columnNumber: 17
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$www$2f$src$2f$components$2f$sections$2f$Project$2e$module$2e$scss__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].assetFrame} `,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: "relative",
+                            aspectRatio: 1.5
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$www$2f$src$2f$components$2f$MuxVideo$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                            playbackId: "uAS4pfuEL5POjq9KvALwYgfQWJunOXTs4iVX02Y02TGJg"
+                        }, void 0, false, {
+                            fileName: "[project]/apps/www/src/components/sections/Project.tsx",
+                            lineNumber: 36,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/apps/www/src/components/sections/Project.tsx",
+                        lineNumber: 35,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/apps/www/src/components/sections/Project.tsx",
+                    lineNumber: 34,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]

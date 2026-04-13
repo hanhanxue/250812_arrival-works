@@ -6,22 +6,22 @@
   font-family: "Monument Grotesk";
   src: url("/fonts/ABC-Monument-Grotesk-Variable-2.001.woff2")
     format("woff2-variations");
-  font-weight: 400 500;
+  font-weight: 300 400 500;
   font-style: normal;
   font-display: swap;
 }
 
 // Typography Variables
 $font-primary:
-  "Monument Grotesk",
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Oxygen,
-  Ubuntu,
-  Cantarell,
-  sans-serif;
+  "Monument Grotesk";
+  // -apple-system,
+  // BlinkMacSystemFont,
+  // "Segoe UI",
+  // Roboto,
+  // Oxygen,
+  // Ubuntu,
+  // Cantarell,
+  // sans-serif;
 // $font-mono: 'Geist Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 
 // Font Weight Variables
@@ -87,11 +87,11 @@ $line-height-loose: 2;
 // Typography Mixins
 @mixin subtitle-1 {
   font-family: $font-primary;
-  font-weight: 420;
+  font-weight: 370;
 
-  font-size: rem(20);
+  font-size: rem(21);
   line-height: rem(28);
-  letter-spacing: -0.01em;
+  letter-spacing: 0em;
 }
 .subtitle-1 {
   @include subtitle-1;

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///turbopack:///[project]/apps/www/src/components/home/hhx/src/250812_arrival-works/apps/www/src/components/MenuButton.module.scss"],"sourcesContent":[".menuButton {\n    //   background-color: red;\n    \n  width: 28px;\n  height: 28px;\n\n  cursor: pointer;\n  user-select: none;\n  \n\n\n  &.open {\n    .bar {\n      &:nth-child(1) {\n        transform: translateY(0) rotate(45deg);\n      }\n\n      &:nth-child(2) {\n        transform: translateY(0) rotate(-45deg);\n      }\n    }\n  }\n\n  .bar {\n    display: block;\n\n    position: absolute;\n    translate: 50% -50%;\n\n    width: 14px;\n    height: 2px;\n    background-color: var(--c-on-surface);\n\n    transition-property: transform;\n    transition-duration: 120ms;\n    transition-timing-function: ease-out;\n\n    &:nth-child(1) {\n      transform: translateY(-4px);\n    }\n\n    &:nth-child(2) {\n      transform: translateY(4px);\n    }\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AAaM;;;;AAIA;;;;AAMJ;;;;;;;;;;;;AAcE;;;;AAIA"}}]
+}

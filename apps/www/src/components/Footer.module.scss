@@ -1,0 +1,44 @@
+
+@use "@/styles/abstracts/respond" as *;
+
+.footer {
+    min-height: min(80svh, 80vw) !important;
+
+    color: var(--c-on-surface);
+    background-color: var(--c-surface-0);
+
+    padding: 24px 0;
+
+
+    // .container {
+    //     display: grid;
+    //     grid-template-columns: repeat(12, 1fr);
+    //     gap: $spacing-4;
+
+    //     .gridItem {
+    //         @include subtitle-1;
+    //         padding: $spacing-2 0;
+    //     }
+    // }
+    // --c-on-surface-primary: #bc1b1b;
+    .rowAColumn {
+        // grid-row: 1;
+        grid-column: span 6;
+
+        @include respond(md) {
+            grid-column: span 12;
+        }
+    
+    }
+
+    .rowBColumn {
+
+        grid-row: 2;
+        margin-top: 120px;
+        grid-column: span 6;
+
+    }
+
+}
+
+

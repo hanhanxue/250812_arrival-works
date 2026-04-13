@@ -15,7 +15,7 @@ const Project = () => {
 
         <div className={`${styles.assetFrame} `}>
           <div style={{ position: "relative", aspectRatio: 1.5 }}>
-            <MuxVideo playbackId="tEWNBXKBwsQHyyYl7xxsd02LOQSnBGgXl7a6OkXRL013U" />
+            <MuxVideo playbackId="t7FuvjuWRscxl01elA1wsPKppaLqBF5AJTvOI6nNwAF4" />
           </div>
         </div>
 
@@ -28,6 +28,12 @@ const Project = () => {
               priority={true}
               sizes="calc(100vw - 32px)"
             />
+          </div>
+        </div>
+
+                <div className={`${styles.assetFrame} `}>
+          <div style={{ position: "relative", aspectRatio: 1.5 }}>
+            <MuxVideo playbackId="uAS4pfuEL5POjq9KvALwYgfQWJunOXTs4iVX02Y02TGJg" />
           </div>
         </div>
 

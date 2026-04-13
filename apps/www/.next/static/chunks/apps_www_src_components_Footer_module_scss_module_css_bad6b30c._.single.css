@@ -1,0 +1,24 @@
+/* [project]/apps/www/src/components/Footer.module.scss.module.css [app-client] (css) */
+.Footer-module-scss-module__JVHsGa__footer {
+  color: var(--c-on-surface);
+  background-color: var(--c-surface-0);
+  padding: 24px 0;
+  min-height: min(80svh, 80vw) !important;
+}
+
+.Footer-module-scss-module__JVHsGa__footer .Footer-module-scss-module__JVHsGa__rowAColumn {
+  grid-column: span 6;
+}
+
+@media (max-width: 768px) {
+  .Footer-module-scss-module__JVHsGa__footer .Footer-module-scss-module__JVHsGa__rowAColumn {
+    grid-column: span 12;
+  }
+}
+
+.Footer-module-scss-module__JVHsGa__footer .Footer-module-scss-module__JVHsGa__rowBColumn {
+  grid-area: 2 / span 6;
+  margin-top: 120px;
+}
+
+/*# sourceMappingURL=apps_www_src_components_Footer_module_scss_module_css_bad6b30c._.single.css.map*/
