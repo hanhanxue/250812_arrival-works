@@ -37,6 +37,11 @@ const Project = () => {
           </div>
         </div>
 
+                <div className={`${styles.assetFrame} `}>
+          <div style={{ position: "relative", aspectRatio: 1.5 }}>
+            <MuxVideo playbackId="Ir01KgVuvyshlNfjR00rbc1L016YZpoyBV56UdEeXh4xNc" />
+          </div>
+        </div>
 
       </div>
     </section>
