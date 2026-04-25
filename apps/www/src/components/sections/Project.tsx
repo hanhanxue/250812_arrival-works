@@ -12,6 +12,18 @@ const Project = () => {
 <span>PhysicsX<sup>↗</sup></span>
     </div> */}
 
+                    <div className={`${styles.assetFrame}`}>
+          <div style={{ position: "relative", aspectRatio: 1.5 }}>
+            <Image
+              src="https://assets.hanhanxue.com/260425_Chip.jpg"
+              fill={true}
+              alt=""
+              priority={true}
+              sizes="calc(100vw - 32px)"
+            />
+          </div>
+        </div>
+
 
         <div className={`${styles.assetFrame} `}>
           <div style={{ position: "relative", aspectRatio: 1.5 }}>
@@ -39,7 +51,7 @@ const Project = () => {
 
                 <div className={`${styles.assetFrame} `}>
           <div style={{ position: "relative", aspectRatio: 1.5 }}>
-            <MuxVideo playbackId="3dqQEQxeQONnvIXSWJJXcb8p7SnAVJHHuR0202pR3DmjY" />
+            <MuxVideo playbackId="fpKglAf4slzlCssHOV01sHgQ2yesaYyivSjBRCUX9rD4" />
           </div>
         </div>
 
