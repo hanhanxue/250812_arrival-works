@@ -7,6 +7,12 @@ const Project = () => {
     <section className={`${styles.section} usection `}>
       <div className={`${styles.container} ucontainer umx `}>
 
+
+                        <div className={`${styles.assetFrame} `}>
+          <div style={{ position: "relative", aspectRatio: 1.78 }}>
+            <MuxVideo playbackId="vbVMGCvcF6eH92BecygH023NSmfbxNom9rmihNX1yA600" />
+          </div>
+        </div>
     {/* <div className={`${styles.projectHeader} title1`}>
 <span>Visual Language Refresh</span>
 <span>PhysicsX<sup>↗</sup></span>
@@ -60,6 +66,8 @@ const Project = () => {
             <MuxVideo playbackId="fpKglAf4slzlCssHOV01sHgQ2yesaYyivSjBRCUX9rD4" />
           </div>
         </div>
+
+
 
       </div>
     </section>
