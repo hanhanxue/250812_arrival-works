@@ -1,0 +1,48 @@
+@use "sass:map";
+
+// A map of breakpoints
+$breakpoints: (
+    3xl: 1920px,  // DESKTOPS
+
+    2xl: 1440px,  // DESKTOPS SMALL
+                  // LAPTOPS
+
+    xl: 1280px, // LAPTOPS SMALL
+                // TABLETS LARGE
+
+    lg: 1024px,  // TABLETS
+
+
+    md: 768px,  // TABLETS SMALL
+                // PHONES LARGE
+
+    
+    sm: 640px,  // PHONES
+    xs: 480px,  // PHONES SMALL
+);
+
+
+
+@mixin respond($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+
+
+        $breakpoint-value: map.get($breakpoints, $breakpoint); // Get the breakpoint value
+
+        @media (max-width: $breakpoint-value) {
+            @content;
+        }
+    } @else {
+      @error "No match found for breakpoint: #{$breakpoint}.";
+    }
+  }
+  
+
+
+
+
+
+
+
+  
+

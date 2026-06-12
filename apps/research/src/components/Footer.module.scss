@@ -1,26 +1,92 @@
 @use "@/styles/base/typography" as *;
 @use "@/styles/base/variables" as *;
+@use "@/styles/abstracts/respond" as *;
+
+
+.footer {
+
+//    background-image: url("/grid.png");
+//   background-size: 100% 100%;
+
+  border-top: 1px solid var(--c-border-subtle);
+    padding: 16px 0;
+        // background-color: red;
+
+        // height: 0px; // fix mobile centering bug
 
 
 
-.groupA {
-    padding: $spacing-4 0;
-
-    @include subtitle-1;
-    grid-column: 1 / 13;
-    grid-row: 1;
-
-    p {
+    .container {
+   
         display: flex;
-        gap: $spacing-8;
+        flex-direction: column;
+
+        justify-content: space-between;
+        // row-gap: 32px;
+/* Three values: flex-grow | flex-shrink | flex-basis */
+// flex: 0 0 0;
+
+        min-height: min(60svh, 60vw) !important;
+
+  @include respond(lg) {
+    min-height: min(calc(876px * 0.6), 60svh) !important;
+  }
+
+        .flexTop{
+            display: flex;
+            flex-direction: column;
+            row-gap: 32px;
+        }
+
+      .flexBottom{
+// flex-shrink: 0;
+// margin-top: auto;
+            @include title3;
+        }
+
     }
-
 }
 
-.groupB {
-    @include subtitle-1;
-grid-column: 1 / 13;
-grid-row: 1;
-    // justify-content: right;
-    justify-items: end;
+.group {
+    // background-color: blue;
+    @include title3;
+
+    grid-column: 1 / 13;
+
+      display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $spacing-4;
+
+  .subtitle, .list{
+    grid-column: span 6;
+            @include respond(lg)  {
+          grid-column: span 12;
+        }
+  }
 }
+
+
+
+
+
+// .groupA {
+//     padding: $spacing-4 0;
+
+//     @include title3;
+//     grid-column: 1 / 13;
+//     grid-row: 1;
+
+//     p {
+//         display: flex;
+//         // gap: $spacing-8;
+//     }
+
+// }
+
+// .groupB {
+//     @include title3;
+// grid-column: 1 / 13;
+// grid-row: 1;
+//     // justify-content: right;
+//     justify-items: end;
+// }

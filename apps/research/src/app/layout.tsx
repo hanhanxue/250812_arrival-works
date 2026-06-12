@@ -1,10 +1,15 @@
 import type { Metadata } from "next"
-
-import "../styles/main.scss"
-import Header from "@/components/Header"
 import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants"
-import Script from "next/script"
+
+
 import PlausibleProvider from "next-plausible"
+
+
+import Script from "next/script"
+
+
+import "@/styles/main.scss"
+import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 
 
@@ -22,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="format-detection" content="email=no, telephone=no, address=no" />
         {/* This script sets the plausible_ignore flag for Vercel deployments */}
         <Script id="disable-plausible" strategy="beforeInteractive">
           {`
@@ -38,13 +44,15 @@ export default function RootLayout({
           // trackLocalhost enabled
         />
       </head>
-      <body data-theme="dark">
+      <body
+      data-theme="light"
+      >
 
 
         
         <Header />
         {children}
-      {/* <Footer /> */}
+      <Footer />
 
 
 

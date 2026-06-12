@@ -2,52 +2,66 @@
 @use "@/styles/base/typography" as *;
 
 @use "@/styles/abstracts/animation" as *;
+@use "@/styles/abstracts/respond" as *;
 
 
 .section {
-  position: sticky; top: 0; z-index: 999;
+  // background-color: transparent;
+  // color: var(--c-on-surface);
 
-// background-color: transparent;
-// mix-blend-mode: difference;
+
+  position: fixed;
+
+    top: 0;
+  width: 100%;
+
+  z-index: 99;
 }
 
 .container {
+  .gridItem {
+    @include title3;
+    padding: $spacing-2 0;
 
-
-
-
-  div {
-    &.groups {
     grid-row: 1;
-    @include subtitle-1;
-    padding: $spacing-4 0;
+    display: flex;
+  }
+  
+      .groupA {
+      grid-column: 1 / 13;
+  
+      align-items: center;
+      justify-content: space-between;
+
+      .menuButtonWrapper {
+        display: none;
+
+        @include respond(lg)  {
+          display: block;
+        }
+      }
+
     }
 
-    &.groupA {
-      grid-column: 1 / 4;
-      display: flex;
-      align-items: center;
-      gap: $spacing-6;
-    }
-    &.groupB {
-      grid-column: 3 / 4;
-      display: flex;
-      align-items: center;
-      // justify-content: center;
-    }
-    &.groupC {
-      grid-column: 4 / 13;
-      display: flex;
-      align-items: center;
-    }
-    &.groupD {
+    .groupB {
       grid-column: 9 / 13;
-      display: flex;
-      gap: $spacing-6;
+
+      align-items: center;
+      
+      gap: $spacing-4;
+
       justify-content: right;
-      // justify-items: end;
+
+      @include respond(lg) {
+display: none;
+      }
+
     }
-  }
+}
+
+.invert {
+  filter: invert(1);
+  background-color: transparent !important;
 }
 
 .link {
@@ -58,4 +72,3 @@
   }
   transition: color $duration-standard;
 }
-

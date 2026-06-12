@@ -34,8 +34,8 @@ export default function SMainGridA() {
   const firstLayoutDoneRef = useRef(false);
 
   // const targetCols = 6;
-  const gutter = 10;
-  const minWidth = 360;
+  const gutter = 16;
+  const minWidth = 320;
 
   // 1) Load data
   useEffect(() => {
@@ -130,8 +130,10 @@ export default function SMainGridA() {
   }, [columnWidth]);
 
   return (
-    <section className={`${styles.section} usection usection-spacing-lg`}>
-      <div className={`${styles.container} umx`} style={{ paddingTop: "12px" }}>
+    <section className={`${styles.section} usection usection-spacer-lg`}>
+      <div className={`${styles.container} umx`} 
+      // style={{ paddingTop: "16px" }}
+      >
         <div className={styles.grid} ref={gridRef}>
           {/* <div className={`${styles.gridSizer}`} ref={gridSizerRef} />
           <div className={`${styles.gutterSizer}`} ref={gutterSizerRef} /> */}

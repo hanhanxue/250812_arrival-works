@@ -1,22 +1,110 @@
 import styles from "./Footer.module.scss";
 
+import XLink from "./XLink";
 
 export default function Footer() {
-    return (
-        <footer className={`${styles.footer} usection usection-spacing-sm usection-spacing-xl`}>
-            <div className={`${styles.container} ucontainer umx`}>
-                <div className={styles.groupA}>
+  return (
+    <footer className={`${styles.footer} usection usection-spacer-lg`}>
+      <div className={`${styles.container} umx`}>
 
-                <p>
-                    <span>© {new Date().getFullYear()}</span>
-                    <span>A.R.C. Means Arrival Research Center</span>
-                </p>
-                </div>
 
-                {/* <div className={styles.groupB}>
-                    <p></p>
-                </div> */}
+
+
+        <div className={`${styles.flexTop}`}>
+          <div className={styles.group}>
+            <div className={`${styles.subtitle} `}>Credits</div>
+            <div className={`${styles.list}`}>
+              <ul>
+
+                <li>
+                  Development,{" "}
+                  <XLink
+                    href="https://www.hanhanxue.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Han Han Xue<sup>↗</sup>
+                  </XLink>
+                </li>
+                <li>
+                  Hosting,{" "}
+                  <XLink
+                    href="https://vercel.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Vercel<sup>↗</sup>
+                  </XLink>
+                </li>
+                <li>
+                  Analytics,{" "}
+                  <XLink
+                    href="https://plausible.io/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Plausible<sup>↗</sup>
+                  </XLink>
+                </li>
+              </ul>
             </div>
-        </footer>
-    )
+          </div>
+
+          <div className={styles.group}>
+            <div className={`${styles.subtitle} `}>Connect</div>
+            <div className={`${styles.list}`}>
+              <ul>
+                <li>mail@arrival.works</li>
+                <li>
+                                      <XLink
+                    href="https://www.hanhanxue.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Github<sup>↗</sup>
+                  </XLink>
+                </li>
+                <li>
+                                      <XLink
+                    href="https://www.hanhanxue.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Instagram<sup>↗</sup>
+                  </XLink>
+                </li>
+                                <li>
+                                      <XLink
+                    href="https://www.hanhanxue.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    YouTube<sup>↗</sup>
+                  </XLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* <div className={styles.group}>
+            <div className={`${styles.subtitle} `}>Press</div>
+            <div className={`${styles.list}`}>
+              <ul>
+                <li>research-arrival-2026.zip</li>
+
+              </ul>
+            </div>
+          </div> */}
+        </div>
+
+        <div className={`${styles.flexBottom} 
+        usection-spacer-lg
+        `}>
+            ©Arrival Research Center
+            </div>
+
+
+      </div>
+    </footer>
+  );
 }

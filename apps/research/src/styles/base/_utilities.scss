@@ -3,37 +3,40 @@
 
 .usection {
   color: var(--c-on-surface);
-  background-color: var(--c-surface-bg);
+  background-color: var(--c-surface-0);
 }
 
 .ucontainer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  // gap: var(--spacing-4);
   gap: $spacing-4;
+  // gap: var(--spacing-4);
 }
 
 .umx {
-  margin: 0 $spacing-2-5;
+  margin: 0 $spacing-4;
 }
 
-.usection-spacing-sm {
-  padding-top: 16px;
+.usection-spacer-sm {
+  margin-top: $spacing-4;
 }
 
-.usection-spacing-md {
-  padding-top: 24px;
+.usection-spacer-md {
+  margin-top: 64px;
 }
 
-.usection-spacing-lg {
-  padding-top: 48px;
+.usection-spacer-lg {
+  margin-top: 128px;
 }
 
 
 
-.usection-spacing-xl {
-  padding-top: 96px;
-}
+
+
+
+
+
+
 
 
 // // Spacing utilities
