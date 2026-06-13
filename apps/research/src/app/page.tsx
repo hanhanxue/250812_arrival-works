@@ -4,7 +4,7 @@ import Image from "next/image"
 import styles from "./page.module.scss"
 import MontrealInfo from "@/components/MontrealInfo"
 import dynamic from "next/dynamic"
-import { SITE_DESCRIPTION } from "@/lib/constants"
+// import { SITE_DESCRIPTION } from "@/lib/constants"
 import SFilters from "@/components/SFilters"
 
 const SMainGridA = dynamic(() => import("@/components/SMainGridA"), {
