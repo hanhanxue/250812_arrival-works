@@ -1,4 +1,4 @@
-import { SITE_DESCRIPTION } from "@/lib/constants";
+// import { SITE_DESCRIPTION } from "@/lib/constants";
 import styles from "./SFilters.module.scss";
 import { useState } from "react";
 
