@@ -68,6 +68,12 @@ export default function GridItem({
                   </XLink>
                 </li>
               )}
+                              <li>
+                  <XLink href="" target="_blank" rel="noopener">
+                    Visit Project
+                  </XLink>
+                </li>
+
             </ul>
           </div>
         </div>
