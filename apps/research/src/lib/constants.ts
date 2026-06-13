@@ -1,24 +1,45 @@
 // Global constants for the application
 
+
+
+export const SITE = {
+  SITE_NAME: "Arrival Research Center",
+  SITE_DESCRIPTION: "Arrival Research Center is the experimental arm of Arrival, dedicated to research, experimentation, and the open exchange of process knowledge.",
+  // SITE_URL: 
+} as const
+
+// Social Media Links
+export const URL = {
+  //   twitter: "https://twitter.com/arrivalworks",
+  HANHANXUE: "https://www.hanhanxue.com/",
+  INSTAGRAM: "https://instagram.com/arrival.works",
+  TIKTOK: "https://tiktok.com/@arrival.works",
+  YOUTUBE: "https://youtube.com/@arrivalworks",
+
+GITHUB:"https://github.com/hanhanxue",
+
+VERCEL: "https://vercel.com/",
+PLAUSIBLE: "https://plausible.io/",
+  LINKEDIN: "https://linkedin.com/company/arrivalworks",
+  //   github: "https://github.com/arrivalworks",
+} as const
+
+
+
+
+
+
 // Site Information
-export const SITE_NAME = "Arrival Research Center"
-export const SITE_DESCRIPTION = "A.R.C. means Arrival Research Center. It is the experimental arm of Arrival Works, dedicated to research, experimentation, and the open exchange of process knowledge."
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+// export const SITE_NAME = "Arrival Research Center"
+// export const SITE_DESCRIPTION = "A.R.C. means Arrival Research Center. It is the experimental arm of Arrival Works, dedicated to research, experimentation, and the open exchange of process knowledge."
+// export const SITE_URL =
+//   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+
 
 // Contact Information
 export const CONTACT_EMAIL = "mail@arrivalworks.com"
 // export const CONTACT_PHONE = "+1 (555) 123-4567";
 
-// Social Media Links
-export const SOCIAL_LINKS = {
-  //   twitter: "https://twitter.com/arrivalworks",
-  linkedin: "https://linkedin.com/company/arrivalworks",
-  instagram: "https://instagram.com/arrival.works",
-  tiktok: "https://tiktok.com/@arrival.works",
-  youtube: "https://youtube.com/@arrivalworks",
-  //   github: "https://github.com/arrivalworks",
-} as const
 
 // API Configuration
 export const API_BASE_URL =

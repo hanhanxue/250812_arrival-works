@@ -11,6 +11,8 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1068.0",
+    "gray-matter": "^4.0.3",
     "masonic": "^4.1.0",
     "masonry-layout": "^4.2.2",
     "next": "^15.5.4",

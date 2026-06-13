@@ -1,6 +1,7 @@
 import styles from "./Footer.module.scss";
 
 import XLink from "./XLink";
+import {URL} from "../lib/constants"
 
 export default function Footer() {
   return (
@@ -19,7 +20,7 @@ export default function Footer() {
                 <li>
                   Development,{" "}
                   <XLink
-                    href="https://www.hanhanxue.com/"
+                    href={URL.HANHANXUE}
                     target="_blank"
                     rel="noopener"
                   >
@@ -29,7 +30,7 @@ export default function Footer() {
                 <li>
                   Hosting,{" "}
                   <XLink
-                    href="https://vercel.com/"
+                    href={URL.VERCEL}
                     target="_blank"
                     rel="noopener"
                   >
@@ -39,7 +40,7 @@ export default function Footer() {
                 <li>
                   Analytics,{" "}
                   <XLink
-                    href="https://plausible.io/"
+                    href={URL.PLAUSIBLE}
                     target="_blank"
                     rel="noopener"
                   >
@@ -57,7 +58,7 @@ export default function Footer() {
                 <li>mail@arrival.works</li>
                 <li>
                                       <XLink
-                    href="https://www.hanhanxue.com/"
+                    href={URL.GITHUB}
                     target="_blank"
                     rel="noopener"
                   >
@@ -66,7 +67,7 @@ export default function Footer() {
                 </li>
                 <li>
                                       <XLink
-                    href="https://www.hanhanxue.com/"
+                    href={URL.INSTAGRAM}
                     target="_blank"
                     rel="noopener"
                   >
@@ -75,7 +76,7 @@ export default function Footer() {
                 </li>
                                 <li>
                                       <XLink
-                    href="https://www.hanhanxue.com/"
+                    href={URL.YOUTUBE}
                     target="_blank"
                     rel="noopener"
                   >

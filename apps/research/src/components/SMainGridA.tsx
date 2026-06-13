@@ -11,19 +11,10 @@ import styles from "./SMainGridA.module.scss";
 import ICO_Download from "./iconography/ICO_Download";
 import GridItem from "./GridItem";
 
-export interface WorkItem {
-  hidden: boolean;
-  src: string;
-  aspectRatio: number;
-  title: string;
-  tags: string[];
-  video: boolean;
-  videoSrc: string;
-  publish?: boolean;
-}
+import {Work} from "@/lib/works"; 
 
 export default function SMainGridA() {
-  const [works, setWorks] = useState<WorkItem[]>([]);
+  const [works, setWorks] = useState<Work[]>([]);
   const masonryRef = useRef<Masonry | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -39,11 +30,12 @@ export default function SMainGridA() {
 
   // 1) Load data
   useEffect(() => {
-    fetch("/works/_index.json")
+    fetch("/api/works")
       .then((res) => res.json())
       // .then((data) => setWorks([...data].reverse()));
       .then((data) =>
-        setWorks(data.filter((item: WorkItem) => item.publish === true))
+        // setWorks(data.filter((item: Work) => item.publish === true))
+      setWorks(data)
       );
   }, []);
 

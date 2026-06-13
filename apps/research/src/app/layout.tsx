@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants"
+import { SITE } from "@/lib/constants"
 
 
 import PlausibleProvider from "next-plausible"
@@ -15,8 +15,8 @@ import Footer from "@/components/Footer"
 
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: SITE_DESCRIPTION,
+  title: SITE.SITE_NAME,
+  description: SITE.SITE_DESCRIPTION,
 }
 
 export default function RootLayout({

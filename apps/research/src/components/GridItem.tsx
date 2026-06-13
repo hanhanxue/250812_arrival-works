@@ -1,10 +1,11 @@
 import styles from "./GridItem.module.scss";
-import { WorkItem } from "./SMainGridA";
-// import UIButton from "./UIButton";
 import Image from "next/image";
-
-
 import XLink from "./XLink";
+import { Work } from "@/lib/works";
+
+function formatBytes(bytes: number): string {
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
 export default function GridItem({
   columnWidth,
@@ -12,9 +13,11 @@ export default function GridItem({
   index,
 }: {
   columnWidth: number;
-  work: WorkItem;
+  work: Work;
   index: number;
 }) {
+  const cover = work.media[0];
+
   return (
     <div
       className={styles.gridItem}
@@ -22,17 +25,14 @@ export default function GridItem({
       key={index}
       style={{ width: `${columnWidth}px` }}
     >
-
-
-      
       <div
         className={styles.imageContainer}
         style={{ aspectRatio: work.aspectRatio }}
       >
-        {!work.hidden &&
-          (work.video ? (
+        {cover && (
+          cover.type === "video" ? (
             <video
-              src={work.videoSrc}
+              src={cover.url}
               autoPlay={true}
               loop={true}
               muted={true}
@@ -40,67 +40,38 @@ export default function GridItem({
               preload="auto"
             />
           ) : (
-            <Image src={work.src} fill={true} alt="" />
-          ))}
-
-        {/* <div className={styles.overlaysContainer}>
-          <div className={styles.overlayBackground}></div>
-
-          <div className={styles.overlayContent}>
-            <div className={styles.overlayContentBottom}>
-              <UIButton>Project Files</UIButton>
-            </div>
-          </div>
-        </div> */}
-
+            <Image src={cover.url} fill={true} alt="" />
+          )
+        )}
       </div>
 
-
-
-
-
       <div className={styles.infoContainer}>
-
         <div className={styles.infoContainerLeft}>
-          <div className={styles.title}>{work.title} 
-            <span className={styles.year}>2026</span>
+          <div className={styles.title}>
+            {work.title}
+            <span className={styles.year}>{work.date.slice(0, 4)}</span>
           </div>
-          <div className={`${styles.tags}
-          `}>{work.tags.join(", ")}</div>
-                    <div className={`${styles.links}
-          `}><ul>
-              <li>
-                                                      <XLink
-                                    href="https://www.hanhanxue.com/"
-                                    target="_blank"
-                                    rel="noopener"
-                                  >
-                                   ↓ Source Files (39.32 MB) 
-                                  </XLink></li>
-              
-                            {/* <li><XLink
-                                    href="https://www.hanhanxue.com/"
-                                    target="_blank"
-                                    rel="noopener"
-                                  >
-                                   ↓ Tutorial
-                                  </XLink></li> */}
+          <div className={styles.tags}>{work.tags.join(", ")}</div>
+          <div className={styles.links}>
+            <ul>
+              {work.zipUrl && (
+                <li>
+                  <XLink href={work.zipUrl} target="_blank" rel="noopener">
+                    ↓ Source Files{work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
+                  </XLink>
+                </li>
+              )}
+              {work.youtubeUrl && (
+                <li>
+                  <XLink href={work.youtubeUrl} target="_blank" rel="noopener">
+                    ↗ Tutorial
+                  </XLink>
+                </li>
+              )}
             </ul>
           </div>
         </div>
-        
-        
-
-        {/* <div className={styles.infoContainerRight}>
-          <div className={styles.index}>2026</div>
-        </div> */}
-
       </div>
-
-
-
-
-
     </div>
   );
 }

@@ -1,5 +1,6 @@
 // Typography SCSS - Font imports and typography styles
 @use "../abstracts/functions" as *;
+@use "../abstracts/respond" as *;
 
 // Font Face Declarations
 @font-face {
@@ -22,47 +23,30 @@ $font-primary:
   font-size: 1.2em;
 }
 
-// Typography Mixins
-@mixin display {
-  font-family: $font-primary;
-  font-weight: 450;
-
-  font-size: rem(48);
-  line-height: rem(50);
-  letter-spacing: -0.01em;
-}
-.display {
-  @include display;
-}
-
-
-
-@mixin title1 {
-  font-family: $font-primary;
-  font-weight: 450;
-
-  font-size: rem(28);
-  line-height: rem(36);
-  letter-spacing: -0.01em;
-}
-.title1 {
-  @include title1;
-}
 
 
 
 
-// Typography Mixins
+
+
+
+
+
+// title3 // title3 // title3 // title3 // title3
 @mixin title3 {
   font-family: $font-primary;
-  font-weight: 420;
 
+  font-weight: 420;
   font-size: rem(21);
   line-height: rem(28);
+
   letter-spacing: 0em;
-  
-  /* Changed from ss05 to ss16 for ABC Repro's circle feature */
-  // font-feature-settings: "calt" 1, "ss16" 1;
+
+                  @include respond(sm) {
+                    font-size: rem(18);
+                    line-height: rem(24);
+                      letter-spacing: 0em;
+                  }
 }
 .title3 {
   @include title3;
@@ -70,18 +54,6 @@ $font-primary:
 
 
 
-// // Typography Mixins
-// @mixin body-1 {
-//   font-family: $font-primary;
-//   font-weight: 420;
-
-//   font-size: rem(14);
-//   line-height: rem(20);
-//   letter-spacing: -0.01em;
-// }
-// .body-1 {
-//   @include body-1;
-// }
 
 // Typography Mixins
 @mixin caption1 {
@@ -95,6 +67,25 @@ $font-primary:
 .caption1 {
   @include caption1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
