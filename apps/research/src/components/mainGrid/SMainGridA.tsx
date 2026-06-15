@@ -126,7 +126,9 @@ export default function SMainGridA() {
   }, [columnWidth]);
 
   return (
-    <section className={`${styles.section} usection usection-spacer-lg`}>
+    <section className={`${styles.section} usection 
+  
+    `}>
       <div
         className={`${styles.container} umx`}
         // style={{ paddingTop: "16px" }}

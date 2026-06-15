@@ -14,6 +14,20 @@ const SMainGridA = dynamic(() => import("@/components/mainGrid/SMainGridA"), {
 export default function Home() {
   return (
     <main>
+
+    <section>
+      <div className={`ucontainer title3 usection-spacer-lg umx`}>
+      {/* <div style={{gridColumn: "7/13", paddingBottom: "32px"}}>
+        <p>
+          This is an experimental space <span>
+            dedicated to research, exploration, and the open exchange of process knowledge. Curated by the team at Arrival.
+            </span>
+        </p>
+      </div> */}
+      </div>
+
+    </section>
+
       <SMainGridA />
     </main>
   );
