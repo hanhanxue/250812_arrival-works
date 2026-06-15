@@ -92,6 +92,8 @@ export default function GridItemA({
         className={styles.imageContainer}
         style={{ aspectRatio: work.aspectRatio }}
       >
+
+        
         {work.media.length > 1 && (
           <div className={styles.carouselControls}>
             <button className={styles.arrowButton} 
@@ -109,6 +111,8 @@ export default function GridItemA({
             </button>
           </div>
         )}
+
+        
 
         <div className={styles.carousel} ref={emblaRef}>
           <div className={styles.carouselTrack}>
