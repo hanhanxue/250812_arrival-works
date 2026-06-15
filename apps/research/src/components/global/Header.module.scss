@@ -85,8 +85,8 @@ display: none;
   &.isMenuOpen {
 .container {
       @include respond(lg) {
-        // height: 100dvh; // need to hide always
-        height: 100vh;
+
+        height: 100dvh; //USE DVH instead of VH here so the entire thing is visible when address bar is visible
       }
 }
 
