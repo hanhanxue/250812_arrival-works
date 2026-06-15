@@ -103,7 +103,8 @@ export default function SMainGridA() {
       columnWidth, // columnWidth is the width of the column
       gutter,
       percentPosition: false,
-      transitionDuration: "300ms",
+      // transitionDuration: "300ms",
+      transitionDuration: "0ms",
       resize: false,
       // initLayout: false,
     });
