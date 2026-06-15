@@ -13,7 +13,7 @@ const SMainGridA = dynamic(() => import("@/components/mainGrid/SMainGridA"), {
 
 export default function Home() {
   return (
-    <main>
+    <main style={{ minHeight: "1024px" }}>
 
     <section>
       <div className={`ucontainer title3 usection-spacer-lg umx`}>
