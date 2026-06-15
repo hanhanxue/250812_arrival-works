@@ -1,7 +1,11 @@
 import styles from "./GridItem.module.scss";
 import Image from "next/image";
-import XLink from "./XLink";
+import XLink from "../global/XLink";
 import { Work } from "@/lib/works";
+import ICO_Download from "../iconography/ICO_Download";
+import ICO_Play from "../iconography/ICO_Play";
+import ICO_View from "../iconography/ICO_View";
+import ICO_More from "../iconography/ICO_More";
 
 function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
@@ -29,8 +33,8 @@ export default function GridItem({
         className={styles.imageContainer}
         style={{ aspectRatio: work.aspectRatio }}
       >
-        {cover && (
-          cover.type === "video" ? (
+        {cover &&
+          (cover.type === "video" ? (
             <video
               src={cover.url}
               autoPlay={true}
@@ -41,8 +45,7 @@ export default function GridItem({
             />
           ) : (
             <Image src={cover.url} fill={true} alt="" />
-          )
-        )}
+          ))}
       </div>
 
       <div className={styles.infoContainer}>
@@ -52,28 +55,46 @@ export default function GridItem({
             <span className={styles.year}>{work.date.slice(0, 4)}</span>
           </div>
           <div className={styles.tags}>{work.tags.join(", ")}</div>
-          <div className={styles.links}>
-            <ul>
+          <div>
+            <ul className={styles.links}>
+              <li>
+                <XLink href="" target="_blank" rel="noopener">
+                  <span className={styles.linkBlock}>
+                    <ICO_More />
+                    Details
+                  </span>
+                </XLink>
+              </li>
+
               {work.zipUrl && (
                 <li>
                   <XLink href={work.zipUrl} target="_blank" rel="noopener">
-                    ↓ Source Files{work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
+                    <span className={styles.linkBlock}>
+                      <ICO_Download />
+                      Source Files
+                      {work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
+                    </span>
                   </XLink>
                 </li>
               )}
               {work.youtubeUrl && (
                 <li>
                   <XLink href={work.youtubeUrl} target="_blank" rel="noopener">
-                    ↗ Tutorial
+                    <span className={styles.linkBlock}>
+                      <ICO_Play />
+                      Tutorial
+                    </span>
                   </XLink>
                 </li>
               )}
-                              <li>
-                  <XLink href="" target="_blank" rel="noopener">
-                    Visit Project
-                  </XLink>
-                </li>
-
+              <li>
+                <XLink href="" target="_blank" rel="noopener">
+                  <span className={styles.linkBlock}>
+                    <ICO_View />
+                    View Project
+                  </span>
+                </XLink>
+              </li>
             </ul>
           </div>
         </div>

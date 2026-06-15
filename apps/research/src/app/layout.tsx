@@ -1,33 +1,33 @@
-import type { Metadata } from "next"
-import { SITE } from "@/lib/constants"
+import type { Metadata } from "next";
+import { SITE } from "@/lib/constants";
 
+import PlausibleProvider from "next-plausible";
 
-import PlausibleProvider from "next-plausible"
+import Script from "next/script";
 
+import "@/styles/main.scss";
+import Header from "@/components/global/Header";
+import Footer from "@/components/global/Footer";
 
-import Script from "next/script"
-
-
-import "@/styles/main.scss"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-
-
+import MediaProvider from "@/providers/MediaProvider"
 
 export const metadata: Metadata = {
   title: SITE.SITE_NAME,
   description: SITE.SITE_DESCRIPTION,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <head>
-        <meta name="format-detection" content="email=no, telephone=no, address=no" />
+        <meta
+          name="format-detection"
+          content="email=no, telephone=no, address=no"
+        />
         {/* This script sets the plausible_ignore flag for Vercel deployments */}
         <Script id="disable-plausible" strategy="beforeInteractive">
           {`
@@ -44,19 +44,16 @@ export default function RootLayout({
           // trackLocalhost enabled
         />
       </head>
-      <body
-      data-theme="light"
-      >
+      <body data-theme="light">
 
 
-        
+             <MediaProvider>
         <Header />
         {children}
-      <Footer />
-
-
+        <Footer />
+             </MediaProvider>
 
       </body>
     </html>
-  )
+  );
 }

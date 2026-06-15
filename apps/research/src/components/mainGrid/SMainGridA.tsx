@@ -8,10 +8,10 @@ import Masonry from "masonry-layout";
 // import { Masonry } from 'masonic'
 import Image from "next/image";
 import styles from "./SMainGridA.module.scss";
-import ICO_Download from "./iconography/ICO_Download";
-import GridItem from "./GridItem";
+import ICO_Download from "../iconography/ICO_Download";
+import GridItemA from "./GridItemA";
 
-import {Work} from "@/lib/works"; 
+import { Work } from "@/lib/works";
 
 export default function SMainGridA() {
   const [works, setWorks] = useState<Work[]>([]);
@@ -35,21 +35,25 @@ export default function SMainGridA() {
       // .then((data) => setWorks([...data].reverse()));
       .then((data) =>
         // setWorks(data.filter((item: Work) => item.publish === true))
-      setWorks(data)
+        setWorks(data),
       );
   }, []);
 
-  useLayoutEffect(() => {
-    if (!gridRef.current) return;
-    const w = gridRef.current.getBoundingClientRect().width;
-    if (!w) return;
-    setContainerWidth(w);
 
-    const cols = Math.max(1, Math.floor(w / minWidth));
-    const cw = (w - (cols - 1) * gutter) / cols;
-    setColumnWidth(cw);
-    // no deps -> run once at mount for initial paint
-  }, []);
+
+  // useLayoutEffect(() => {
+  //   if (!gridRef.current) return;
+  //   const w = gridRef.current.getBoundingClientRect().width;
+  //   if (!w) return;
+  //   setContainerWidth(w);
+
+  //   const cols = Math.max(2, Math.floor(w / minWidth));
+  //   const cw = (w - (cols - 1) * gutter) / cols;
+  //   setColumnWidth(cw);
+  //   // no deps -> run once at mount for initial paint
+  // }, []);
+
+
 
   // 2) Track container width
   useEffect(() => {
@@ -76,7 +80,7 @@ export default function SMainGridA() {
     debounceRef.current = window.setTimeout(() => {
       const cols = Math.max(
         1,
-        Math.floor((containerWidth + gutter) / (minWidth + gutter))
+        Math.floor((containerWidth + gutter) / (minWidth + gutter)),
       );
       const cw = (containerWidth - (cols - 1) * gutter) / cols;
       setColumnWidth(cw);
@@ -123,14 +127,15 @@ export default function SMainGridA() {
 
   return (
     <section className={`${styles.section} usection usection-spacer-lg`}>
-      <div className={`${styles.container} umx`} 
-      // style={{ paddingTop: "16px" }}
+      <div
+        className={`${styles.container} umx`}
+        // style={{ paddingTop: "16px" }}
       >
         <div className={styles.grid} ref={gridRef}>
           {/* <div className={`${styles.gridSizer}`} ref={gridSizerRef} />
           <div className={`${styles.gutterSizer}`} ref={gutterSizerRef} /> */}
           {works.map((work, index) => (
-            <GridItem
+            <GridItemA
               columnWidth={columnWidth}
               work={work}
               index={works.length - 1 - index}

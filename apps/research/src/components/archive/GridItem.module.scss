@@ -47,7 +47,22 @@
     color: var(--c-on-surface-subtle);
   }
   .links {
-    margin-top: 8px;
+    margin-top: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+    gap: 4px;
+
+    .linkBlock {
+      // margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      margin-left: -2px;
+        --c-icon: currentColor;
+    }
+
   }
 }
 

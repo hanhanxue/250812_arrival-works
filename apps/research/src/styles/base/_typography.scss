@@ -30,6 +30,42 @@ $font-primary:
 
 
 
+// display1 // display1 // display1 // display1 // display1
+@mixin display1 {
+
+font-family: $font-primary;
+
+font-weight: 420;
+// font-size: rem(64);
+// line-height: rem(68);
+// line-height: 105%;
+font-size: rem(68);
+line-height: rem(72);
+
+letter-spacing: -0.02em;
+
+                @include respond(xl) {
+                  // font-size: rem(40);
+                  // line-height: rem(44);
+                  font-size: rem(48);
+                  // line-height: 110%;
+                  line-height: rem(52);
+                  letter-spacing: -0.02em;
+                }
+
+                @include respond(sm) {
+                  font-size: rem(28);
+                  line-height: rem(32);
+                letter-spacing: 0em;
+
+                }
+
+}
+.display1 {
+@include display1;
+}
+
+
 
 
 // title3 // title3 // title3 // title3 // title3

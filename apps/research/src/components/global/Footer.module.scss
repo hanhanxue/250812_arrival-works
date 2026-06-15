@@ -9,15 +9,21 @@
 //   background-size: 100% 100%;
 
   border-top: 1px solid var(--c-border-subtle);
-    padding: 16px 0;
+
         // background-color: red;
 
         // height: 0px; // fix mobile centering bug
 
 
+}
 
-    .container {
-   
+
+
+    .footerInnerContainer {
+      @include title3;
+
+          padding: 16px 0;
+    
         display: flex;
         flex-direction: column;
 
@@ -27,29 +33,30 @@
 // flex: 0 0 0;
 
         min-height: min(60svh, 60vw) !important;
-
+    
   @include respond(lg) {
     min-height: min(calc(876px * 0.6), 60svh) !important;
   }
 
         .flexTop{
+          
             display: flex;
             flex-direction: column;
             row-gap: 32px;
+
+            
         }
 
       .flexBottom{
 // flex-shrink: 0;
 // margin-top: auto;
-            @include title3;
+            // @include title3;
         }
 
     }
-}
-
 .group {
     // background-color: blue;
-    @include title3;
+
 
     grid-column: 1 / 13;
 

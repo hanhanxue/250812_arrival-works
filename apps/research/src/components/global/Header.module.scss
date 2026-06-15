@@ -16,9 +16,41 @@
   width: 100%;
 
   z-index: 99;
+
+
+
+  &.isMenuOpen {
+.container {
+      @include respond(lg) {
+        // height: 100dvh; // need to hide always
+        height: 100vh;
+      }
 }
 
+    .groupB {
+
+      @include respond(lg) {
+        display: flex;
+      }
+    
+    }
+        .groupC {
+      @include respond(lg) {
+        display: block;
+      }
+    }
+}
+
+}
+
+
+
 .container {
+    @include respond(lg) {
+      display: flex;
+      flex-direction: column;
+    }
+
   .gridItem {
     @include title3;
     padding: $spacing-2 0;
@@ -44,18 +76,32 @@
     }
 
     .groupB {
-      grid-column: 9 / 13;
+      grid-column: 7 / 13;
 
-      align-items: center;
       
       gap: $spacing-4;
-
+      
+      align-items: center;
       justify-content: right;
+  
 
-      @include respond(lg) {
+            @include respond(lg) {
 display: none;
+
+   @include display1;
+           flex: 1 0 auto;
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        // justify-content: start;
+        // gap: var(--spacing-8);
       }
 
+    }
+
+        // This is inner footer
+    .groupC {
+      display: none;
     }
 }
 

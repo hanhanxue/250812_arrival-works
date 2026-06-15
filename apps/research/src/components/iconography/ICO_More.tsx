@@ -1,9 +1,8 @@
 import { SVGProps } from "react";
 
-const ICO_Download = (props: SVGProps<SVGSVGElement>) => {
+const ICO_More = (props: SVGProps<SVGSVGElement>) => {
   return (
-
-  <svg
+      <svg
     xmlns="http://www.w3.org/2000/svg"
     width={16}
     height={16}
@@ -11,10 +10,10 @@ const ICO_Download = (props: SVGProps<SVGSVGElement>) => {
     {...props}
   >
     {/* <path fill="red" d="M0 0h16v16H0z" /> */}
-    <path stroke="var(--c-icon)" d="M8 3L8 11" />
-    <path fill="var(--c-icon)" d="m11 9-3 3-3-3V7.586l3 3 3-3V9Z" />
+    <path stroke="var(--c-icon)" d="M4 8h8M8 4v8"/>
   </svg>
+
   );
 };
 
-export default ICO_Download;
+export default ICO_More;
