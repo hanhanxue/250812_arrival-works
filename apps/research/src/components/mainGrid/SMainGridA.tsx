@@ -40,18 +40,18 @@ export default function SMainGridA() {
   }, []);
 
 
+// potentially need this in some edge cases
+  useLayoutEffect(() => {
+    if (!gridRef.current) return;
+    const w = gridRef.current.getBoundingClientRect().width;
+    if (!w) return;
+    setContainerWidth(w);
 
-  // useLayoutEffect(() => {
-  //   if (!gridRef.current) return;
-  //   const w = gridRef.current.getBoundingClientRect().width;
-  //   if (!w) return;
-  //   setContainerWidth(w);
-
-  //   const cols = Math.max(2, Math.floor(w / minWidth));
-  //   const cw = (w - (cols - 1) * gutter) / cols;
-  //   setColumnWidth(cw);
-  //   // no deps -> run once at mount for initial paint
-  // }, []);
+    const cols = Math.max(2, Math.floor(w / minWidth));
+    const cw = (w - (cols - 1) * gutter) / cols;
+    setColumnWidth(cw);
+    // no deps -> run once at mount for initial paint
+  }, []);
 
 
 
