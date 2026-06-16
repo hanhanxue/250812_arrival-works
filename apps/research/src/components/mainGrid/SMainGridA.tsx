@@ -29,6 +29,13 @@ export default function SMainGridA() {
   const minWidth = 320;
   const minWidthSmallScreen = 320;
 
+
+  const columnCalculation = () => {
+          const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)),);
+      const cw = (containerWidth - (cols - 1) * gutter) / cols;
+      setColumnWidth(cw);
+  }
+
   // 1) Load data
   useEffect(() => {
     fetch("/api/works")
@@ -50,6 +57,9 @@ export default function SMainGridA() {
     const w = gridRef.current.getBoundingClientRect().width;
     if (!w) return;
     setContainerWidth(w);
+
+
+    columnCalculation();
 
     // ////////////////////////// COLUMN MATH
     // const cols = Math.max(1, Math.floor(w / minWidth));
@@ -87,9 +97,10 @@ export default function SMainGridA() {
     // Wait 150ms after the last resize before updating column width
     debounceRef.current = window.setTimeout(() => {
       ////////////////////////// COLUMN MATH
-      const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)),);
-      const cw = (containerWidth - (cols - 1) * gutter) / cols;
-      setColumnWidth(cw);
+      columnCalculation()
+      // const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)),);
+      // const cw = (containerWidth - (cols - 1) * gutter) / cols;
+      // setColumnWidth(cw);
       ////////////////////////// COLUMN MATH
 
 // const colsAtLarge = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)));
