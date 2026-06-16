@@ -6,6 +6,8 @@ import { r2 } from "./r2";
 export type MediaItem = {
   url: string;
   type: "image" | "video";
+  alt?: string;
+  caption?: string;
 };
 
 export type Work = {
@@ -22,9 +24,11 @@ export type Work = {
   aspectRatio: number;
   media: MediaItem[];        // full public URLs
   
-  youtubeUrl?: string;
   zipUrl?: string;
   zipSize?: number;           // bytes, inferred from listing
+  detailPage?: boolean;
+  youtubeUrl?: string;
+  siteUrl?: string;
 };
 
 const VIDEO_EXTS = [".mp4", ".webm", ".mov"];
@@ -79,14 +83,18 @@ export async function getWorks(): Promise<Work[]> {
         tags: data.tags ?? [],
 
         aspectRatio: data.aspectRatio ?? 1,
-        media: ((data.images ?? []) as string[]).map((filename) => ({
-  url: `${publicUrl}/${slug}/${filename}`,
-  type: VIDEO_EXTS.some((ext) => filename.endsWith(ext)) ? "video" : "image" as const,
-})),
+        media: ((data.media ?? []) as { src: string; alt?: string; caption?: string }[]).map((item) => ({
+          url: `${publicUrl}/${slug}/${item.src}`,
+          type: VIDEO_EXTS.some((ext) => item.src.endsWith(ext)) ? "video" : "image" as const,
+          alt: item.alt,
+          caption: item.caption,
+        })),
 
-        youtubeUrl: data.youtubeUrl || undefined,
         zipUrl: zipKey ? `${publicUrl}/${zipKey}` : undefined,
         zipSize: zipEntry?.Size,           // bytes from ListObjectsV2, free
+        detailPage: data.detailPage || undefined,
+        youtubeUrl: data.youtubeUrl || undefined,
+        siteUrl: data.siteUrl || undefined,
       } satisfies Work;
     })
   );

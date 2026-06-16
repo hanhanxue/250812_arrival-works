@@ -19,16 +19,18 @@
   border-radius: 8px;
   overflow: hidden;
 
-  background-color: var(--rounded-lg);
+  // background-color: var(--rounded-lg);
 
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  // border: 5px solid red;
+
+  // video {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
 
   &:hover {
     .carouselControls{
@@ -143,7 +145,10 @@ pointer-events: none;
 .carousel {
   overflow: hidden;
   position: absolute;
-  inset: 0;
+  inset: -1;
+
+    background-color: rgb(0, 0, 0);
+    // background-color: rgb(255, 0, 0);
 }
 
 .carouselTrack {
@@ -162,16 +167,28 @@ pointer-events: none;
   // transform: translateZ(0);      // ← add
 
   video {
-    position: absolute;
+    // position: absolute;
+    // inset: 0;
+    // width: 100%;
+    // height: 100%;
+    // object-fit: contain;
+
     // inset: 0;
     // width: 100%;
     // height: 100%;
     // object-fit: cover;
-        inset: -1px;                    // instead of inset: 0
+    inset: -1px;                    // instead of inset: 0
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     object-fit: cover;
   }
+    video {
+    position: absolute;
+    inset: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    }
 }
 
 

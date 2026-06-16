@@ -16,6 +16,7 @@ import ICO_ArrowLeft from "../iconography/ICO_ArrowLeft";
 import ICO_ArrowRight from "../iconography/ICO_ArrowRight";
 
 import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
+import { useInView } from "@/hooks/useInView";
 
 function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
@@ -28,13 +29,13 @@ export default function GridItemA({
 }: {
   columnWidth: number;
   work: Work;
-  index: number;
+  index?: number;
 }) {
 
 
   const tileRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<Map<number, HTMLVideoElement>>(new Map());
-  const [inView, setInView] = useState(false);
+  const inView = useInView(tileRef);
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMounted, setCarouselMounted] = useState(false);
 
@@ -47,16 +48,6 @@ export default function GridItemA({
     onPrevButtonClick,
     onNextButtonClick
   } = usePrevNextButtons(emblaApi) // placeholder, will set emblaApi after carousel init
-
-  // When tile enters viewport, lazy-mount the rest of the carousel
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.1 },
-    );
-    if (tileRef.current) observer.observe(tileRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (inView && !carouselMounted) setCarouselMounted(true);
@@ -86,7 +77,6 @@ export default function GridItemA({
       className={styles.gridItem}
       data-masonry-item
       style={{ width: `${columnWidth}px` }}
-      key={index}
     >
       <div
         className={styles.imageContainer}
@@ -117,27 +107,30 @@ export default function GridItemA({
         <div className={styles.carousel} ref={emblaRef}>
           <div className={styles.carouselTrack}>
             {work.media.map((item, i) => (
+
+
               <div key={i} className={styles.carouselSlide}>
-                {/* cover always renders; slides 1–N render after tile enters viewport */}
-                {(i === 0 || carouselMounted) &&
-                  (item.type === "video" ? (
-                    <video
-                      ref={(el) => setVideoRef(el, i)}
-                      src={item.url}
-                      loop
-                      muted
-                      playsInline
-                      preload="none" // ← no network hit until controlled by IntersectionObserver
-                    />
-                  ) : (
-                    <Image
-                      src={item.url}
-                      fill
-                      alt=""
-                      sizes={`${columnWidth}px`}
-                    />
-                  ))}
+                {item.type === "video" ? (
+                  <video
+                    ref={(el) => setVideoRef(el, i)}
+                    src={i === 0 || carouselMounted ? item.url : undefined}
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                  />
+                ) : (
+                  <Image
+                    src={item.url}
+                    fill
+                    alt={item.alt ?? ""}
+                    sizes={`${columnWidth}px`}
+                    style={{ objectFit: "contain" }}
+                  />
+                )}
               </div>
+
+
             ))}
           </div>
         </div>
@@ -175,7 +168,7 @@ export default function GridItemA({
           <div>
             <ul className={styles.links}>
 
-                            {work.zipUrl && (
+             {work.zipUrl && (
                 <li>
                   <XLink href={work.zipUrl} target="_blank" rel="noopener">
                     <span className={styles.linkBlock}>
@@ -188,12 +181,12 @@ export default function GridItemA({
               )}
 
 
-              {work.zipUrl && (
+              {work.detailPage && (
               <li>
                 <XLink href="" target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_More /> */}
-                    <span>→</span> Details
+                    <span>→</span> Notes
                   </span>
                 </XLink>
               </li>
@@ -210,9 +203,10 @@ export default function GridItemA({
                   </XLink>
                 </li>
               )}
-              {work.zipUrl && (
+
+              {work.siteUrl && (
               <li>
-                <XLink href="" target="_blank" rel="noopener">
+                <XLink href={work.siteUrl} target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_View /> */}
                     <span>→</span> View Project
@@ -220,6 +214,7 @@ export default function GridItemA({
                 </XLink>
               </li>
               )}
+
             </ul>
           </div>
         </div>
@@ -227,3 +222,41 @@ export default function GridItemA({
     </div>
   );
 }
+
+
+
+
+  // // When tile enters viewport, lazy-mount the rest of the carousel
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => setInView(entry.isIntersecting),
+  //     { threshold: 0.1 },
+  //   );
+  //   if (tileRef.current) observer.observe(tileRef.current);
+  //   return () => observer.disconnect();
+  // }, []);
+
+
+
+              //   <div key={i} className={styles.carouselSlide}>
+              //   {/* cover always renders; slides 1–N render after tile enters viewport */}
+              //   {(i === 0 || carouselMounted) &&
+              //     (item.type === "video" ? (
+              //       <video
+              //         ref={(el) => setVideoRef(el, i)}
+              //         src={item.url}
+              //         loop
+              //         muted
+              //         playsInline
+              //         preload="none" // ← no network hit until controlled by IntersectionObserver
+              //       />
+              //     ) : (
+              //       <Image
+              //         src={item.url}
+              //         fill
+              //         alt={item.alt ?? ""}
+              //         sizes={`${columnWidth}px`}
+              //         style={{ objectFit: "contain" }}
+              //       />
+              //     ))}
+              // </div>

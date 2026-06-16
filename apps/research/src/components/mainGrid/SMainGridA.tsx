@@ -27,11 +27,15 @@ export default function SMainGridA() {
   // const targetCols = 6;
   const gutter = 16;
   const minWidth = 320;
+  const minWidthSmallScreen = 320;
 
   // 1) Load data
   useEffect(() => {
     fetch("/api/works")
-      .then((res) => res.json())
+      .then((res) => {
+            if (!res.ok) throw new Error(`API error ${res.status}`);
+    return res.json();
+      })
       // .then((data) => setWorks([...data].reverse()));
       .then((data) =>
         // setWorks(data.filter((item: Work) => item.publish === true))
@@ -39,18 +43,19 @@ export default function SMainGridA() {
       );
   }, []);
 
-
-// potentially need this in some edge cases
+  
+// INIT Container Width
   useLayoutEffect(() => {
     if (!gridRef.current) return;
     const w = gridRef.current.getBoundingClientRect().width;
     if (!w) return;
     setContainerWidth(w);
 
-    const cols = Math.max(2, Math.floor(w / minWidth));
-    const cw = (w - (cols - 1) * gutter) / cols;
-    setColumnWidth(cw);
-    // no deps -> run once at mount for initial paint
+    // ////////////////////////// COLUMN MATH
+    // const cols = Math.max(1, Math.floor(w / minWidth));
+    // const cw = (w - (cols - 1) * gutter) / cols;
+    // setColumnWidth(cw);
+    // ////////////////////////// COLUMN MATH
   }, []);
 
 
@@ -69,7 +74,10 @@ export default function SMainGridA() {
     return () => ro.disconnect();
   }, [works.length]);
 
+
   // 3) Compute column width on resize
+
+  
   useEffect(() => {
     if (!containerWidth) return;
 
@@ -78,12 +86,19 @@ export default function SMainGridA() {
 
     // Wait 150ms after the last resize before updating column width
     debounceRef.current = window.setTimeout(() => {
-      const cols = Math.max(
-        1,
-        Math.floor((containerWidth + gutter) / (minWidth + gutter)),
-      );
+      ////////////////////////// COLUMN MATH
+      const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)),);
       const cw = (containerWidth - (cols - 1) * gutter) / cols;
       setColumnWidth(cw);
+      ////////////////////////// COLUMN MATH
+
+// const colsAtLarge = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)));
+// const colsAtSmall = Math.max(1, Math.floor((containerWidth + gutter) / (minWidthSmallScreen + gutter)));
+// const cols = Math.max(colsAtLarge, Math.min(3, colsAtSmall));
+// const cw = (containerWidth - (cols - 1) * gutter) / cols;
+// setColumnWidth(cw);
+
+
     }, 100);
 
     return () => {
@@ -126,6 +141,14 @@ export default function SMainGridA() {
     m.layout?.();
   }, [columnWidth]);
 
+
+
+
+
+
+
+
+
   return (
     <section className={`${styles.section} usection 
   
@@ -141,7 +164,7 @@ export default function SMainGridA() {
             <GridItemA
               columnWidth={columnWidth}
               work={work}
-              index={works.length - 1 - index}
+              // index={works.length - 1 - index}
               key={index}
             />
           ))}
