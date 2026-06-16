@@ -1,0 +1,116 @@
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+import Masonry from "masonry-layout";
+import styles from "./SMainGridB.module.scss";
+import GridItemA from "./GridItemA";
+import { Work } from "@/lib/works";
+
+export default function SMainGridB() {
+  const [works, setWorks] = useState<Work[]>([]);
+  const [columnWidth, setColumnWidth] = useState<number>(0);
+  
+  const masonryRef = useRef<Masonry | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const gutter = 16;
+  const minWidth = 320;
+
+  // Helper to calculate column width cleanly from a raw width value
+  const calculateColumnWidth = (width: number) => {
+    const cols = Math.max(1, Math.floor((width + gutter) / (minWidth + gutter)));
+    return (width - (cols - 1) * gutter) / cols;
+  };
+
+  // 1) Load data once on mount
+  useEffect(() => {
+    fetch("/api/works")
+      .then((res) => {
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        return res.json();
+      })
+      .then((data) => setWorks(data))
+      .catch((err) => console.error("Failed to fetch works:", err));
+  }, []);
+
+  // 2) Single ResizeObserver to handle container metrics and debouncing
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    // Measure immediately on mount
+    const initialWidth = gridRef.current.getBoundingClientRect().width;
+    if (initialWidth) {
+      setColumnWidth(calculateColumnWidth(initialWidth));
+    }
+
+    const ro = new ResizeObserver((entries) => {
+      const w = entries[0]?.contentRect.width;
+      if (!w) return;
+
+      // Debounce the state update to avoid thrashing during active window resizing
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+      
+      debounceTimerRef.current = setTimeout(() => {
+        setColumnWidth(calculateColumnWidth(w));
+      }, 100);
+    });
+
+    ro.observe(gridRef.current);
+
+    return () => {
+      ro.disconnect();
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    };
+  }, []); // Run once on mount. Completely independent of works.length.
+
+  // 3) Manage Masonry Instance lifecycle
+  useEffect(() => {
+    if (!gridRef.current || works.length === 0 || !columnWidth) return;
+
+    // If instance doesn't exist, build it
+    if (!masonryRef.current) {
+      masonryRef.current = new Masonry(gridRef.current, {
+        itemSelector: "[data-masonry-item]",
+        columnWidth,
+        gutter,
+        percentPosition: false,
+        transitionDuration: "0ms",
+        resize: false, 
+      });
+    } else {
+      // If instance exists, update options and trigger layout
+      masonryRef.current.options!.columnWidth = columnWidth;
+      masonryRef.current.layout?.();
+    }
+
+    return () => {
+      // Optional: if component unmounts entirely, clean up.
+      // We don't destroy on every columnWidth change anymore to prevent DOM stutter.
+    };
+  }, [works, columnWidth]); // Only updates when data loads or column width shifts
+
+  // Fully cleanup Masonry only when the element unmounts completely
+  useEffect(() => {
+    return () => {
+      masonryRef.current?.destroy?.();
+      masonryRef.current = null;
+    };
+  }, []);
+
+  return (
+    <section className={`${styles.section} usection`}>
+      <div className={`${styles.container} umx`}>
+        <div className={styles.grid} ref={gridRef}>
+          {works.map((work) => (
+            <GridItemA
+              columnWidth={columnWidth}
+              work={work}
+              key={work.slug} // Avoid using array index here if possible
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

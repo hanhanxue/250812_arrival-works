@@ -1,0 +1,15 @@
+@use "@/styles/base/variables" as *;
+@use "@/styles/base/typography" as *;
+
+.section {
+  // Override any inherited styles
+  padding: 16px 0;
+
+}
+
+
+.grid {
+  position: relative;
+  overflow: hidden;
+}
+

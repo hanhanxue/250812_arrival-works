@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 // import { SITE_DESCRIPTION } from "@/lib/constants"
 import SFilters from "@/components/archive/SFilters";
 
-const SMainGridA = dynamic(() => import("@/components/mainGrid/SMainGridA"), {
+const SMainGridB = dynamic(() => import("@/components/mainGrid/SMainGridB"), {
   ssr: false,
 });
 
@@ -28,7 +28,7 @@ export default function Home() {
 
     </section>
 
-      <SMainGridA />
+      <SMainGridB />
     </main>
   );
 }
