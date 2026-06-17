@@ -1,0 +1,18 @@
+@use "@/styles/abstracts/respond" as *;
+@use "@/styles/base/typography" as *;
+
+.intro {
+    
+     grid-column: span 12;
+
+     max-width: 640px;
+
+     @include title3;
+
+     .curation {
+        // color: var(--c-on-surface-secondary);
+        // background-color: red;
+     }
+
+
+}

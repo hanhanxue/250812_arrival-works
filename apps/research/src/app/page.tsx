@@ -6,6 +6,7 @@ import MontrealInfo from "@/components/archive/MontrealInfo";
 import dynamic from "next/dynamic";
 // import { SITE_DESCRIPTION } from "@/lib/constants"
 import SFilters from "@/components/archive/SFilters";
+import SIntro from "@/components/global/SIntro";
 
 const SMainGridB = dynamic(() => import("@/components/mainGrid/SMainGridB"), {
   ssr: false,
@@ -15,19 +16,7 @@ export default function Home() {
   return (
     <main style={{ minHeight: "1024px" }}>
 
-    <section>
-      <div className={`ucontainer title3 usection-spacer-lg umx`}>
-      {/* <div style={{gridColumn: "7/13", paddingBottom: "32px"}}>
-        <p>
-          This is an experimental space <span>
-            dedicated to research, exploration, and the open exchange of process knowledge. Curated by the team at Arrival.
-            </span>
-        </p>
-      </div> */}
-      </div>
-
-    </section>
-
+      <SIntro />
       <SMainGridB />
     </main>
   );

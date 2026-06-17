@@ -100,7 +100,7 @@ export default function SMainGridB() {
 
   return (
     <section className={`${styles.section} usection`}>
-      <div className={`${styles.container} umx`}>
+      <div className={`${styles.container} umx usection-spacer-sm`}>
         <div className={styles.grid} ref={gridRef}>
           {works.map((work) => (
             <GridItemA

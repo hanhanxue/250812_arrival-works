@@ -89,6 +89,22 @@ letter-spacing: -0.02em;
 }
 
 
+// body // body // body // body // body
+@mixin body {
+  font-family: $font-primary;
+
+  font-weight: 420;
+  font-size: rem(14);
+  line-height: rem(16);
+
+
+  letter-spacing: .01em;
+}
+.body {
+  @include body;
+}
+
+
 
 
 // Typography Mixins
