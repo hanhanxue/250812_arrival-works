@@ -26,7 +26,7 @@ export default function SIntro() {
           </p> */}
                     <p>
             A space dedicated to research, exploration, and the open exchange of
-            process knowledge. Curated by Arrival, a creative office for advanced industry.
+            process knowledge for designers. Curated by Arrival, a creative office for advanced industry.
           </p>
         </div>
       </div>
