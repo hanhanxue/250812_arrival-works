@@ -1,4 +1,5 @@
 import XLink from "./XLink";
+import {SITE} from "@/lib/constants"
 
 import styles from "./SIntro.module.scss";
 
@@ -24,9 +25,7 @@ export default function SIntro() {
               , a creative office for advanced industry.
             </span>
           </p> */}
-                    <p>
-            A space dedicated to research, exploration, and the open exchange of
-            process knowledge for designers. Curated by Arrival, a creative office for advanced industry.
+                    <p>{SITE.SITE_DESCRIPTION}
           </p>
         </div>
       </div>
