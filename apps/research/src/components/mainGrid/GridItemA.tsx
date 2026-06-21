@@ -74,6 +74,7 @@ export default function GridItemA({
   return (
     <div
       ref={tileRef}
+      id={work.slug}
       className={styles.gridItem}
       data-masonry-item
       style={{ width: `${columnWidth}px` }}
@@ -181,9 +182,9 @@ export default function GridItemA({
               )}
 
 
-              {work.detailPage && (
+              {work.notes && (
               <li>
-                <XLink href="" target="_blank" rel="noopener">
+                <XLink href={work.notes} target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_More /> */}
                     <span>→</span> Notes

@@ -26,7 +26,7 @@ export type Work = {
   
   zipUrl?: string;
   zipSize?: number;           // bytes, inferred from listing
-  detailPage?: boolean;
+  notes?: string;
   youtubeUrl?: string;
   siteUrl?: string;
 };
@@ -92,7 +92,7 @@ export async function getWorks(): Promise<Work[]> {
 
         zipUrl: zipKey ? `${publicUrl}/${zipKey}` : undefined,
         zipSize: zipEntry?.Size,           // bytes from ListObjectsV2, free
-        detailPage: data.detailPage || undefined,
+        notes: data.notes || undefined,
         youtubeUrl: data.youtubeUrl || undefined,
         siteUrl: data.siteUrl || undefined,
       } satisfies Work;

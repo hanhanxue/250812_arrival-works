@@ -90,6 +90,28 @@ export default function SMainGridB() {
     };
   }, [works, columnWidth]); // Only updates when data loads or column width shifts
 
+
+
+const hasScrolledRef = useRef(false);
+
+useEffect(() => {
+  if (works.length === 0 || !columnWidth || hasScrolledRef.current) return;
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+
+  // Masonry positions via rAF, so wait one frame after layout
+  const id = setTimeout(() => {
+    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    hasScrolledRef.current = true;
+  }, 50);
+
+  return () => clearTimeout(id);
+}, [works, columnWidth]);
+
+
+
+
+
   // Fully cleanup Masonry only when the element unmounts completely
   useEffect(() => {
     return () => {
@@ -97,6 +119,12 @@ export default function SMainGridB() {
       masonryRef.current = null;
     };
   }, []);
+
+
+
+
+
+
 
   return (
     <section className={`${styles.section} usection`}>

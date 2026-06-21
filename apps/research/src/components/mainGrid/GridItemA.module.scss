@@ -2,6 +2,7 @@
 @use "@/styles/base/typography" as *;
 
 .gridItem {
+  scroll-margin-top: var(--header-height, 80px);
   display: flex;
   flex-direction: column;
   // gap: $spacing-2;
