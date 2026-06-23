@@ -9,7 +9,7 @@ import Masonry from "masonry-layout";
 import Image from "next/image";
 import styles from "./SMainGridA.module.scss";
 import ICO_Download from "../iconography/ICO_Download";
-import GridItemA from "./GridItemA";
+import GridItemA from "../mainGrid/GridItemA";
 
 import { Work } from "@/lib/works";
 

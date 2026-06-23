@@ -71,6 +71,8 @@ export default function GridItemA({
     else videoRefs.current.delete(i);
   }, []);
 
+
+
   return (
     <div
       ref={tileRef}
@@ -79,74 +81,84 @@ export default function GridItemA({
       data-masonry-item
       style={{ width: `${columnWidth}px` }}
     >
-      <div
-        className={styles.imageContainer}
-        style={{ aspectRatio: work.aspectRatio }}
-      >
+      {work.media.length === 1 ? (
+        <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
+        // draggable={false}
+        >
+          {work.media[0].type === "video" ? (
+            <video
+              ref={(el) => setVideoRef(el, 0)}
+              src={work.media[0].url}
+              loop
+              muted
+              playsInline
+              preload="none"
+      draggable={false}
+            />
+          ) : (
+            <Image
+              src={work.media[0].url}
+              fill
+              alt={work.media[0].alt ?? ""}
+              sizes={`${columnWidth}px`}
+              style={{ objectFit: "contain" }}
+      // draggable={false}
+            />
+          )}
+        </div>
+      ) : (
+        <div className={styles.carouselFragment}>
+          <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
+          >
 
-        
-        {work.media.length > 1 && (
-          <div className={styles.carouselControls}>
-            <button className={styles.arrowButton} 
-            onClick={onPrevButtonClick}
-            disabled={prevButtonDisabled}
-            >
-              <ICO_ArrowLeft className={styles.arrowButtonIcon} />
-            </button>
+            <div className={styles.carouselControls}>
+              <button className={styles.arrowButton} onClick={onPrevButtonClick} disabled={prevButtonDisabled}>
+                <ICO_ArrowLeft className={styles.arrowButtonIcon} />
+              </button>
+              <button className={styles.arrowButton} onClick={onNextButtonClick} disabled={nextButtonDisabled}>
+                <ICO_ArrowRight className={styles.arrowButtonIcon} />
+              </button>
+            </div>
 
-            <button className={styles.arrowButton} 
-            onClick={onNextButtonClick}
-            disabled={nextButtonDisabled}
-            >
-              <ICO_ArrowRight className={styles.arrowButtonIcon} />
-            </button>
-          </div>
-        )}
-
-        
-
-        <div className={styles.carousel} ref={emblaRef}>
-          <div className={styles.carouselTrack}>
-            {work.media.map((item, i) => (
-
-
-              <div key={i} className={styles.carouselSlide}>
-                {item.type === "video" ? (
-                  <video
-                    ref={(el) => setVideoRef(el, i)}
-                    src={i === 0 || carouselMounted ? item.url : undefined}
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                  />
-                ) : (
-                  <Image
-                    src={item.url}
-                    fill
-                    alt={item.alt ?? ""}
-                    sizes={`${columnWidth}px`}
-                    style={{ objectFit: "contain" }}
-                  />
-                )}
+            <div className={styles.carousel} ref={emblaRef}>
+              <div className={styles.carouselTrack}>
+                {work.media.map((item, i) => (
+                  <div key={i} className={styles.carouselSlide}>
+                    {item.type === "video" ? (
+                      <video
+                        ref={(el) => setVideoRef(el, i)}
+                        src={i === 0 || carouselMounted ? item.url : undefined}
+                        loop
+                        muted
+                        playsInline
+                        preload="none"
+                  
+                      />
+                    ) : (
+                      <Image
+                        src={item.url}
+                        fill
+                        alt={item.alt ?? ""}
+                        sizes={`${columnWidth}px`}
+                        style={{ objectFit: "contain" }}
+                      />
+                    )}
+                  </div>
+                ))}
               </div>
+            </div>
+          </div>
 
-
+          <div className={styles.dots}>
+            {work.media.map((_, i) => (
+              <button
+                key={i}
+                className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ""}`}
+                onClick={() => emblaApi?.scrollTo(i)}
+                aria-label={`Slide ${i + 1}`}
+              />
             ))}
           </div>
-        </div>
-      </div>
-
-      {work.media.length > 1 && (
-        <div className={styles.dots}>
-          {work.media.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ""}`}
-              onClick={() => emblaApi?.scrollTo(i)}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
         </div>
       )}
 
