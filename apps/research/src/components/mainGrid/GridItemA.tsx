@@ -36,7 +36,6 @@ export default function GridItemA({
   const tileRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<Map<number, HTMLVideoElement>>(new Map());
   const inView = useInView(tileRef);
-  const everInViewRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMounted, setCarouselMounted] = useState(false);
 
@@ -57,15 +56,22 @@ export default function GridItemA({
     if (inView && !carouselMounted) setCarouselMounted(true);
   }, [inView, carouselMounted]);
 
-  // Only play the active video when tile is in viewport
-  useEffect(() => {
-    if (inView) everInViewRef.current = true;
-    videoRefs.current.forEach((video, i) => {
-      if (inView && i === activeIndex) video.play().catch(() => {});
-      else if (everInViewRef.current) video.pause();
-      // Before first in-view: don't pause — lets native autoPlay work on mobile
-    });
-  }, [inView, activeIndex]);
+// Only play the active video when tile is in viewport
+useEffect(() => {
+  videoRefs.current.forEach((video, i) => {
+    if (inView && i === activeIndex) {
+      // A short timeout ensures the video element is fully initialized in the DOM on mobile
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log("Autoplay prevented on mobile:", error);
+        });
+      }
+    } else {
+      video.pause();
+    }
+  });
+}, [inView, activeIndex]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -102,7 +108,13 @@ export default function GridItemA({
             </div>
 
             <div className={styles.carousel} ref={emblaRef}>
-              <div className={styles.carouselTrack}>
+
+
+
+
+
+
+              {/* <div className={styles.carouselTrack}>
                 {work.media.map((item, i) => (
                   <div key={i} className={styles.carouselSlide}>
                     {item.type === "video" ? (
@@ -126,7 +138,52 @@ export default function GridItemA({
                     )}
                   </div>
                 ))}
-              </div>
+              </div> */}
+<div className={styles.carouselTrack}>
+  {work.media.map((item, i) => {
+    // Determine if this specific slide is allowed to render yet
+    const shouldRender = i === 0 || carouselMounted;
+
+    return (
+      <div key={i} className={styles.carouselSlide}>
+        {shouldRender && (
+          <>
+            {item.type === "video" ? (
+              <video
+                ref={(el) => setVideoRef(el, i)}
+                src={item.url}
+                loop
+                muted
+                autoPlay
+                playsInline
+                // Removed preload="none" because if it's rendered, we want it to load
+              />
+            ) : (
+              <Image
+                src={item.url}
+                fill
+                alt={item.alt ?? ""}
+                sizes={`${columnWidth}px`}
+                style={{ objectFit: "contain" }}
+              />
+            )}
+          </>
+        )}
+      </div>
+    );
+  })}
+</div>
+
+
+
+
+
+
+
+
+
+
+
             </div>
           </div>
 
