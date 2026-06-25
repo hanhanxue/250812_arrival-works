@@ -3,7 +3,7 @@ import { withPlausibleProxy } from "next-plausible"
 import path from "path"
 
 const nextConfig: NextConfig = withPlausibleProxy({
-  customDomain: "https://plausible.gitpushoriginmain.com",
+  src: "https://plausible.gitpushoriginmain.com/js/script.js",
 })({
   // sassOptions: {
   //   includePaths: [path.join(__dirname, "src")],
