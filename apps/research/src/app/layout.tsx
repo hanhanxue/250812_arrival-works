@@ -37,12 +37,7 @@ export default function RootLayout({
           `}
         </Script>
         {/* End of disable-plausible */}
-        <PlausibleProvider
-          domain="research.arrival.works"
-          customDomain="https://plausible.gitpushoriginmain.com"
-          selfHosted
-          // trackLocalhost enabled
-        />
+        <PlausibleProvider />
       </head>
       <body data-theme="light">
 
