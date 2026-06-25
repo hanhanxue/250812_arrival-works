@@ -147,7 +147,7 @@ useEffect(() => {
     return (
       <div key={i} className={styles.carouselSlide}>
         {shouldRender && (
-          <div className={styles.container}>
+          <>
             {item.type === "video" ? (
               <video
                 ref={(el) => setVideoRef(el, i)}
@@ -167,7 +167,7 @@ useEffect(() => {
                 style={{ objectFit: "contain" }}
               />
             )}
-          </div>
+          </>
         )}
       </div>
     );

@@ -156,8 +156,8 @@ pointer-events: none;
 
 .carousel {
   // overflow: hidden;
-  position: absolute;
   // inset: 0px;
+  position: absolute;
   inset: -1px;
 
     // background-color: rgb(0, 0, 0);
@@ -172,8 +172,8 @@ pointer-events: none;
 }
 
 .carouselSlide {
-  flex: 0 0 100%;
   position: relative;
+  flex: 0 0 100%;
   // min-width: 0;
   // position: absolute;
   // inset: -10px;
