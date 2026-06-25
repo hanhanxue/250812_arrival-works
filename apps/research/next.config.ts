@@ -4,6 +4,7 @@ import { withPlausibleProxy } from "next-plausible"
 const nextConfig: NextConfig = withPlausibleProxy({
   customDomain: "https://plausible.gitpushoriginmain.com",
 })({
+  cacheComponents: true,
   images: {
     remotePatterns: [
       {

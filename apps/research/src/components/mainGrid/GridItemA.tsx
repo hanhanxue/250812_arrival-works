@@ -142,7 +142,8 @@ useEffect(() => {
 <div className={styles.carouselTrack}>
   {work.media.map((item, i) => {
     // Determine if this specific slide is allowed to render yet
-    const shouldRender = i === 0 || carouselMounted;
+    // const shouldRender = i === 0 || carouselMounted;
+    const shouldRender = inView || carouselMounted;
 
     return (
       <div key={i} className={styles.carouselSlide}>

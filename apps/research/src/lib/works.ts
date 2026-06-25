@@ -1,5 +1,6 @@
 import { ListObjectsV2Command, GetObjectCommand } from "@aws-sdk/client-s3";
 import matter from "gray-matter";
+import { cacheLife, cacheTag } from "next/cache";
 import { r2 } from "./r2";
 
 // Add this type
@@ -34,6 +35,10 @@ export type Work = {
 const VIDEO_EXTS = [".mp4", ".webm", ".mov"];
 
 export async function getWorks(): Promise<Work[]> {
+  "use cache";
+  cacheLife("days");
+  cacheTag("works");
+
   const bucket = process.env.R2_BUCKET_NAME!;
   const publicUrl = process.env.R2_PUBLIC_URL!;
 

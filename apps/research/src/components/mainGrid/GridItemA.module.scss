@@ -142,10 +142,11 @@ pointer-events: none;
         --c-icon: currentColor;
 
         // Arrow location
-        // span {
-        //   margin-top: -.18em;
-        //   // margin-left: -2px;
-        // }
+        span {
+          // margin-top: -.18em;
+          // margin-left: -2px;
+          margin-right: 2px;
+        }
     }
 
   }
