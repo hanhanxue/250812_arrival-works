@@ -39,7 +39,10 @@ export default function GridItemA({
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMounted, setCarouselMounted] = useState(false);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, duration: 20 });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    watchDrag: false,
+    loop: false, 
+    duration: 20 });
 
   
   const {
@@ -81,33 +84,8 @@ export default function GridItemA({
       data-masonry-item
       style={{ width: `${columnWidth}px` }}
     >
-      {work.media.length === 1 ? (
-        <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
-        // draggable={false}
-        >
-          {work.media[0].type === "video" ? (
-            <video
-              ref={(el) => setVideoRef(el, 0)}
-              src={work.media[0].url}
-              loop
-              muted
-              playsInline
-              preload="none"
-      draggable={false}
-            />
-          ) : (
-            <Image
-              src={work.media[0].url}
-              fill
-              alt={work.media[0].alt ?? ""}
-              sizes={`${columnWidth}px`}
-              style={{ objectFit: "contain" }}
-      // draggable={false}
-            />
-          )}
-        </div>
-      ) : (
-        <div className={styles.carouselFragment}>
+
+
           <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
           >
 
@@ -130,9 +108,9 @@ export default function GridItemA({
                         src={i === 0 || carouselMounted ? item.url : undefined}
                         loop
                         muted
+                        autoPlay
                         playsInline
                         preload="none"
-                  
                       />
                     ) : (
                       <Image
@@ -149,6 +127,7 @@ export default function GridItemA({
             </div>
           </div>
 
+{work.media.length > 1 && (
           <div className={styles.dots}>
             {work.media.map((_, i) => (
               <button
@@ -159,8 +138,7 @@ export default function GridItemA({
               />
             ))}
           </div>
-        </div>
-      )}
+)}
 
 
 
@@ -172,21 +150,34 @@ export default function GridItemA({
 
 
       <div className={styles.infoContainer}>
-        <div className={styles.infoContainerLeft}>
-          <div className={styles.title}>
-            {work.title}
-            <span className={styles.year}>{work.date.slice(0, 4)}</span>
-          </div>
+
+        <div className={styles.titleContainer}>
+
+
+  <div className={styles.titleContainerLeft}>
+          <div className={styles.title}>{work.title}</div>
           <div className={styles.tags}>{work.tags.join(", ")}</div>
+  </div>
+<div className={styles.titleContainerRight}>
+                           <span className={styles.year}>{work.date.slice(0, 4)}</span>
+</div>
+
+        </div>
+
+
+
+
           <div>
             <ul className={styles.links}>
+       
+ 
 
              {work.zipUrl && (
                 <li>
                   <XLink href={work.zipUrl} target="_blank" rel="noopener">
                     <span className={styles.linkBlock}>
                       {/* <ICO_Download /> */}
-                      <span>→</span> Source Files
+                      <span>●</span> Source Files
                       {work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
                     </span>
                   </XLink>
@@ -199,7 +190,7 @@ export default function GridItemA({
                 <XLink href={work.notes} target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_More /> */}
-                    <span>→</span> Notes
+                    <span>●</span> Notes
                   </span>
                 </XLink>
               </li>
@@ -211,7 +202,7 @@ export default function GridItemA({
                   <XLink href={work.youtubeUrl} target="_blank" rel="noopener">
                     <span className={styles.linkBlock}>
                       {/* <ICO_Play /> */}
-                      <span>→</span> Tutorial
+                      <span>●</span> Tutorial
                     </span>
                   </XLink>
                 </li>
@@ -222,7 +213,7 @@ export default function GridItemA({
                 <XLink href={work.siteUrl} target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_View /> */}
-                    <span>→</span> View Project
+                    <span>●</span> View Project
                   </span>
                 </XLink>
               </li>
@@ -231,13 +222,39 @@ export default function GridItemA({
             </ul>
           </div>
         </div>
-      </div>
+    
     </div>
   );
 }
 
 
-
+//  {work.media.length === 1 ? (
+//         <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
+//         // draggable={false}
+//         >
+//           {work.media[0].type === "video" ? (
+//             <video
+//               ref={(el) => setVideoRef(el, 0)}
+//               src={work.media[0].url}
+//               loop
+//               muted
+//               autoPlay
+//               playsInline
+//               preload="none"
+//       // draggable={false}
+//             />
+//           ) : (
+//             <Image
+//               src={work.media[0].url}
+//               fill
+//               alt={work.media[0].alt ?? ""}
+//               sizes={`${columnWidth}px`}
+//               style={{ objectFit: "contain" }}
+//       // draggable={false}
+//             />
+//           )}
+//         </div>
+//       ) : (
 
   // // When tile enters viewport, lazy-mount the rest of the carousel
   // useEffect(() => {
