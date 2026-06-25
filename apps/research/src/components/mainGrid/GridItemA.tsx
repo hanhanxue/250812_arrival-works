@@ -36,6 +36,7 @@ export default function GridItemA({
   const tileRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<Map<number, HTMLVideoElement>>(new Map());
   const inView = useInView(tileRef);
+  const everInViewRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMounted, setCarouselMounted] = useState(false);
 
@@ -58,9 +59,11 @@ export default function GridItemA({
 
   // Only play the active video when tile is in viewport
   useEffect(() => {
+    if (inView) everInViewRef.current = true;
     videoRefs.current.forEach((video, i) => {
       if (inView && i === activeIndex) video.play().catch(() => {});
-      else video.pause();
+      else if (everInViewRef.current) video.pause();
+      // Before first in-view: don't pause — lets native autoPlay work on mobile
     });
   }, [inView, activeIndex]);
 
