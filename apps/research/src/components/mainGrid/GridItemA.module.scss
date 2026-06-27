@@ -13,6 +13,12 @@
   //   border-radius: var(--rounded-lg);
   // overflow: hidden;
   // padding: 8px;
+    //   &:hover {
+    //       .year{
+
+    //   opacity: 1;
+    // }
+    // }
 }
 
 .imageContainer {
@@ -107,6 +113,8 @@ pointer-events: none;
     display: flex;
     justify-content: space-between;
     gap: 16px;
+
+
   }
 
     .detailsContainer {
@@ -124,13 +132,13 @@ pointer-events: none;
 
     text-transform: capitalize;
   }
-  .index {
-    color: var(--c-on-surface-subtle);
-  }
+  // .index {
+  //   color: var(--c-on-surface-secondary);
+  // }
 
   .year {
- 
-    color: var(--c-on-surface-disabled);
+    opacity: 0;
+    color: var(--c-on-surface-secondary);
 
   }
   .links {
@@ -215,6 +223,7 @@ pointer-events: none;
   display: flex;
   gap: 5px;
   // z-index: 10;
+  padding-bottom: 0;
 }
 
 .dot {

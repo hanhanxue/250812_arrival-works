@@ -214,7 +214,7 @@ useEffect(() => {
           <div className={styles.tags}>{work.tags.join(", ")}</div>
   </div>
 <div className={styles.titleContainerRight}>
-                          
+           {/* <span className={styles.year}>{work.date.slice(0, 4)}</span>                 */}
 </div>
 
         </div>
@@ -273,7 +273,7 @@ useEffect(() => {
             </ul>
             </div>
             <div className={styles.detailsContainerRight}>
- <span className={styles.year}>{work.date.slice(0, 4)}</span>
+
             </div>
           </div>
 
