@@ -228,7 +228,7 @@ useEffect(() => {
                   <XLink href={work.zipUrl} target="_blank" rel="noopener">
                     <span className={styles.linkBlock}>
                       {/* <ICO_Download /> */}
-                      <span>●</span> Source Files
+                      <span className={styles.linkBullet} /> Source Files
                       {work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
                     </span>
                   </XLink>
@@ -241,7 +241,7 @@ useEffect(() => {
                 <XLink href={work.notes} target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_More /> */}
-                    <span>●</span> Notes
+                    <span className={styles.linkBullet} /> Notes
                   </span>
                 </XLink>
               </li>
@@ -253,7 +253,7 @@ useEffect(() => {
                   <XLink href={work.youtubeUrl} target="_blank" rel="noopener">
                     <span className={styles.linkBlock}>
                       {/* <ICO_Play /> */}
-                      <span>●</span> Tutorial
+                      <span className={styles.linkBullet} /> Tutorial
                     </span>
                   </XLink>
                 </li>
@@ -264,7 +264,7 @@ useEffect(() => {
                 <XLink href={work.siteUrl} target="_blank" rel="noopener">
                   <span className={styles.linkBlock}>
                     {/* <ICO_View /> */}
-                    <span>●</span> View Project
+                    <span className={styles.linkBullet} /> View Project
                   </span>
                 </XLink>
               </li>

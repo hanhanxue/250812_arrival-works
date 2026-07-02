@@ -153,15 +153,22 @@ pointer-events: none;
       // margin-top: 8px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       // margin-left: -2px;
         --c-icon: currentColor;
 
+
+
         // Arrow location
-        span {
+        .linkBullet {
           // margin-top: -.18em;
           // margin-left: -2px;
-          margin-right: 2px;
+          // margin-right: 2px;
+          height: 8px;
+          width: 8px;
+          background-color: currentColor;
+          margin-top: -0.1em;
+          border-radius: 50%;
         }
     }
 
