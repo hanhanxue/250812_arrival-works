@@ -15,7 +15,7 @@ export default function SMainGridB() {
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const gutter = 16;
-  const minWidth = 320;
+  const minWidth = 280;
 
   // Helper to calculate column width cleanly from a raw width value
   const calculateColumnWidth = (width: number) => {
