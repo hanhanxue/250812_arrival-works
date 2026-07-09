@@ -14,8 +14,8 @@ export default function SMainGridB() {
   const gridRef = useRef<HTMLDivElement>(null);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const gutter = 16;
-  const minWidth = 280;
+  const gutter = 16.0;
+  const minWidth = 280.0;
 
   // Derive cols/columnWidth together so they can never drift out of sync
   // the way two separate useState values could.

@@ -220,69 +220,85 @@ useEffect(() => {
         </div>
 
 
-          <div className={styles.detailsContainer}>
-            <div className={styles.detailsContainerLeft}>
-            <ul className={styles.links}>
-             {work.zipUrl && (
-                <li>
-                  <XLink href={work.zipUrl} target="_blank" rel="noopener">
-                    <span className={styles.linkBlock}>
-                      {/* <ICO_Download /> */}
-                      <span className={styles.linkBullet} /> Source Files
-                      {work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
-                    </span>
-                  </XLink>
-                </li>
-              )}
-
-
-              {work.notes && (
-              <li>
-                <XLink href={work.notes} target="_blank" rel="noopener">
-                  <span className={styles.linkBlock}>
-                    {/* <ICO_More /> */}
-                    <span className={styles.linkBullet} /> Notes
-                  </span>
-                </XLink>
-              </li>
-              )}
-
-
-              {work.youtubeUrl && (
-                <li>
-                  <XLink href={work.youtubeUrl} target="_blank" rel="noopener">
-                    <span className={styles.linkBlock}>
-                      {/* <ICO_Play /> */}
-                      <span className={styles.linkBullet} /> Tutorial
-                    </span>
-                  </XLink>
-                </li>
-              )}
-
-              {work.siteUrl && (
-              <li>
-                <XLink href={work.siteUrl} target="_blank" rel="noopener">
-                  <span className={styles.linkBlock}>
-                    {/* <ICO_View /> */}
-                    <span className={styles.linkBullet} /> View Project
-                  </span>
-                </XLink>
-              </li>
-              )}
-
-            </ul>
-            </div>
-            <div className={styles.detailsContainerRight}>
-
-            </div>
-          </div>
-
-
         </div>
     
     </div>
   );
 }
+
+
+
+
+
+
+
+          // <div className={styles.detailsContainer}>
+          //   <div className={styles.detailsContainerLeft}>
+          //   <ul className={styles.links}>
+          //    {work.zipUrl && (
+          //       <li>
+          //         <XLink href={work.zipUrl} target="_blank" rel="noopener">
+          //           <span className={styles.linkBlock}>
+          //             {/* <ICO_Download /> */}
+          //             <span className={styles.linkBullet} /> Source Files
+          //             {work.zipSize ? ` (${formatBytes(work.zipSize)})` : ""}
+          //           </span>
+          //         </XLink>
+          //       </li>
+          //     )}
+
+
+          //     {work.notes && (
+          //     <li>
+          //       <XLink href={work.notes} target="_blank" rel="noopener">
+          //         <span className={styles.linkBlock}>
+          //           {/* <ICO_More /> */}
+          //           <span className={styles.linkBullet} /> Notes
+          //         </span>
+          //       </XLink>
+          //     </li>
+          //     )}
+
+
+          //     {work.youtubeUrl && (
+          //       <li>
+          //         <XLink href={work.youtubeUrl} target="_blank" rel="noopener">
+          //           <span className={styles.linkBlock}>
+          //             {/* <ICO_Play /> */}
+          //             <span className={styles.linkBullet} /> Tutorial
+          //           </span>
+          //         </XLink>
+          //       </li>
+          //     )}
+
+          //     {work.siteUrl && (
+          //     <li>
+          //       <XLink href={work.siteUrl} target="_blank" rel="noopener">
+          //         <span className={styles.linkBlock}>
+          //           {/* <ICO_View /> */}
+          //           <span className={styles.linkBullet} /> View Project
+          //         </span>
+          //       </XLink>
+          //     </li>
+          //     )}
+
+          //   </ul>
+          //   </div>
+          //   <div className={styles.detailsContainerRight}>
+
+          //   </div>
+          // </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 //  {work.media.length === 1 ? (
