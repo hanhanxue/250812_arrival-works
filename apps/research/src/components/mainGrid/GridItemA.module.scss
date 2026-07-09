@@ -182,9 +182,11 @@ pointer-events: none;
   // overflow: hidden;
   // inset: 0px;
   position: absolute;
-  // no longer need this with column width math.floor to integer
-  // inset: -1px;
-  inset: 0px;
+  
+  // inset: 0px;
+
+  // this is needed for rounding to first decimal 
+  inset: -1px;
 
     // background-color: rgb(0, 0, 0);
     // background-color: rgb(255, 0, 0);
