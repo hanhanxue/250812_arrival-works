@@ -22,9 +22,12 @@ export default function SMainGridB() {
   const { cols, columnWidth } = useMemo(() => {
     const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)));
     return { cols, columnWidth: 
-      Math.floor(
-        (containerWidth - (cols - 1) * gutter) / cols
-   )};
+     
+        Number((
+          (containerWidth - (cols - 1) * gutter) / cols
+        ).toFixed(1))
+   
+  };
   }, [containerWidth]);
 
   // A "wide" item spans 2 grid columns: its outer width must equal two
