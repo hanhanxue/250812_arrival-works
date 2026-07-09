@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import Masonry from "masonry-layout";
 import styles from "./SMainGridB.module.scss";
 import GridItemA from "./GridItemA";
@@ -8,8 +8,8 @@ import { Work } from "@/lib/works";
 
 export default function SMainGridB() {
   const [works, setWorks] = useState<Work[]>([]);
-  const [columnWidth, setColumnWidth] = useState<number>(0);
-  
+  const [containerWidth, setContainerWidth] = useState<number>(0);
+
   const masonryRef = useRef<Masonry | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -17,11 +17,19 @@ export default function SMainGridB() {
   const gutter = 16;
   const minWidth = 280;
 
-  // Helper to calculate column width cleanly from a raw width value
-  const calculateColumnWidth = (width: number) => {
-    const cols = Math.max(1, Math.floor((width + gutter) / (minWidth + gutter)));
-    return (width - (cols - 1) * gutter) / cols;
-  };
+  // Derive cols/columnWidth together so they can never drift out of sync
+  // the way two separate useState values could.
+  const { cols, columnWidth } = useMemo(() => {
+    const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)));
+    return { cols, columnWidth: (containerWidth - (cols - 1) * gutter) / cols };
+  }, [containerWidth]);
+
+  // A "wide" item spans 2 grid columns: its outer width must equal two
+  // columns plus the gutter between them so Masonry's own colSpan detection
+  // (based on element width vs. columnWidth) picks it up automatically.
+  // Falls back to a single column when the grid itself only has one.
+  const getItemWidth = (work: Work) =>
+    work.wide && cols >= 2 ? columnWidth * 2 + gutter : columnWidth;
 
   // 1) Load data once on mount
   useEffect(() => {
@@ -41,7 +49,7 @@ export default function SMainGridB() {
     // Measure immediately on mount
     const initialWidth = gridRef.current.getBoundingClientRect().width;
     if (initialWidth) {
-      setColumnWidth(calculateColumnWidth(initialWidth));
+      setContainerWidth(initialWidth);
     }
 
     const ro = new ResizeObserver((entries) => {
@@ -50,9 +58,9 @@ export default function SMainGridB() {
 
       // Debounce the state update to avoid thrashing during active window resizing
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-      
+
       debounceTimerRef.current = setTimeout(() => {
-        setColumnWidth(calculateColumnWidth(w));
+        setContainerWidth(w);
       }, 100);
     });
 
@@ -132,7 +140,7 @@ useEffect(() => {
         <div className={styles.grid} ref={gridRef}>
           {works.map((work) => (
             <GridItemA
-              columnWidth={columnWidth}
+              columnWidth={getItemWidth(work)}
               work={work}
               key={work.slug} // Avoid using array index here if possible
             />

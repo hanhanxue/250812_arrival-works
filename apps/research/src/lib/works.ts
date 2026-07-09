@@ -24,7 +24,9 @@ export type Work = {
 
   aspectRatio: number;
   media: MediaItem[];        // full public URLs
-  
+  wide?: boolean;             // spans 2 grid columns when true
+
+
   zipUrl?: string;
   zipSize?: number;           // bytes, inferred from listing
   notes?: string;
@@ -88,6 +90,7 @@ export async function getWorks(): Promise<Work[]> {
         tags: data.tags ?? [],
 
         aspectRatio: data.aspectRatio ?? 1,
+        wide: data.wide === true,
         media: ((data.media ?? []) as { src: string; alt?: string; caption?: string }[]).map((item) => ({
           url: `${publicUrl}/${slug}/${item.src}`,
           type: VIDEO_EXTS.some((ext) => item.src.endsWith(ext)) ? "video" : "image" as const,
