@@ -21,7 +21,10 @@ export default function SMainGridB() {
   // the way two separate useState values could.
   const { cols, columnWidth } = useMemo(() => {
     const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)));
-    return { cols, columnWidth: (containerWidth - (cols - 1) * gutter) / cols };
+    return { cols, columnWidth: 
+      Math.floor(
+        (containerWidth - (cols - 1) * gutter) / cols
+   )};
   }, [containerWidth]);
 
   // A "wide" item spans 2 grid columns: its outer width must equal two

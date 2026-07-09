@@ -182,7 +182,9 @@ pointer-events: none;
   // overflow: hidden;
   // inset: 0px;
   position: absolute;
-  inset: -1px;
+  // no longer need this with column width math.floor to integer
+  // inset: -1px;
+  inset: 0px;
 
     // background-color: rgb(0, 0, 0);
     // background-color: rgb(255, 0, 0);
