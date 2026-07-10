@@ -4,7 +4,7 @@
 
 export const SITE = {
   SITE_NAME: "Arrival Research Center",
-  SITE_DESCRIPTION: "A space dedicated to research, exploration, and the open exchange of process knowledge for designers. Authored by Arrival, a creative office for advanced industry.",
+  SITE_DESCRIPTION: "A space dedicated to research, experimentation, and the open exchange of process knowledge for designers. Authored by Arrival, a creative office for advanced industry.",
   // SITE_URL: 
 } as const
 
