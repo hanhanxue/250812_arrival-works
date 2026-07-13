@@ -18,12 +18,12 @@
 .ucontainer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: $spacing-4;
+  gap: var(--gutter);
   // gap: var(--spacing-4);
 }
 
 .umx {
-  margin: 0 $spacing-4;
+  margin: 0 var(--gutter);
 }
 
 .usection-spacer-sm {

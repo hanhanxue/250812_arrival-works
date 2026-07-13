@@ -23,7 +23,7 @@
 
 .imageContainer {
   position: relative;
-  border-radius: 8px;
+  border-radius: var(--image-radius);
   overflow: hidden;
 
   // background-color: var(--rounded-lg);
