@@ -22,10 +22,10 @@ export default function SMainGridB() {
   const { cols, columnWidth } = useMemo(() => {
     const cols = Math.max(1, Math.floor((containerWidth + gutter) / (minWidth + gutter)));
     return { cols, columnWidth: 
-     
-        Number((
-          (containerWidth - (cols - 1) * gutter) / cols
-        ).toFixed(1))
+     (containerWidth - (cols - 1) * gutter) / cols
+        // Number((
+        //   (containerWidth - (cols - 1) * gutter) / cols
+        // ).toFixed(1))
    
   };
   }, [containerWidth]);
@@ -142,7 +142,7 @@ useEffect(() => {
 
   return (
     <section className={`${styles.section} usection`}>
-      <div className={`${styles.container} umx usection-spacer-sm`}>
+      <div className={`${styles.container} umx usection-spacer-md`}>
         <div className={styles.grid} ref={gridRef}>
           {works.map((work) => (
             <GridItemA
