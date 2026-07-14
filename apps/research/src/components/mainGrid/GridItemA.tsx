@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import XLink from "../global/XLink";
+import MuxVideo from "../global/MuxVideo";
 import { Work } from "@/lib/works";
 import styles from "./GridItemA.module.scss";
 
@@ -34,7 +35,9 @@ export default function GridItemA({
 
 
   const tileRef = useRef<HTMLDivElement>(null);
-  const videoRefs = useRef<Map<number, HTMLVideoElement>>(new Map());
+  // Holds both native <video> elements and Mux player elements — the
+  // play/pause-on-viewport logic only needs this shared surface.
+  const videoRefs = useRef<Map<number, Pick<HTMLVideoElement, "play" | "pause">>>(new Map());
   const inView = useInView(tileRef);
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMounted, setCarouselMounted] = useState(false);
@@ -78,7 +81,7 @@ useEffect(() => {
     emblaApi.on("select", () => setActiveIndex(emblaApi.selectedScrollSnap()));
   }, [emblaApi]);
 
-  const setVideoRef = useCallback((el: HTMLVideoElement | null, i: number) => {
+  const setVideoRef = useCallback((el: Pick<HTMLVideoElement, "play" | "pause"> | null, i: number) => {
     if (el) videoRefs.current.set(i, el);
     else videoRefs.current.delete(i);
   }, []);
@@ -150,6 +153,12 @@ useEffect(() => {
         {shouldRender && (
           <>
             {item.type === "video" ? (
+              item.muxId ? (
+                <MuxVideo
+                  ref={(el) => setVideoRef(el, i)}
+                  playbackId={item.muxId}
+                />
+              ) : (
               <video
                 ref={(el) => setVideoRef(el, i)}
                 src={item.url}
@@ -159,6 +168,7 @@ useEffect(() => {
                 playsInline
                 // Removed preload="none" because if it's rendered, we want it to load
               />
+              )
             ) : (
               <Image
                 src={item.url}

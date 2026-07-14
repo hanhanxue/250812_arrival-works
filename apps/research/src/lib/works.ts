@@ -7,6 +7,7 @@ import { r2 } from "./r2";
 export type MediaItem = {
   url: string;
   type: "image" | "video";
+  muxId?: string;              // Mux playback ID; when set, videos stream via Mux instead of R2
   alt?: string;
   caption?: string;
 };
@@ -91,9 +92,10 @@ export async function getWorks(): Promise<Work[]> {
 
         aspectRatio: data.aspectRatio ?? 1,
         wide: data.wide === true,
-        media: ((data.media ?? []) as { src: string; alt?: string; caption?: string }[]).map((item) => ({
+        media: ((data.media ?? []) as { src: string; muxId?: string; alt?: string; caption?: string }[]).map((item) => ({
           url: `${publicUrl}/${slug}/${item.src}`,
           type: VIDEO_EXTS.some((ext) => item.src.endsWith(ext)) ? "video" : "image" as const,
+          muxId: item.muxId,
           alt: item.alt,
           caption: item.caption,
         })),
