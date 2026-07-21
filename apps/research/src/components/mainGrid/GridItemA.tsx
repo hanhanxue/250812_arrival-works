@@ -101,14 +101,16 @@ useEffect(() => {
           <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
           >
 
-            <div className={styles.carouselControls}>
-              <button className={styles.arrowButton} onClick={onPrevButtonClick} disabled={prevButtonDisabled}>
-                <ICO_ArrowLeft className={styles.arrowButtonIcon} />
-              </button>
-              <button className={styles.arrowButton} onClick={onNextButtonClick} disabled={nextButtonDisabled}>
-                <ICO_ArrowRight className={styles.arrowButtonIcon} />
-              </button>
-            </div>
+            {work.media.length > 1 && (
+              <div className={styles.carouselControls}>
+                <button className={styles.arrowButton} onClick={onPrevButtonClick} disabled={prevButtonDisabled}>
+                  <ICO_ArrowLeft className={styles.arrowButtonIcon} />
+                </button>
+                <button className={styles.arrowButton} onClick={onNextButtonClick} disabled={nextButtonDisabled}>
+                  <ICO_ArrowRight className={styles.arrowButtonIcon} />
+                </button>
+              </div>
+            )}
 
             <div className={styles.carousel} ref={emblaRef}>
 
@@ -116,32 +118,6 @@ useEffect(() => {
 
 
 
-
-              {/* <div className={styles.carouselTrack}>
-                {work.media.map((item, i) => (
-                  <div key={i} className={styles.carouselSlide}>
-                    {item.type === "video" ? (
-                      <video
-                        ref={(el) => setVideoRef(el, i)}
-                        src={i === 0 || carouselMounted ? item.url : undefined}
-                        loop
-                        muted
-                        autoPlay
-                        playsInline
-                        preload="none"
-                      />
-                    ) : (
-                      <Image
-                        src={item.url}
-                        fill
-                        alt={item.alt ?? ""}
-                        sizes={`${columnWidth}px`}
-                        style={{ objectFit: "contain" }}
-                      />
-                    )}
-                  </div>
-                ))}
-              </div> */}
 <div className={styles.carouselTrack}>
   {work.media.map((item, i) => {
     // Determine if this specific slide is allowed to render yet
@@ -224,7 +200,7 @@ useEffect(() => {
           <div className={styles.tags}>{work.tags.join(", ")}</div>
   </div>
 <div className={styles.titleContainerRight}>
-           {/* <span className={styles.year}>{work.date.slice(0, 4)}</span>                 */}
+
 </div>
 
         </div>
@@ -239,6 +215,34 @@ useEffect(() => {
 
 
 
+
+
+
+              // {/* <div className={styles.carouselTrack}>
+              //   {work.media.map((item, i) => (
+              //     <div key={i} className={styles.carouselSlide}>
+              //       {item.type === "video" ? (
+              //         <video
+              //           ref={(el) => setVideoRef(el, i)}
+              //           src={i === 0 || carouselMounted ? item.url : undefined}
+              //           loop
+              //           muted
+              //           autoPlay
+              //           playsInline
+              //           preload="none"
+              //         />
+              //       ) : (
+              //         <Image
+              //           src={item.url}
+              //           fill
+              //           alt={item.alt ?? ""}
+              //           sizes={`${columnWidth}px`}
+              //           style={{ objectFit: "contain" }}
+              //         />
+              //       )}
+              //     </div>
+              //   ))}
+              // </div> */}
 
 
 

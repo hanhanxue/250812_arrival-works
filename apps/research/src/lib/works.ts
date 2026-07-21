@@ -92,9 +92,9 @@ export async function getWorks(): Promise<Work[]> {
 
         aspectRatio: data.aspectRatio ?? 1,
         wide: data.wide === true,
-        media: ((data.media ?? []) as { src: string; muxId?: string; alt?: string; caption?: string }[]).map((item) => ({
-          url: `${publicUrl}/${slug}/${item.src}`,
-          type: VIDEO_EXTS.some((ext) => item.src.endsWith(ext)) ? "video" : "image" as const,
+        media: ((data.media ?? []) as { src: string | null; muxId?: string; alt?: string; caption?: string }[]).map((item) => ({
+          url: item.src ? `${publicUrl}/${slug}/${item.src}` : "",
+          type: item.muxId || (item.src && VIDEO_EXTS.some((ext) => item.src!.endsWith(ext))) ? "video" : "image" as const,
           muxId: item.muxId,
           alt: item.alt,
           caption: item.caption,
