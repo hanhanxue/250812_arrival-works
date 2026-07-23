@@ -112,7 +112,7 @@ letter-spacing: -0.02em;
   font-family: $font-primary;
   font-weight: 420;
 
-  font-size: rem(13);
+  font-size: rem(12.5);
   line-height: rem(16);
   letter-spacing: .01em;
 }
@@ -123,7 +123,7 @@ letter-spacing: -0.02em;
 // Typography Mixins
 @mixin caption1-strong {
   @include caption1;
-  font-weight: 470;
+  font-weight: 480;
 }
 .caption1-strong {
   @include caption1-strong;
@@ -138,8 +138,8 @@ letter-spacing: -0.02em;
 @mixin button {
   font-family: $font-primary;
 
-  font-weight: 470;
-  font-size: rem(12);
+  font-weight: 450;
+  font-size: rem(12.5);
   line-height: rem(16);
 
 
