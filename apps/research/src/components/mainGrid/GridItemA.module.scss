@@ -85,11 +85,9 @@
 .carouselSlide {
   position: relative;
   flex: 0 0 100%;
-  // min-width: 0;
-  // position: absolute;
-  // inset: -10px;
 
-
+  // margin-right: -1px;
+  margin: -.5px; // hack to fix the thin gap between slides
 }
     video {
 
