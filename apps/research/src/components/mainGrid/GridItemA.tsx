@@ -98,8 +98,22 @@ useEffect(() => {
     >
 
 
-          <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
+          <div className={styles.mediaContainer} style={{ aspectRatio: work.aspectRatio }}
           >
+            <div className={styles.overlays}>
+            <div className={styles.projectControls}>
+              <div className={styles.projectControlsTop}>
+                {/* <button>Share</button> */}
+              </div>
+              <div className={styles.projectControlsBottom}>
+                <div className={styles.projectControlsGroup}>
+                  <button>Visit Site</button>
+                  <button>Notes</button>
+                </div>
+<button>Project Files (3.12 MB)</button>
+              </div>
+              
+            </div>
 
             {work.media.length > 1 && (
               <div className={styles.carouselControls}>
@@ -111,6 +125,9 @@ useEffect(() => {
                 </button>
               </div>
             )}
+
+            </div>
+
 
             <div className={styles.carousel} ref={emblaRef}>
 
@@ -316,7 +333,7 @@ useEffect(() => {
 
 
 //  {work.media.length === 1 ? (
-//         <div className={styles.imageContainer} style={{ aspectRatio: work.aspectRatio }}
+//         <div className={styles.mediaContainer} style={{ aspectRatio: work.aspectRatio }}
 //         // draggable={false}
 //         >
 //           {work.media[0].type === "video" ? (

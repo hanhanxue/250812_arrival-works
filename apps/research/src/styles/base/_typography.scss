@@ -120,11 +120,34 @@ letter-spacing: -0.02em;
   @include caption1;
 }
 
+// Typography Mixins
+@mixin caption1-strong {
+  @include caption1;
+  font-weight: 450;
+}
+.caption1-strong {
+  @include caption1-strong;
+}
 
 
 
 
 
+
+// button // button // button // button // button
+@mixin button {
+  font-family: $font-primary;
+
+  font-weight: 450;
+  font-size: rem(12);
+  line-height: rem(16);
+
+
+  letter-spacing: .02em;
+}
+.button {
+  @include button;
+}
 
 
 
