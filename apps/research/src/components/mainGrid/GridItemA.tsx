@@ -19,6 +19,8 @@ import ICO_ArrowRight from "../iconography/ICO_ArrowRight";
 import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 import { useInView } from "@/hooks/useInView";
 
+import XButton from "../global/XButton";
+
 function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
@@ -106,11 +108,11 @@ useEffect(() => {
                 {/* <button>Share</button> */}
               </div>
               <div className={styles.projectControlsBottom}>
+                  <XButton>Visit Site</XButton>
                 <div className={styles.projectControlsGroup}>
-                  <button>Visit Site</button>
-                  <button>Notes</button>
+                  <XButton style="secondary">Notes</XButton>
+              <XButton>Project Files (3.12 MB)</XButton>
                 </div>
-<button>Project Files (3.12 MB)</button>
               </div>
               
             </div>

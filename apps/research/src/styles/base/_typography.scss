@@ -135,7 +135,7 @@ letter-spacing: -0.02em;
 
 
 // button // button // button // button // button
-@mixin button {
+@mixin buttonText {
   font-family: $font-primary;
 
   font-weight: 450;
@@ -145,8 +145,8 @@ letter-spacing: -0.02em;
 
   letter-spacing: .02em;
 }
-.button {
-  @include button;
+.buttonText {
+  @include buttonText;
 }
 
 
