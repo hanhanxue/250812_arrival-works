@@ -100,7 +100,7 @@ useEffect(() => {
     >
 
 
-          <div className={styles.mediaContainer} style={{ aspectRatio: work.aspectRatio }}
+          <div className={styles.mediaContainer} style={{ aspectRatio: work.aspect }}
           >
             <div className={styles.overlays}>
             <div className={styles.projectControls}>
@@ -335,7 +335,7 @@ useEffect(() => {
 
 
 //  {work.media.length === 1 ? (
-//         <div className={styles.mediaContainer} style={{ aspectRatio: work.aspectRatio }}
+//         <div className={styles.mediaContainer} style={{ aspectRatio: work.aspect }}
 //         // draggable={false}
 //         >
 //           {work.media[0].type === "video" ? (

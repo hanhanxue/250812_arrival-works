@@ -31,7 +31,7 @@ export default function GridItem({
     >
       <div
         className={styles.imageContainer}
-        style={{ aspectRatio: work.aspectRatio }}
+        style={{ aspectRatio: work.aspect }}
       >
         {cover &&
           (cover.type === "video" ? (

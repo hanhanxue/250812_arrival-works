@@ -1,9 +1,8 @@
-import { ListObjectsV2Command, GetObjectCommand } from "@aws-sdk/client-s3";
-import matter from "gray-matter";
+import { ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { cacheLife, cacheTag } from "next/cache";
 import { r2 } from "./r2";
+import { fetchSheet } from "./sheet";
 
-// Add this type
 export type MediaItem = {
   url: string;
   type: "image" | "video";
@@ -23,7 +22,7 @@ export type Work = {
 
   tags: string[];
 
-  aspectRatio: number;
+  aspect: number;
   media: MediaItem[];        // full public URLs
   wide?: boolean;             // spans 2 grid columns when true
 
@@ -37,6 +36,8 @@ export type Work = {
 
 const VIDEO_EXTS = [".mp4", ".webm", ".mov"];
 
+const isTrue = (v: string | undefined) => v?.toUpperCase() === "TRUE";
+
 export async function getWorks(): Promise<Work[]> {
   "use cache";
   cacheLife("days");
@@ -45,71 +46,74 @@ export async function getWorks(): Promise<Work[]> {
   const bucket = process.env.R2_BUCKET_NAME!;
   const publicUrl = process.env.R2_PUBLIC_URL!;
 
-  // 1. List everything in the bucket once
-  const listing = await r2.send(new ListObjectsV2Command({ Bucket: bucket }));
+  // Metadata comes from the Google Sheet; R2 is listed only to infer zip sizes.
+  const [workRows, mediaRows, tagRows, listing] = await Promise.all([
+    fetchSheet("works", ["slug", "publish", "date", "title", "tags", "aspect"]),
+    fetchSheet("media", ["slug", "src", "muxId"]),
+    fetchSheet("tags", ["tag"]),
+    r2.send(new ListObjectsV2Command({ Bucket: bucket })),
+  ]);
+
   const objects = listing.Contents ?? [];
+  const allowedTags = new Set(tagRows.map((r) => r.tag).filter(Boolean));
 
-  // 2. Find all index.mdx files → one per project
-  const mdxKeys = objects
-    .map((o) => o.Key!)
-    .filter((k) => k.endsWith("/index.mdx"));
+  const mediaBySlug = new Map<string, Record<string, string>[]>();
+  for (const m of mediaRows) {
+    if (!m.slug) continue;
+    const list = mediaBySlug.get(m.slug) ?? [];
+    list.push(m);
+    mediaBySlug.set(m.slug, list);
+  }
 
-  const works = await Promise.all(
-    mdxKeys.map(async (key) => {
-      const slug = key.replace("/index.mdx", "");
+  const works = workRows
+    .filter((row) => isTrue(row.publish))
+    .map((row) => {
+      const { slug } = row;
+      const folder = row.folder || slug;   // blank folder = files live under the slug
 
-      // 3. Fetch and parse frontmatter
-      const obj = await r2.send(new GetObjectCommand({ Bucket: bucket, Key: key }));
-      const text = await obj.Body!.transformToString();
-      const { data } = matter(text);
+      const tags = row.tags ? row.tags.split(",").map((t) => t.trim()).filter(Boolean) : [];
+      const unknown = tags.filter((t) => !allowedTags.has(t));
+      if (unknown.length) {
+        throw new Error(
+          `works sheet: "${slug}" uses tag(s) not in the tags tab: ${unknown.join(", ")}`
+        );
+      }
 
-      if (!data.publish) return null;
+      // media order = row order in the sheet, top first
+      const media: MediaItem[] = (mediaBySlug.get(slug) ?? [])
+        .map((m) => ({
+          url: m.src ? `${publicUrl}/${folder}/${m.src}` : "",
+          type: m.muxId || VIDEO_EXTS.some((ext) => m.src.endsWith(ext)) ? "video" : "image",
+          muxId: m.muxId || undefined,
+          alt: m.alt || undefined,
+          caption: m.caption || undefined,
+        }));
 
-      // 4. Infer zip size from the listing — no extra request
-      const zipKey = data.zipFile ? `${slug}/${data.zipFile}` : undefined;
+      const zipKey = row.zipFile ? `${folder}/${row.zipFile}` : undefined;
       const zipEntry = zipKey ? objects.find((o) => o.Key === zipKey) : undefined;
 
-
-
-
-
-
-
-
-
       return {
-        publish: data.publish,
-        date: data.date instanceof Date
-  ? data.date.toISOString().slice(0, 10)
-  : String(data.date),
+        publish: true,
+        date: row.date,
 
         slug,
-        title: data.title,
-        subtitle: data.subtitle,
-        description: data.description,
+        title: row.title,
+        subtitle: row.subtitle || undefined,
+        description: row.description || undefined,
 
-        tags: data.tags ?? [],
+        tags,
 
-        aspectRatio: data.aspectRatio ?? 1,
-        wide: data.wide === true,
-        media: ((data.media ?? []) as { src: string | null; muxId?: string; alt?: string; caption?: string }[]).map((item) => ({
-          url: item.src ? `${publicUrl}/${slug}/${item.src}` : "",
-          type: item.muxId || (item.src && VIDEO_EXTS.some((ext) => item.src!.endsWith(ext))) ? "video" : "image" as const,
-          muxId: item.muxId,
-          alt: item.alt,
-          caption: item.caption,
-        })),
+        aspect: Number(row.aspect) || 1,
+        wide: isTrue(row.wide),
+        media,
 
         zipUrl: zipKey ? `${publicUrl}/${zipKey}` : undefined,
         zipSize: zipEntry?.Size,           // bytes from ListObjectsV2, free
-        notes: data.notes || undefined,
-        youtubeUrl: data.youtubeUrl || undefined,
-        siteUrl: data.siteUrl || undefined,
+        notes: row.notes || undefined,
+        youtubeUrl: row.youtubeUrl || undefined,
+        siteUrl: row.siteUrl || undefined,
       } satisfies Work;
-    })
-  );
+    });
 
-  return works
-    .filter(Boolean)
-    .sort((a, b) => b!.date.localeCompare(a!.date)) as Work[];
+  return works.sort((a, b) => b.date.localeCompare(a.date));
 }
