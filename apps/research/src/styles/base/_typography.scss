@@ -112,9 +112,9 @@ letter-spacing: -0.02em;
   font-family: $font-primary;
   font-weight: 420;
 
-  font-size: rem(13);
-  line-height: rem(18);
-  letter-spacing: .01em;
+  font-size: rem(12);
+  line-height: rem(16);
+  letter-spacing: .02em;
 }
 .caption1 {
   @include caption1;
