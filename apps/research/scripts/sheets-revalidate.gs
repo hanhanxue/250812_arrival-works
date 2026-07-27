@@ -1,3 +1,5 @@
+/** @OnlyCurrentDoc */
+
 // Google Apps Script bound to the works-metadata spreadsheet.
 // Adds a "Site" menu with a "Refresh site cache" item that POSTs to
 // /api/revalidate so sheet edits go live without waiting for cache expiry.
