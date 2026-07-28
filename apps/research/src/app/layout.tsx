@@ -39,7 +39,7 @@ export default function RootLayout({
         {/* End of disable-plausible */}
         <PlausibleProvider />
       </head>
-      <body data-theme="light">
+      <body data-theme="">
 
 
              <MediaProvider>

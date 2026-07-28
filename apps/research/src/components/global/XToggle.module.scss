@@ -1,0 +1,30 @@
+
+
+.toggle {
+
+    position: relative;
+    width: 36px;
+    height: 24px;
+    padding: 2px;
+    border-radius: 9999px;
+    background-color: var(--c-surface-container);
+
+
+
+}
+
+.toggleKnob {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--c-surface-0);
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+}    
+
+.active .toggleKnob  {
+        transform: translate3D(12px, 0, 0);
+}

@@ -1,7 +1,10 @@
 import styles from "./Footer.module.scss";
 
+import {Suspense} from "react";
+
 import XLink from "./XLink";
 import { URL } from "../../lib/constants";
+import Year from "./Year";
 
 export default function Footer() {
   return (
@@ -88,7 +91,7 @@ export const FooterInner = () => {
         `}
         >
           {/* ©Arrival Research Center */}
-          ©2026
+          ©<Suspense fallback="2050"><Year /></Suspense> Arrival Works Inc.
         </div>
 
         </div>

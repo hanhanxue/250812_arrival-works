@@ -40,6 +40,12 @@
       align-items: center;
       justify-content: space-between;
 
+      .logoWrapper {
+        display: flex;
+        align-items: center;
+        gap: $spacing-4;
+      }
+
       .menuButtonWrapper {
         display: none;
 

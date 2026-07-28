@@ -5,24 +5,25 @@
   @include buttonText;
 //   position: relative;
 
-    background-color: #f6f6f6;
+    background-color: var(--c-button-container);
     border-radius: 3px;
 
     // release: ease back over 300ms
     // transition: transform 500ms ease;
 
-    box-shadow: inset 0px 0px 0.5px 0.5px rgba(255, 255, 255, 1.0);
+    box-shadow: inset 0px 0px 0.5px .5px rgba(255, 255, 255, .16);
+
 filter: drop-shadow(0px 1px 2px rgb(0, 0, 0, .08));
 
   overflow: hidden;
 
     .buttonState {
-    padding: 4px 6px;
+    padding: 5px 6px;
   }
 
   &:hover {
         .buttonState {
-        background-color: rgba(255, 255, 255, 1.0);
+        background-color: rgba(255, 255, 255, .16);
         }
   }
 

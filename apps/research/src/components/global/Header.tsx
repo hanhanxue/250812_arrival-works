@@ -8,10 +8,13 @@ import styles from "./Header.module.scss";
 
 import XLink from "./XLink";
 import MenuButton from "./MenuButton";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState , useRef} from "react";
 
 import { FooterInner } from "./Footer";
 import {MediaContext} from "@/providers/MediaProvider"
+import XToggle from "./XToggle";
+
+
 
 
 
@@ -23,6 +26,8 @@ export default function Header({ invert }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {isMedia_lg} = useContext(MediaContext)
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen((current) => !current);
     // console.log("Menu toggled:", !isMenuOpen)
@@ -31,6 +36,12 @@ export default function Header({ invert }: HeaderProps) {
     const closeMenu = () => {
     setIsMenuOpen(false)
   }
+
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((current) => !current);
+  }
+
 
     // close menu if window size goes from iphone screen to larger than phone screen
   useEffect(() => {
@@ -47,6 +58,30 @@ export default function Header({ invert }: HeaderProps) {
       document.body.classList.add("has-menu-open")
     }
   }, [isMenuOpen])
+
+
+
+
+  
+const isFirstRun = useRef(true);
+
+useEffect(() => {
+  const apply = () =>
+    document.body.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+
+  if (isFirstRun.current) {
+    isFirstRun.current = false;
+    apply();                        // first run: set the theme instantly, no animation
+    return;
+  }
+
+  if (document.startViewTransition) {
+    document.startViewTransition(apply);   // real toggles: animate
+  } else {
+    apply();
+  }
+}, [isDarkMode]);
+
 
   return (
     <header
@@ -66,9 +101,13 @@ export default function Header({ invert }: HeaderProps) {
 
 
         <div className={`${styles.gridItem} ${styles.groupA}`}>
+          <div className={`${styles.logoWrapper}`}> 
           <XLink href="/" target="_blank" rel="noopener" style="secondary">
             Arrival Research Center
           </XLink>
+          <XToggle onClick={toggleDarkMode} isOn = {isDarkMode}/>
+            </div>
+
 
 
           <div className={`${styles.menuButtonWrapper}`}>
