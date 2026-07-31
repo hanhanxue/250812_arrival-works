@@ -190,10 +190,10 @@
     justify-content: center;
 
     .arrowButtonIcon {
-      --c-icon: var(--c-on-surface);
+      --c-icon: var(--c-on-media);
 
       // box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-      filter: var(--fx-elevation-1-filter);
+      filter: var(--fx-elevation-on-media-filter);
 
 
     }

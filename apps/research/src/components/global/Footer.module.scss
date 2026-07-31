@@ -1,3 +1,5 @@
+
+
 @use "@/styles/base/typography" as *;
 @use "@/styles/base/variables" as *;
 @use "@/styles/abstracts/respond" as *;
@@ -13,8 +15,6 @@
         // background-color: red;
 
         // height: 0px; // fix mobile centering bug
-
-
 }
 
 
@@ -34,9 +34,9 @@
 
         min-height: min(60svh, 60vw) !important;
     
-  @include respond(lg) {
-    min-height: min(calc(876px * 0.6), 60svh) !important;
-  }
+        @include respond(lg) {
+          min-height: min(calc(876px * 0.8), 60svh) !important;
+        }
 
         .flexTop{
           
