@@ -7,7 +7,7 @@
     height: 24px;
     padding: 2px;
     border-radius: 9999px;
-    background-color: var(--c-surface-container);
+    background-color: var(--c-surface-container-high);
 
 
 
@@ -17,9 +17,10 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--c-surface-0);
+    background-color: var(--c-on-surface);
 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 1px 3px rgba(234, 4, 4, 0.2);
+
     transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
 

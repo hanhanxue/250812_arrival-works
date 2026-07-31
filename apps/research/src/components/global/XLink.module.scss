@@ -3,10 +3,10 @@
 
 
 .primary {
-  color: var(--c-on-surface-secondary);
+  color: var(--c-on-background-variant);
 
   &:hover {
-    color: var(--c-on-surface);
+    color: var(--c-on-background);
   }
 
   transition: color $duration-standard;
@@ -18,13 +18,13 @@
 }
 
 .secondary {
-  color: var(--c-on-surface);
+  color: var(--c-on-background);
 }
 
 .isActive {
-  color: var(--c-on-surface);
+  color: var(--c-on-background);
 }
 
 .debug {
-  color: var(--c-debug);
+  color: red;
 }

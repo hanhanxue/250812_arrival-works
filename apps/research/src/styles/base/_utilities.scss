@@ -11,8 +11,14 @@
 
 
 .usection {
-  color: var(--c-on-surface);
-  background-color: var(--c-surface-0);
+  color: var(--c-on-background);
+  background-color: var(--c-background);
+
+    ::selection {
+    color: var(--c-background);
+    background: var(--c-on-background);
+  }
+
 }
 
 .ucontainer {
@@ -26,18 +32,21 @@
   margin: 0 var(--gutter);
 }
 
-.usection-spacer-sm {
-  margin-top: 32px;
-}
+// .usection-spacer-sm {
+//   margin-top: 128px;
+// }
 
 .usection-spacer-md {
-  margin-top: 48px;
+  margin-top: 72px;
+        @include respond(lg) {
+        margin-top: 48px;
+    }
 }
 
 .usection-spacer-lg {
-  margin-top: 128px;
+  margin-top: 96px;
       @include respond(lg) {
-        margin-top: 96px;
+        margin-top: 80px;
     }
     
     // @include respond(sm) {

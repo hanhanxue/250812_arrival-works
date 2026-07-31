@@ -2,32 +2,46 @@
 
 
   .button {
+    pointer-events: auto;
   @include buttonText;
 //   position: relative;
 
-    background-color: var(--c-button-container);
+    color: var(--c-on-primary);
+    background-color: var(--c-primary);
     border-radius: 3px;
 
-    // release: ease back over 300ms
-    // transition: transform 500ms ease;
+    // Spread Support: box-shadow gives you fine control over spread on both the inner and outer layers, whereas filter: drop-shadow() lacks spread entirely.
 
-    box-shadow: inset 0px 0px 0.5px .5px rgba(255, 255, 255, .16);
+// Performance: box-shadow is heavily optimized by modern browser rendering engines and GPU hardware acceleration. filter: drop-shadow() runs a more intensive bitmap filter across the element.
 
-filter: drop-shadow(0px 1px 2px rgb(0, 0, 0, .08));
+// Stacking Convenience: You can declare both inner (inset) and outer shadows in a single box-shadow property instead of splitting styles across box-shadow and filter.
 
-  overflow: hidden;
 
-    .buttonState {
-    padding: 5px 6px;
+    /* Syntax: offset-x | offset-y | blur-radius | SPREAD-RADIUS | color */
+    box-shadow: 
+    /* 1. Inset highlight/shadow */
+    /* 2. Outer drop shadow */
+    var(--fx-elevation-1);
+
+        .buttonState {
+          border-radius: 3px;
+          box-shadow: var(--fx-button-highlight);
+          padding: 5px 6px;
   }
 
   &:hover {
-        .buttonState {
-        background-color: rgba(255, 255, 255, .16);
-        }
+      .buttonState {
+      background-color: var(--c-state-hover);
+      }
   }
 
   &:active {
+
+   color: var(--c-on-state-active);
+    
+    .buttonState {
+    background-color: var(--c-state-active);
+    }
     // filter: drop-shadow(0px 0px 0px rgb(0, 0, 0, .08));
     //   transform: scale3d(0.98, 0.98, 0.98);
       
@@ -38,6 +52,24 @@ filter: drop-shadow(0px 1px 2px rgb(0, 0, 0, .08));
         // background-color: rgba(0, 0, 0, 0.05);
         // }
   }
+
+    // release: ease back over 300ms
+    // transition: transform 500ms ease;
+
+
+
+
+
+    //offset-x//offset-y//blur-radius
+// filter: drop-shadow(0px 1px 2px rgb(0, 0, 0, .08));
+
+
+
+
+
+  overflow: hidden;
+
+
   }
 
 

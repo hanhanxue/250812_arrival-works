@@ -102,7 +102,10 @@ useEffect(() => {
 
           <div className={styles.mediaContainer} style={{ aspectRatio: work.aspect }}
           >
+
             <div className={styles.overlays}>
+
+
             <div className={styles.projectControls}>
               <div className={styles.projectControlsTop}>
                 {/* <button>Share</button> */}
@@ -129,7 +132,16 @@ useEffect(() => {
             )}
 
             </div>
-
+            
+                          <a
+  href={`#${work.slug}`}
+  className={styles.tileLink}
+  onClick={(e) => {
+    // let cmd/ctrl/middle-click keep native "open in new tab" behavior
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    history.replaceState(null, "", `#${work.slug}`);
+  }} />
 
             <div className={styles.carousel} ref={emblaRef}>
 
@@ -215,7 +227,20 @@ useEffect(() => {
 
 
   <div className={styles.titleContainerLeft}>
-          <div className={styles.title}>{work.title}</div>
+          <div className={styles.title}>
+<a
+  href={`#${work.slug}`}
+  className={styles.title}
+  onClick={(e) => {
+    // let cmd/ctrl/middle-click keep native "open in new tab" behavior
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    history.replaceState(null, "", `#${work.slug}`);
+  }}
+>
+  {work.title}
+</a>
+            </div>
           <div className={styles.tags}>{work.tags.join(", ")}</div>
   </div>
 <div className={styles.titleContainerRight}>

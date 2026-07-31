@@ -2,7 +2,9 @@
 @use "@/styles/base/typography" as *;
 
 .gridItem {
+  // SCROOL MARGIN TOP
   scroll-margin-top: var(--header-height, 80px);
+
   display: flex;
   flex-direction: column;
   // gap: $spacing-2;
@@ -13,12 +15,18 @@
   //   border-radius: var(--rounded-lg);
   // overflow: hidden;
   // padding: 8px;
-    //   &:hover {
-    //       .year{
+  //   &:hover {
+  //       .year{
 
-    //   opacity: 1;
-    // }
-    // }
+  //   opacity: 1;
+  // }
+  // }
+
+  // &:target .overlays,
+  // &:has(:focus-visible) .overlays
+  // {
+  //   opacity: 1;
+  // }
 }
 
 .mediaContainer {
@@ -27,7 +35,7 @@
   border-radius: var(--image-radius);
   overflow: hidden;
 
-  background-color: var(--c-surface-container);
+  background-color: var(--c-surface-container-low);
 
   // border: 5px solid red;
 
@@ -40,6 +48,12 @@
   //   object-fit: cover;
   // }
 
+  .tileLink {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  // background-color: red;
+}
 
   &:hover {
     // .carouselControls{
@@ -50,68 +64,57 @@
     }
   }
 
-    .overlays {
-    // background-color: rgba(0, 0, 0, 0.08);
-    // box-shadow: inset 0 0 5px #ffffff;
-      // background-color: red;   // background-color: red;   // background-color: red; 
-        // background-color: red;   // background-color: red;   // background-color: red;
-    
-    opacity: 0;
+  .overlays {
     // opacity: 1;//////////////// DEBUG
+
+
+    pointer-events: none;
+
+    opacity: 0;
 
     position: absolute;
     inset: 0;
     z-index: 10;
-
-
-    
   }
 
   .carouselTrack {
-  // opacity: 0;   //////////////// DEBUG
-  display: flex;
-  height: 100%;
+    // opacity: 0;   //////////////// DEBUG
 
-  // will-change: transform;
-}
+    display: flex;
+    height: 100%;
 
-.carousel {
-  // overflow: hidden;
-  // inset: 0px;
-  position: absolute;
-  
-  // inset: 0px;
+    // will-change: transform;
+  }
 
-  // this is needed for rounding to first decimal 
-  inset: -4px;
+  .carousel {
+    // overflow: hidden;
+    // inset: 0px;
+    position: absolute;
+
+    // inset: 0px;
+
+    // this is needed for rounding to first decimal
+    inset: -4px;
 
     // background-color: rgb(0, 0, 0);
     // background-color: rgb(255, 0, 0);
-}
+  }
 
+  .carouselSlide {
+    position: relative;
+    flex: 0 0 100%;
 
-
-.carouselSlide {
-  position: relative;
-  flex: 0 0 100%;
-
-  // margin-right: -1px;
-  margin: -.5px; // hack to fix the thin gap between slides
-}
-    video {
-
-
-
-
+    // margin-right: -1px;
+    margin: -0.5px; // hack to fix the thin gap between slides
+  }
+  video {
     // object-fit: contain;
     // object-fit: cover;
 
     width: 100%;
     // height: 100%;
-    }
-
+  }
 }
-
 
 .projectControls {
   // background-color: red;
@@ -120,8 +123,6 @@
   inset: 0;
 
   padding: 6px;
-
-
 
   display: flex;
   flex-direction: column;
@@ -139,25 +140,23 @@
     flex-direction: row;
     // align-items: flex-start;
     justify-content: space-between;
-
   }
 
   &Group {
-        display: flex;
+    display: flex;
     flex-direction: row;
     gap: 6px;
   }
 }
 
 .carouselControls {
-    button:disabled {
+  button:disabled {
+    // cursor: default; /* Shows a red circle with a slash */
+    pointer-events: none; /* Prevents any interaction */
+    opacity: 0; /* Makes it look "faded" */
+  }
 
-  // cursor: default; /* Shows a red circle with a slash */
-  pointer-events: none; /* Prevents any interaction */
-  opacity: 0;        /* Makes it look "faded" */
-}
-
-pointer-events: none;
+  pointer-events: none;
   position: absolute;
   inset: 0;
   z-index: 20;
@@ -170,7 +169,7 @@ pointer-events: none;
   // gap: 16px;
   // opacity: 0;
   // transition: opacity 0.3s;
-  
+
   // opacity: 0;
   // &:hover {
   //   opacity: 1;
@@ -190,98 +189,16 @@ pointer-events: none;
     align-items: center;
     justify-content: center;
 
-
-
     .arrowButtonIcon {
-    --c-icon: rgba(255, 255, 255, 0.9);
-    filter: drop-shadow(0px 0px 4px rgb(0, 0, 0, .16));
+      --c-icon: var(--c-on-surface);
+
+      // box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+      filter: var(--fx-elevation-1-filter);
+
 
     }
   }
 }
-
-.infoContainer {
-
-
-
-  padding: 8px 0;
-
-  // display: flex;
-  // justify-content: space-between;
-  
-    .detailsContainer {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-
-  .titleContainer {
-      @include caption1-strong;
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-
-
-  }
-
-    .tags {
-      @include caption1;
-    color: var(--c-on-surface-secondary);
-
-    text-transform: capitalize;
-  }
-
-  // .title .year{
-  //   margin-left: 16px;
-  // }
-
-  // .index {
-  //   color: var(--c-on-surface-secondary);
-  // }
-
-  .year {
-    opacity: 0;
-    color: var(--c-on-surface-secondary);
-
-  }
-  .links {
-    margin-top: 16px;
-
-    display: flex;
-
-    flex-direction: column;
-    gap: 4px;
-
-    .linkBlock {
-      // margin-top: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      // margin-left: -2px;
-        --c-icon: currentColor;
-
-
-
-        // Arrow location
-        .linkBullet {
-          // margin-top: -.18em;
-          // margin-left: -2px;
-          // margin-right: 2px;
-          height: 8px;
-          width: 8px;
-          background-color: currentColor;
-          margin-top: -0.1em;
-          border-radius: 50%;
-        }
-    }
-
-  }
-}
-
-
-
 
 
 .dots {
@@ -302,7 +219,7 @@ pointer-events: none;
   height: 6px;
   border-radius: 50%;
   // background: rgba(255, 255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--c-secondary-container);
   border: none;
   padding: 0;
   cursor: pointer;
@@ -311,35 +228,122 @@ pointer-events: none;
 
 .dotActive {
   // background: rgba(255, 255, 255, 1);
-  background: rgb(0, 0, 0);
+  background: var(--c-on-background);
 }
 
 
 
 
 
-  // Which this fix the thin gap between slides??
-  //   backface-visibility: hidden;   // ← add
-  // transform: translateZ(0);      // ← add
+.infoContainer {
+  padding: 8px 0;
 
-  // video {
-  //   // position: absolute;
-  //   // inset: 0;
-  //   // width: 100%;
-  //   // height: 100%;
-  //   // object-fit: contain;
+  // display: flex;
+  // justify-content: space-between;
 
-  //   // inset: 0;
-  //   // width: 100%;
-  //   // height: 100%;
-  //   // object-fit: cover;
-  //   inset: -1px;                    // instead of inset: 0
-  //   width: calc(100% + 2px);
-  //   height: calc(100% + 2px);
-  //   object-fit: cover;
+  .detailsContainer {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .titleContainer {
+    @include caption1-strong;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .title {
+    &:focus-visible {
+      outline: none;
+    }
+    // existing rules stay...
+    // color: inherit;
+    // text-decoration: none;
+    // display: inline-block;      // anchors are inline by default; keeps block-ish layout like the old div
+    //     &:focus-visible {
+    //   outline: 2px solid red;
+    //   outline-offset: 2px;
+    // }
+    //       &:focus-visible {
+    //   outline: none;
+    //   // outline-offset: 2px;
+    // }
+  }
+
+  .tags {
+    @include caption1;
+    color: var(--c-on-background-variant);
+
+    text-transform: capitalize;
+  }
+
+  // .title .year{
+  //   margin-left: 16px;
   // }
 
+  // .index {
+  //   color: var(--c-on-background-variant);
+  // }
 
+  .year {
+    opacity: 0;
+    color: var(--c-on-background-variant);
+  }
+  .links {
+    margin-top: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+    gap: 4px;
+
+    .linkBlock {
+      // margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      // margin-left: -2px;
+      --c-icon: currentColor;
+
+      // Arrow location
+      .linkBullet {
+        // margin-top: -.18em;
+        // margin-left: -2px;
+        // margin-right: 2px;
+        height: 8px;
+        width: 8px;
+        background-color: currentColor;
+        margin-top: -0.1em;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+
+// Which this fix the thin gap between slides??
+//   backface-visibility: hidden;   // ← add
+// transform: translateZ(0);      // ← add
+
+// video {
+//   // position: absolute;
+//   // inset: 0;
+//   // width: 100%;
+//   // height: 100%;
+//   // object-fit: contain;
+
+//   // inset: 0;
+//   // width: 100%;
+//   // height: 100%;
+//   // object-fit: cover;
+//   inset: -1px;                    // instead of inset: 0
+//   width: calc(100% + 2px);
+//   height: calc(100% + 2px);
+//   object-fit: cover;
+// }
 
 // .overlaysContainer {
 //   z-index: 100;
@@ -410,8 +414,7 @@ pointer-events: none;
 //   @include caption1;
 //   // @include caption1;
 //   // text-transform: uppercase;
-//   color: var(--c-on-surface);
-//   // background-color: var(--c-surface-container-high);
+//   color: var(--c-on-background-variant background-color: var(--c-surface-container-high);
 //   background-color: #2368ea;
 //   padding: 6px 12px 6px 6px;
 //   border-radius: $radius-full;

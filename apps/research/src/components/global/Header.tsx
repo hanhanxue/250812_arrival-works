@@ -26,7 +26,7 @@ export default function Header({ invert }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {isMedia_lg} = useContext(MediaContext)
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen((current) => !current);

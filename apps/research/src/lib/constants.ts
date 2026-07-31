@@ -52,12 +52,6 @@ export const APP_CONFIG = {
   itemsPerPage: 12,
 } as const
 
-// Theme Configuration
-export const THEME = {
-  primaryColor: "#000000",
-  secondaryColor: "#ffffff",
-  accentColor: "#0070f3",
-} as const
 
 // Navigation
 export const NAVIGATION = {
@@ -77,3 +71,15 @@ export const NAVIGATION = {
 // Environment
 export const IS_PRODUCTION = process.env.NODE_ENV === "production"
 export const IS_DEVELOPMENT = process.env.NODE_ENV === "development"
+
+
+
+
+
+
+// // Theme Configuration
+// export const THEME = {
+//   primaryColor: "#000000",
+//   secondaryColor: "#ffffff",
+//   accentColor: "#0070f3",
+// } as const
