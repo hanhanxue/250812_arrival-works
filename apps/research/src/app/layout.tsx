@@ -9,12 +9,21 @@ import "@/styles/main.scss";
 import Header from "@/components/global/Header";
 import Footer from "@/components/global/Footer";
 
-import MediaProvider from "@/providers/MediaProvider"
+import MediaProvider from "@/providers/MediaProvider";
 
 export const metadata: Metadata = {
   title: SITE.SITE_NAME,
   description: SITE.SITE_DESCRIPTION,
 };
+
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//     <html lang="en">
+//       <head>
 
 export default function RootLayout({
   children,
@@ -22,32 +31,48 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta
           name="format-detection"
           content="email=no, telephone=no, address=no"
         />
         {/* This script sets the plausible_ignore flag for Vercel deployments */}
-        <Script id="disable-plausible" strategy="beforeInteractive">
+        <Script 
+        id="disable-plausible" 
+        strategy="beforeInteractive">
           {`
             if (window.location.hostname.endsWith("vercel.app")) {
               localStorage.plausible_ignore = true;
             }
           `}
         </Script>
-        {/* End of disable-plausible */}
+
+                {/* This script sets the initial theme based on localStorage or system preference */}
+<script
+  dangerouslySetInnerHTML={{
+    __html: `(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    var theme = (saved === "light" || saved === "dark")
+      ? saved
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();`,
+  }}
+/>
+
+
+
         <PlausibleProvider />
       </head>
-      <body data-theme="dark">
-
-
-             <MediaProvider>
-        <Header />
-        {children}
-        <Footer />
-             </MediaProvider>
-
+      <body>
+        <MediaProvider>
+          <Header />
+          {children}
+          <Footer />
+        </MediaProvider>
       </body>
     </html>
   );

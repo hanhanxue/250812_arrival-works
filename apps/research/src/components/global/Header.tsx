@@ -26,7 +26,16 @@ export default function Header({ invert }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {isMedia_lg} = useContext(MediaContext)
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() =>
+  typeof document === "undefined"
+    ? true   // server placeholder; never painted for a mismatched visitor (see mounted guard)
+    : document.documentElement.getAttribute("data-theme") === "dark"
+);
+const [mounted, setMounted] = useState(false);
+useEffect(() => setMounted(true), []);
+
+
+
 
   const toggleMenu = () => {
     setIsMenuOpen((current) => !current);
@@ -38,9 +47,27 @@ export default function Header({ invert }: HeaderProps) {
   }
 
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((current) => !current);
-  }
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode((current) => !current);
+  // }
+
+//   const toggleDarkMode = () => {
+//   setIsDarkMode((current) => {
+//     const next = !current;
+//     try {
+//       localStorage.setItem("theme", next ? "dark" : "light");
+//     } catch {}
+//     return next;
+//   });
+// };
+
+const toggleDarkMode = () => {
+  const next = !isDarkMode;
+  try {
+    localStorage.setItem("theme", next ? "dark" : "light");
+  } catch {}
+  setIsDarkMode(next);
+};
 
 
     // close menu if window size goes from iphone screen to larger than phone screen
@@ -62,25 +89,46 @@ export default function Header({ invert }: HeaderProps) {
 
 
 
-  
+
 const isFirstRun = useRef(true);
 
+// state → DOM: apply the theme attribute (animated on real toggles)
 useEffect(() => {
   const apply = () =>
-    document.body.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light");
 
   if (isFirstRun.current) {
     isFirstRun.current = false;
-    apply();                        // first run: set the theme instantly, no animation
+    apply();
     return;
   }
-
   if (document.startViewTransition) {
-    document.startViewTransition(apply);   // real toggles: animate
+    document.startViewTransition(apply);
   } else {
     apply();
   }
 }, [isDarkMode]);
+
+// follow live OS theme changes, but only for visitors who haven't pinned a choice
+useEffect(() => {
+  const mq = window.matchMedia("(prefers-color-scheme: light)");
+  // const onOsThemeChange = (e: MediaQueryListEvent) => {
+  //   if (localStorage.getItem("theme") !== null) return;
+  //   setIsDarkMode(e.matches);
+  // };
+  const onOsThemeChange = (e: MediaQueryListEvent) => {
+  let saved: string | null = null;
+  try {
+    saved = localStorage.getItem("theme");
+  } catch {}
+  if (saved !== null) return;
+  setIsDarkMode(e.matches);
+};
+  mq.addEventListener("change", onOsThemeChange);
+  return () => mq.removeEventListener("change", onOsThemeChange);
+}, []);
+
+
 
 
   return (
@@ -105,7 +153,7 @@ useEffect(() => {
           <XLink href="/" target="_blank" rel="noopener" style="secondary">
             Arrival Research Center
           </XLink>
-          <XToggle onClick={toggleDarkMode} isOn = {isDarkMode}/>
+          {mounted && <XToggle onClick={toggleDarkMode} isOn={isDarkMode} />}
             </div>
 
 
