@@ -13,7 +13,7 @@ export type MediaItem = {
 
 export type Work = {
   publish: boolean;
-  date: string;
+  date: string;               // ISO yyyy-mm-dd, derived from the slug's YYMMDD prefix
 
   slug: string;
   title: string;
@@ -38,6 +38,23 @@ const VIDEO_EXTS = [".mp4", ".webm", ".mov"];
 
 const isTrue = (v: string | undefined) => v?.toUpperCase() === "TRUE";
 
+// Slugs are prefixed with the work's date as YYMMDD (e.g. "250812_arrival-works");
+// there is no date column in the sheet — the prefix is the single source of truth.
+function dateFromSlug(slug: string): string {
+  const m = /^(\d{2})(\d{2})(\d{2})/.exec(slug);
+  if (!m) {
+    throw new Error(`works sheet: slug "${slug}" must start with a YYMMDD date prefix`);
+  }
+  const [, yy, mm, dd] = m;
+  const iso = `20${yy}-${mm}-${dd}`;
+  // Round-trip through Date to reject impossible dates like month 13 or Feb 30.
+  const parsed = new Date(`${iso}T00:00:00Z`);
+  if (isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== iso) {
+    throw new Error(`works sheet: slug "${slug}" has an impossible date prefix "${m[0]}"`);
+  }
+  return iso;
+}
+
 export async function getWorks(): Promise<Work[]> {
   "use cache";
   cacheLife("days");
@@ -48,7 +65,7 @@ export async function getWorks(): Promise<Work[]> {
 
   // Metadata comes from the Google Sheet; R2 is listed only to infer zip sizes.
   const [workRows, mediaRows, tagRows, listing] = await Promise.all([
-    fetchSheet("works", ["slug", "publish", "date", "title", "tags", "aspect"]),
+    fetchSheet("works", ["slug", "publish", "title", "tags", "aspect"]),
     fetchSheet("media", ["slug", "src", "muxId"]),
     fetchSheet("tags", ["tag"]),
     r2.send(new ListObjectsV2Command({ Bucket: bucket })),
@@ -94,7 +111,7 @@ export async function getWorks(): Promise<Work[]> {
 
       return {
         publish: true,
-        date: row.date,
+        date: dateFromSlug(slug),
 
         slug,
         title: row.title,
