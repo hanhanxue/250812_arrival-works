@@ -90,8 +90,19 @@ mux-player {
 }
 
 
+
+// ::view-transition-old(themeToggleKnob),
+// ::view-transition-new(themeToggleKnob)  {
+//   display: none;          // discard the frozen "before" screenshot of the toggle
+// animation: none;        // no fade-in either — just show it
+// }
+
+
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 320ms;               /* your speed */
+  animation-duration: 320ms;               /* debug speed */
+  // animation-duration: 320ms;               /* your speed */
   // animation-timing-function: ease-in-out;  /* optional */
 }
+
