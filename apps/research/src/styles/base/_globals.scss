@@ -101,8 +101,9 @@ mux-player {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 320ms;               /* debug speed */
-  // animation-duration: 320ms;               /* your speed */
+  // VT pseudos inherit :root custom properties, so this stays in sync with the knob
+  animation-duration: var(--duration-standard);
+  // animation-duration: 2000ms;               /* debug speed */
   // animation-timing-function: ease-in-out;  /* optional */
 }
 

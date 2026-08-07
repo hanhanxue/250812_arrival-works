@@ -2,10 +2,12 @@
 @use "@/styles/base/typography" as *;
 
 .intro {
-    
+     // Component geometry: reading measure
+     --intro-measure: 640px;
+
      grid-column: span 12;
 
-     max-width: 640px;
+     max-width: var(--intro-measure);
 
      @include title3;
 

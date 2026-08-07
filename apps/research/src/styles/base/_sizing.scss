@@ -1,64 +1,30 @@
-@use "./variables" as *;
+// Sizing tokens.
+// Rule of thumb: if changing a value globally should change an element, use a
+// token; one-off component geometry belongs in component-scoped vars instead.
 
-
-
-
-// Spacing
+// Spacing scale (4px base rhythm)
 :root {
-
-  --gutter: #{$spacing-3};
-
-  // --spacing-1: 4px;
-  // --spacing-2: 8px;
-  // --spacing-3: 12px;
-  // --spacing-4: 16px;
-
-  // --spacing-5: 20px;
-  // --spacing-6: 24px;
-
-  // --spacing-8: 32px;
-
-  // --spacing-10: 40px;
-
-  // --spacing-12: 48px;
-
-  // --spacing-14: 56px;
-
-  // --spacing-16: 64px;
-
-  // --spacing-24: 96px;
-
-  // --spacing-32: 128px;
-
-  // --spacing-40: 160px;
-
-  // --spacing-48: 192px;
+  --spacing-1: 4px;
+  --spacing-1-5: 6px; // half-step used for tight control clusters
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
 }
 
-// Border Radius
+// Border radius
 :root {
-
-  --image-radius: #{$rounded-md};
-  // --rounded: 4px;
-
-  // --rounded-lg: 8px;
-
-  // --rounded-xl: 12px;
-  
-  // --rounded-2xl: 16px;
-
-  // --rounded-3xl: 20px;
-
-  // --rounded-full: 999px;
-
-  // --rounded-ui: 4px;
-  // --rounded-ui-lg: 8px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
 }
 
-
-
+// Semantic aliases
 :root {
-  --frame-radius: var(--rounded-xl);
-
-
+  --gutter: var(--spacing-3);
+  --image-radius: var(--radius-md);
+  --header-height: 80px; // rendered height of the fixed header bar — anchor scroll offset depends on it
 }

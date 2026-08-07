@@ -1,7 +1,6 @@
 
 
 @use "@/styles/base/typography" as *;
-@use "@/styles/base/variables" as *;
 @use "@/styles/abstracts/respond" as *;
 
 
@@ -20,9 +19,12 @@
 
 
     .footerInnerContainer {
+      // Component geometry: design height of the footer artwork area
+      --footer-max-content-h: 876px;
+
       @include title3;
 
-          padding: 8px 0;
+          padding: var(--spacing-2) 0;
     
         display: flex;
         flex-direction: column;
@@ -35,14 +37,14 @@
         min-height: min(60svh, 60vw) !important;
     
         @include respond(lg) {
-          min-height: min(calc(876px * 0.8), 60svh) !important;
+          min-height: min(calc(var(--footer-max-content-h) * 0.8), 60svh) !important;
         }
 
         .flexTop{
           
             display: flex;
             flex-direction: column;
-            row-gap: 32px;
+            row-gap: var(--spacing-8);
 
             
         }
@@ -62,7 +64,7 @@
 
       display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: $spacing-4;
+  gap: var(--spacing-4);
 
   .subtitle, .list{
     grid-column: span 6;

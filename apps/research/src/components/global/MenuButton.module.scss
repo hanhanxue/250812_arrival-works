@@ -1,8 +1,14 @@
 .menuButton {
     //   background-color: red;
-    
-  width: 28px;
-  height: 28px;
+
+  // Component geometry
+  --button-size: 28px;
+  --bar-w: 14px;
+  --bar-h: 2px;
+  --bar-offset: 4px;
+
+  width: var(--button-size);
+  height: var(--button-size);
 
   cursor: pointer;
   user-select: none;
@@ -28,20 +34,20 @@
     translate: 50% -50%;
     // translate: 7px 0;
 
-    width: 14px;
-    height: 2px;
+    width: var(--bar-w);
+    height: var(--bar-h);
     background-color: var(--c-on-background);
 
     transition-property: transform;
-    transition-duration: 120ms;
+    transition-duration: var(--duration-fast);
     transition-timing-function: ease-out;
 
     &:nth-child(1) {
-      transform: translateY(-4px);
+      transform: translateY(calc(-1 * var(--bar-offset)));
     }
 
     &:nth-child(2) {
-      transform: translateY(4px);
+      transform: translateY(var(--bar-offset));
     }
   }
 }

@@ -1,0 +1,17 @@
+// Animation tokens.
+
+:root {
+  --duration-fast: 120ms;     // micro-interactions: menu icon, hovers
+  --duration-standard: 320ms; // toggle knob, theme fade, view transitions
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+// Zeroing the durations here disables every tokenized animation site-wide.
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-standard: 0ms;
+  }
+}

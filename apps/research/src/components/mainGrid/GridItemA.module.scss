@@ -1,15 +1,14 @@
-@use "@/styles/base/variables" as *;
 @use "@/styles/base/typography" as *;
 
 .gridItem {
   // SCROOL MARGIN TOP
-  scroll-margin-top: var(--header-height, 80px);
+  // scroll-margin-top: var(--header-height, 80px);
+  scroll-margin-top: var(--header-height);
 
   display: flex;
   flex-direction: column;
-  // gap: $spacing-2;
   //   width: 320px;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-5);
 
   // background-color: var(--c-surface-0);
   //   border-radius: var(--rounded-lg);
@@ -30,6 +29,11 @@
 }
 
 .mediaContainer {
+  // Tile stacking order, bottom to top
+  --z-tile-link: 5;
+  --z-tile-overlays: 10;
+  --z-tile-controls: 20;
+
   position: relative;
 
   border-radius: var(--image-radius);
@@ -51,7 +55,7 @@
   .tileLink {
   position: absolute;
   inset: 0;
-  z-index: 5;
+  z-index: var(--z-tile-link);
   // background-color: red;
 }
 
@@ -74,7 +78,7 @@
 
     position: absolute;
     inset: 0;
-    z-index: 10;
+    z-index: var(--z-tile-overlays);
   }
 
   .carouselTrack {
@@ -122,7 +126,7 @@
   position: absolute;
   inset: 0;
 
-  padding: 6px;
+  padding: var(--spacing-1-5);
 
   display: flex;
   flex-direction: column;
@@ -145,7 +149,7 @@
   &Group {
     display: flex;
     flex-direction: row;
-    gap: 6px;
+    gap: var(--spacing-1-5);
   }
 }
 
@@ -159,7 +163,7 @@
   pointer-events: none;
   position: absolute;
   inset: 0;
-  z-index: 20;
+  z-index: var(--z-tile-controls);
 
   // background-color: rgba(0, 0, 0, 0.32);
   display: flex;
@@ -176,9 +180,12 @@
   // }
 
   .arrowButton {
+    // Component geometry: touch-target size
+    --arrow-hit-size: 48px;
+
     pointer-events: auto;
-    width: 48px;
-    height: 48px;
+    width: var(--arrow-hit-size);
+    height: var(--arrow-hit-size);
 
     // background: rgba(255, 255, 255, 0.8);
     border: none;
@@ -202,28 +209,32 @@
 
 
 .dots {
+  // Component geometry
+  --dot-size: 6px;
+  --dot-gap: 5px;
+
   // position: absolute;
   // bottom: 8px;
   // left: 50%;
   // transform: translateX(-50%);
-  padding: 8px;
+  padding: var(--spacing-2);
   justify-content: center;
   display: flex;
-  gap: 5px;
+  gap: var(--dot-gap);
   // z-index: 10;
   padding-bottom: 0;
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 50%;
   // background: rgba(255, 255, 255, 0.4);
   background: var(--c-secondary-container);
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background var(--duration-fast);
 }
 
 .dotActive {
@@ -236,7 +247,7 @@
 
 
 .infoContainer {
-  padding: 8px 0;
+  padding: var(--spacing-2) 0;
 
   // display: flex;
   // justify-content: space-between;
@@ -245,14 +256,14 @@
     display: flex;
     align-items: end;
     justify-content: space-between;
-    gap: 16px;
+    gap: var(--spacing-4);
   }
 
   .titleContainer {
     @include caption1-strong;
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: var(--spacing-4);
   }
 
   .title {
@@ -293,18 +304,21 @@
     color: var(--c-on-background-variant);
   }
   .links {
-    margin-top: 16px;
+    margin-top: var(--spacing-4);
 
     display: flex;
 
     flex-direction: column;
-    gap: 4px;
+    gap: var(--spacing-1);
 
     .linkBlock {
+      // Component geometry
+      --bullet-size: 8px;
+
       // margin-top: 8px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: var(--spacing-1-5);
       // margin-left: -2px;
       --c-icon: currentColor;
 
@@ -313,8 +327,8 @@
         // margin-top: -.18em;
         // margin-left: -2px;
         // margin-right: 2px;
-        height: 8px;
-        width: 8px;
+        height: var(--bullet-size);
+        width: var(--bullet-size);
         background-color: currentColor;
         margin-top: -0.1em;
         border-radius: 50%;
