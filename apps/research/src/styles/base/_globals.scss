@@ -114,3 +114,12 @@ mux-player {
 // :root {
 //   view-transition-name: none;
 // }
+
+::view-transition-group(themeToggleKnob),
+::view-transition-new(themeToggleKnob) {
+  animation: none;   // don't tween the box between old/new positions — the knob moves itself
+  // show the live knob immediately, no cross-fade
+}
+::view-transition-old(themeToggleKnob) {
+  display: none;     // discard the frozen "before" screenshot
+}

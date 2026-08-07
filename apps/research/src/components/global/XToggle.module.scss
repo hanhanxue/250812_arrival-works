@@ -3,7 +3,7 @@
     --track-w: 36px;
     --track-h: 24px;
     --track-pad: 2px;
-    --knob-size: 20px;
+    --knob-size: calc(var(--track-h) - 2 * var(--track-pad));
 
     position: relative;
     width: var(--track-w);
@@ -32,5 +32,6 @@
 }
 
 .active .toggleKnob  {
+        // transform: translate3d(calc(var(--track-w) - var(--knob-size) - 2 * var(--track-pad)), 0, 0);
         transform: translate3d(12px, 0, 0);
 }
