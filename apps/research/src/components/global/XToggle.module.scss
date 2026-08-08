@@ -11,6 +11,8 @@
     padding: var(--track-pad);
     border-radius: var(--radius-full);
     background-color: var(--c-surface-container-high);
+
+// view-transition-name: toggle;
 }
 
 .toggleKnob {
@@ -23,12 +25,13 @@
 
     // box-shadow: 0 1px 3px rgba(234, 4, 4, 0.2);
 
-    transition:
-    transform var(--duration-standard) var(--ease-standard),
-    background-color var(--duration-standard);
+    // transition:
+    // transform var(--duration-fast) var(--ease-standard),
+    // background-color var(--duration-fast);
 
 
-    view-transition-name: themeToggleKnob;
+    // view-transition-name: none;
+    // view-transition-name: toggle;
 }
 
 .active .toggleKnob  {

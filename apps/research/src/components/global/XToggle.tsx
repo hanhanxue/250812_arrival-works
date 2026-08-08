@@ -12,7 +12,10 @@ export default function XToggle({onClick, isOn = false}: {onClick: () => void, i
     
     onClick={onClick} 
     className={`${styles.toggle} ${isOn ? styles.active : ""}`}>
-      <div className={styles.toggleKnob} />
+      <div 
+      className={styles.toggleKnob} 
+// view-transition-name="themeToggleKnob"
+      />
 
     </button>
   )

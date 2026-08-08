@@ -107,7 +107,11 @@ useEffect(() => {
   } else {
     apply();
   }
+
+
 }, [isDarkMode]);
+
+
 
 // follow live OS theme changes, but only for visitors who haven't pinned a choice
 useEffect(() => {
